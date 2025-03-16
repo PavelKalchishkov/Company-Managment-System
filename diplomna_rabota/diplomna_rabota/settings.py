@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'employees_app.apps.EmployeesAppConfig',
     'vendors_app.apps.VendorsAppConfig',
     'shippers_app.apps.ShippersAppConfig',
+    'users_app.apps.UsersAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'users_app.CustomUser'
+# LOGIN_REDIRECT_URL = reverse_lazy('home')
+# LOGOUT_REDIRECT_URL = reverse_lazy('home')
+
