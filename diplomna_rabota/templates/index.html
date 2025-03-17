@@ -9,6 +9,22 @@
     <title>Main Page</title>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>OrganizationName</h1>
+        </div>
+    
+        <div class="links">
+            {% if user_authenticated %}
+                <a class="log" href="{% url 'index' %}">{{ username }}</a>
+                <a class="log" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a class="log" href="{% url 'login' %}">Login</a>
+                <a class="log" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+    
     <h1>Main Page</h1>
 </body>
 </html>

@@ -1,3 +1,15 @@
-h1 {
-    background-color: darkgreen;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px 50px 30px;
+}
+
+.links{
+    display: flex;
+    gap: 15px;
 }
