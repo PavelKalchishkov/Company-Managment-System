@@ -16,7 +16,7 @@
     
         <div class="links">
             {% if user_authenticated %}
-                <a class="log" href="{% url 'index' %}">{{ username }}</a>
+                <a class="log" href="{% url 'profile_details' %}">{{ username }}</a>
                 <a class="log" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="log" href="{% url 'login' %}">Login</a>

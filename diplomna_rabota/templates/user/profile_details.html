@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
+    <title>Main Page</title>
+</head>
+<body>
+    <section class="account-details">
+        <h1>Account Details</h1>
+        <h2>Username: {{ username }}</h2>
+        <h2>First name: {{ first_name }}</h2>
+        <h2>Last name: {{ last_name }}</h2>
+        <h2>Email: {{ email }}</h2>
+{#        <h2>Phone: {{ phone }}</h2>#}
+        <div class="profile-buttons">
+        <a href="{% url 'index' %}">Edit profile</a>
+        <a href="{% url 'index' %}">Delete profile</a>
+        </div>    
+    </section>
+</body>
+</html>
