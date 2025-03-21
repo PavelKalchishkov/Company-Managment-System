@@ -5,5 +5,5 @@ from diplomna_rabota import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
-    path('user/', include('users_app.urls')),
+    path('accounts/', include('users_app.urls')),
 ]

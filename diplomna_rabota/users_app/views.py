@@ -1,9 +1,9 @@
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
-from django.views.generic import CreateView, DetailView
+from django.shortcuts import render, redirect
+from django.views.generic import CreateView, DetailView, UpdateView
 from django.contrib.auth.views import LoginView
-from .forms import CustomUserCreationForm, CustomUserLoginForm
+from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditProfileForm
 from django.urls import reverse_lazy
 from .models import CustomUser
 
@@ -39,5 +39,17 @@ class UserProfileDetailsViews(LoginRequiredMixin, DetailView):
         context['first_name'] = user.first_name
         context['last_name'] = user.last_name
         context['email'] = user.email
+        context['phone_number'] = user.phone_number
 
         return context
+
+
+class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = CustomUser
+    form_class = CustomUserEditProfileForm
+    pk_url_kwarg = 'pk'
+    template_name = 'user/profile_edit.html'
+    success_url = reverse_lazy('profile_details')
+
+    def get_object(self, queryset=None):
+        return self.request.user
