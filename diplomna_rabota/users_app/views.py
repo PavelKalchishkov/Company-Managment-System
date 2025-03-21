@@ -1,7 +1,7 @@
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from .forms import CustomUserCreationForm, CustomUserLoginForm, CustomUserEditProfileForm
 from django.urls import reverse_lazy
@@ -50,6 +50,15 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     pk_url_kwarg = 'pk'
     template_name = 'user/profile_edit.html'
     success_url = reverse_lazy('profile_details')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+class UserProfileDeleteView(LoginRequiredMixin, DeleteView):
+    model = CustomUser
+    pk_url_kwarg = 'pk'
+    template_name = 'user/profile_delete.html'
+    success_url = reverse_lazy('index')
 
     def get_object(self, queryset=None):
         return self.request.user

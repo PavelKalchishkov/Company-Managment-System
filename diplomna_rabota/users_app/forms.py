@@ -18,3 +18,7 @@ class CustomUserEditProfileForm(UserChangeForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'first_name', 'last_name', 'email', 'phone_number')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['phone_number'].required = False
