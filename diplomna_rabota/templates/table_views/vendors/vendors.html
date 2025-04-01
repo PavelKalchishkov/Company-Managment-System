@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        {% for vendor in vendors %}
+            <div class="vendor">
+            <h2>{{ vendor.name }}</h2>
+            <p>{{ vendor.products }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
