@@ -8,4 +8,8 @@ class Vendor(models.Model):
 
     products = ArrayField(models.IntegerField(),
                           null=True,
-                          blank=True,)
+                          blank=True,
+                          default=list)
+
+    additional_information = models.TextField(max_length=500,
+                                              default='')

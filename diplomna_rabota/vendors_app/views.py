@@ -1,6 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import DetailView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
+from .forms import VendorCreationForm, VendorUpdateForm
 from .models import Vendor
 
 
@@ -18,5 +20,28 @@ class VendorsView(LoginRequiredMixin, ListView):
         context['user_authenticated'] = user.is_authenticated
         context['user'] = user
         return context
+
+class VendorsAddView(LoginRequiredMixin, CreateView):
+    model = Vendor
+    form_class = VendorCreationForm
+    template_name  = 'table_views/vendors/vendors_add.html'
+    success_url = reverse_lazy('vendors_view')
+
+
+class VendorsUpdateView(LoginRequiredMixin, UpdateView):
+    model = Vendor
+    form_class = VendorUpdateForm
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/vendors/vendors_update.html'
+    success_url = reverse_lazy('vendors_view')
+
+class VendorsDeleteView(LoginRequiredMixin, DeleteView):
+    model = Vendor
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/vendors/vendors_delete.html'
+    success_url = reverse_lazy('vendors_view')
+
+
+
 
 

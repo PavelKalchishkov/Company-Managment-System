@@ -10,12 +10,17 @@
 </head>
 <body>
     {% if user_authenticated %}
+        <a href="{% url 'vendors_add_view' %}">Create vendor</a>  
         {% for vendor in vendors %}
             <div class="vendor">
             <h2>{{ vendor.name }}</h2>
-            <p>{{ vendor.products }}</p>
+            <h2>{{ vendor.products }}</h2>
+            <p>{{ vendor.additional_information }}</p>    
+            <a href="{% url 'vendors_update_view' pk=vendor.id%}">Update vendor</a>
+            <a href="{% url 'vendors_delete_view' pk=vendor.id %}">Delete vendor</a>
             </div>
         {% endfor %}
+        
     {% endif %}
 </body>
 </html>
