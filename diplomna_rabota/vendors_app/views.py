@@ -11,7 +11,7 @@ class VendorsView(LoginRequiredMixin, ListView):
     template_name = 'table_views/vendors/vendors.html'
     context_object_name = 'vendors'
 
-    ordering = ['id']
+    ordering = ['name']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

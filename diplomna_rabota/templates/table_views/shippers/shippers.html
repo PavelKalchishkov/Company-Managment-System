@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        <a href="{% url 'shippers_add_view' %}">Create shipper</a>
+        {% for shipper in shippers %}
+            <div class="shipper">
+            <h2>{{ shipper.name }}</h2>
+            <h2>{{ shipper.salary }}</h2>
+            <h2>{{ shipper.current_products_being_shipped }}</h2>
+            <a href="{% url 'shippers_update_view' pk=shipper.id%}">Update shipper</a>
+            <a href="{% url 'shippers_delete_view' pk=shipper.id %}">Delete shipper</a>
+            </div>
+        {% endfor %}
+        
+    {% endif %}
+</body>
+</html>
