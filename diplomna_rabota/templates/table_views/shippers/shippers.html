@@ -18,6 +18,7 @@
             <h2>{{ shipper.current_products_being_shipped }}</h2>
             <a href="{% url 'shippers_update_view' pk=shipper.id%}">Update shipper</a>
             <a href="{% url 'shippers_delete_view' pk=shipper.id %}">Delete shipper</a>
+            <h2>--------------------------</h2>
             </div>
         {% endfor %}
         

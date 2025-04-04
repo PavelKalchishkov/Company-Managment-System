@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        <a href="{% url 'products_create_view' %}">Create product</a>
+        {% for product in products %}
+            <div class="product">
+            <h2>{{ product.id }}</h2>
+            <h2>{{ product.name }}</h2>
+            <h2>{{ product.price }}</h2>
+            <h2>{{ product.length }}</h2>
+            <h2>{{ product.weight }}</h2>
+            <h2>{{ product.color }}</h2>  
+            <h2>{{ product.manufacturer }}</h2>
+            <a href="{% url 'products_update_view' pk=product.id%}">Update product</a>
+            <a href="{% url 'products_delete_view' pk=product.id %}">Delete product</a>
+            <h2>--------------------------</h2>  
+            </div>
+        {% endfor %}
+        
+    {% endif %}
+</body>
+</html>

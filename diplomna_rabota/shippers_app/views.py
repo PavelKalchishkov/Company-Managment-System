@@ -39,3 +39,5 @@ class ShippersDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/shippers/shippers_delete.html'
     success_url = reverse_lazy('shippers_view')
+
+
