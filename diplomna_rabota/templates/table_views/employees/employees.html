@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        <a href="{% url 'employees_create_view' %}">Create employee</a>
+        {% for employee in employees %}
+            <div class="employee">
+            <h2>{{ employee.name }}</h2>
+            <h2>{{ employee.age }}</h2>
+            <h2>{{ employee.brute_salary }}</h2>
+            <a href="{% url 'employees_update_view' pk=employee.id%}">Update employee</a>
+            <a href="{% url 'employees_delete_view' pk=employee.id %}">Delete employee</a>
+            <h2>--------------------------</h2>
+            </div>
+        {% endfor %}
+        
+    {% endif %}
+</body>
+</html>
