@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        <a href="{% url 'clients_create_view' %}">Create client</a>
+        {% for client in clients %}
+            <div class="clients">
+            <h2>{{ client.first_name }}</h2>
+            <h2>{{ client.last_name }}</h2>
+            <h2>{{ client.phone_number }}</h2>
+            <h2>{{ client.email }}</h2>   
+            <h2>{{ client.address }}</h2> 
+            <h2>{{ client.orders }}</h2>    
+            <a href="{% url 'clients_update_view' pk=client.id%}">Update client</a>
+            <a href="{% url 'clients_delete_view' pk=client.id%}">Delete client</a>
+            <h2>--------------------------</h2>
+            </div>
+        {% endfor %}
+        
+    {% endif %}
+</body>
+</html>
