@@ -26,7 +26,7 @@
     </nav>
     
     {% if user_authenticated %}
-        <a href="{% url 'profile_details' %}">Orders</a>
+        <a href="{% url 'orders_view' %}">Orders</a>
         <a href="{% url 'products_view' %}">Products</a>
         <a href="{% url 'employees_view' %}">Employees</a>
         <a href="{% url 'clients_view' %}">Clients</a>

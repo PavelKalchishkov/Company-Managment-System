@@ -1,20 +1,28 @@
+import datetime
 from django.db import models
 
-
 class Order(models.Model):
-    order_date = models.DateField()
+    order_date = models.DateField(default=datetime.date.today)
     order_address = models.CharField(max_length=100)
-    order_price = models.DecimalField(max_digits=10,
-                                      decimal_places=2)
 
-    supplier_id = models.CharField(max_length=100) # fix after adding supplier app
+    products = models.ManyToManyField('products_app.Product',
+                                     related_name='orders')
 
-    product_id = models.CharField(max_length=100) # fix after adding products app
+    client = models.ForeignKey('clients_app.Client',
+                               on_delete=models.SET_NULL,
+                               null=True,
+                               blank=True,
+                               related_name='orders')
 
-    client_id = models.ForeignKey(to='clients_app.Client',
-                                  on_delete=models.CASCADE,
-                                  related_name='client_id',
-                                  null=True,
-                                  blank=True)
+    employee = models.ForeignKey('employees_app.Employee',
+                                 on_delete=models.SET_NULL,
+                                 null=True,
+                                 blank=True,
+                                 related_name='orders')
 
-    client_contact = models.CharField(max_length=100)
+    shipper = models.ForeignKey('shippers_app.Shipper',
+                                on_delete=models.SET_NULL,
+                                null=True,
+                                blank=True,
+                                related_name='orders')
+

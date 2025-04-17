@@ -7,3 +7,9 @@ class Product(models.Model):
     weight = models.FloatField()
     color = models.CharField(max_length=100)
     manufacturer = models.CharField(max_length=100)
+    vendor = models.ForeignKey('vendors_app.Vendor',
+                               on_delete=models.CASCADE,
+                               related_name='products')
+
+    def __str__(self):
+        return self.name

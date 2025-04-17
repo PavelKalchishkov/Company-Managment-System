@@ -17,8 +17,7 @@
             <h2>{{ client.last_name }}</h2>
             <h2>{{ client.phone_number }}</h2>
             <h2>{{ client.email }}</h2>   
-            <h2>{{ client.address }}</h2> 
-            <h2>{{ client.orders }}</h2>    
+            <h2>{{ client.address }}</h2>
             <a href="{% url 'clients_update_view' pk=client.id%}">Update client</a>
             <a href="{% url 'clients_delete_view' pk=client.id%}">Delete client</a>
             <h2>--------------------------</h2>

@@ -20,6 +20,7 @@
             <h2>{{ product.weight }}</h2>
             <h2>{{ product.color }}</h2>  
             <h2>{{ product.manufacturer }}</h2>
+            <h2>{{ product.vendor }}</h2>    
             <a href="{% url 'products_update_view' pk=product.id%}">Update product</a>
             <a href="{% url 'products_delete_view' pk=product.id %}">Delete product</a>
             <h2>--------------------------</h2>  
