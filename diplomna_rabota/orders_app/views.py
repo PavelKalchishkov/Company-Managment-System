@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from .models import OrderProduct
 
 from .forms import OrderCreationForm, OrderUpdateForm
 from .models import Order
@@ -20,7 +21,7 @@ class OrdersView(ListView, LoginRequiredMixin):
 
         context['user_authenticated'] = user.is_authenticated
         context['user'] = user
-        context['order_products'] = ''
+        context['order_products'] = OrderProduct.objects.all()
         return context
 
 

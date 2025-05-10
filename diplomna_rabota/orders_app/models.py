@@ -6,6 +6,7 @@ class Order(models.Model):
     order_address = models.CharField(max_length=100)
 
     products = models.ManyToManyField('products_app.Product',
+                                     through='OrderProduct',
                                      related_name='orders')
 
     client = models.ForeignKey('clients_app.Client',
@@ -25,4 +26,13 @@ class Order(models.Model):
                                 null=True,
                                 blank=True,
                                 related_name='orders')
+
+
+class OrderProduct(models.Model):
+    order = models.ForeignKey('orders_app.Order', on_delete=models.CASCADE)
+    product = models.ForeignKey('products_app.Product', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        unique_together = ('order', 'product')
 
