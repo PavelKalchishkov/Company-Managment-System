@@ -13,8 +13,9 @@ class OrderUpdateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = '__all__'
+        exclude = ('products',)
 
 class OrderProductForm(forms.ModelForm):
     class Meta:
         model = OrderProduct
-        fields = ['product', 'quantity']
+        fields = ['id', 'product', 'quantity']

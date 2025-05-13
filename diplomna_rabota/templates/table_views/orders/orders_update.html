@@ -4,18 +4,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+    <title>Update Order</title>
 </head>
 <body>
-    <h2>Update Order</h2>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        
-        <button type="submit">Make Changes</button>
-    </form>
+<h2>Update Order</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ formset.management_form }}
+
+    <h3>Products:</h3>
+    <div id="formset-container">
+        {% for subform in formset %}
+            <div class="form-row">
+                {{ subform.as_p }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Hidden template for JS to clone -->
+    <div id="empty-form-template" style="display: none;">
+        <div class="form-row">
+            {{ formset.empty_form.as_p|safe }}
+        </div>
+    </div>
+
+    <button type="button" id="add-more">Add More Products</button>
+    <button type="submit">Save Changes</button>
+</form>
+
+<script src="{% static 'javascript/update_order_button.js' %}"></script>
+
 </body>
 </html>
