@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.forms import inlineformset_factory
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.utils.functional import cached_property
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import OrderProduct
 
-from .forms import OrderCreationForm, OrderUpdateForm
+from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm
 from .models import Order
 
 
@@ -25,11 +27,46 @@ class OrdersView(ListView, LoginRequiredMixin):
         return context
 
 
-class OrdersCreateView(CreateView, LoginRequiredMixin):
+OrderProductFormSet = inlineformset_factory(
+    Order, OrderProduct, form=OrderProductForm, extra=1, can_delete=True
+)
+
+class OrdersCreateView(LoginRequiredMixin, CreateView):
     model = Order
     form_class = OrderCreationForm
     template_name = 'table_views/orders/orders_add.html'
     success_url = reverse_lazy('orders_view')
+
+    @cached_property
+    def formset_class(self):
+        extra_forms = int(self.request.GET.get('product_count', 1))  # Default 1 row
+        return inlineformset_factory(
+            Order,
+            OrderProduct,
+            form=OrderProductForm,
+            extra=extra_forms,
+            can_delete=False
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context['formset'] = self.formset_class(self.request.POST)
+        else:
+            context['formset'] = self.formset_class()
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        formset = context['formset']
+
+        if formset.is_valid():
+            self.object = form.save()
+            formset.instance = self.object
+            formset.save()
+            return redirect(self.get_success_url())
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
 
 class OrdersUpdateView(UpdateView, LoginRequiredMixin):
     model = Order

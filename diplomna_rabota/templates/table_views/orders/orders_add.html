@@ -10,12 +10,25 @@
 </head>
 <body>
     <h2>Create Order</h2>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        
-        <button type="submit">Create</button>
-    </form>
+<form method="post" id="order-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  {{ formset.management_form }}
+  <h3>Products:</h3>
+  <div id="formset-container">
+    {% for subform in formset %}
+      <div class="form-row">
+        {{ subform.product.label_tag }} {{ subform.product }}
+        {{ subform.quantity.label_tag }} {{ subform.quantity }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <button type="button" id="add-more">Add More Products</button>
+  <button type="submit">Submit</button>
+</form>
+
+<script src="{% static 'javascript/add_product_button.js' %}"></script>
 </body>
 </html>

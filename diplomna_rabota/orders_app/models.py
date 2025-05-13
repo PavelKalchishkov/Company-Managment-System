@@ -33,6 +33,4 @@ class OrderProduct(models.Model):
     product = models.ForeignKey('products_app.Product', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
-    class Meta:
-        unique_together = ('order', 'product')
 
