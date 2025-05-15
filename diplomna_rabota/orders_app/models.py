@@ -6,6 +6,30 @@ class Order(models.Model):
     order_address = models.CharField(max_length=100)
     order_version = models.SmallIntegerField(default=1)
 
+    PAYMENT_CHOICES = [
+        ('cash', 'cash'),
+        ('card', 'card'),
+        ('bank transfer', 'bank transfer'),
+        ('other', 'other'),
+    ]
+    payment_method = models.CharField(max_length=15,
+                                      choices=PAYMENT_CHOICES,
+                                      default='cash')
+
+
+    STATUS_ORDER_CHOICES = [
+        ('pending', 'pending'),
+        ('processing', 'processing'),
+        ('shipped', 'shipped'),
+        ('delivered', 'delivered'),
+        ('canceled', 'canceled'),
+        ('returned', 'returned'),
+        ('refunded', 'refunded'),
+    ]
+    order_status = models.CharField(max_length=15,
+                                    choices=STATUS_ORDER_CHOICES,
+                                    default='pending')
+
     products = models.ManyToManyField('products_app.Product',
                                      through='OrderProduct',
                                      related_name='orders')
