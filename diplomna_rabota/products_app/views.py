@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -25,6 +26,13 @@ class ProductsCreateView(CreateView, LoginRequiredMixin):
     form_class = ProductCreateForm
     template_name = 'table_views/products/products_add.html'
     success_url = reverse_lazy('products_view')
+
+    def form_valid(self, form):
+        product = form.save()
+        product.name += str(f'-{product.vendor}')
+        product.save()
+
+        return redirect('products_view')
 
 class ProductsUpdateView(UpdateView, LoginRequiredMixin):
     model = Product
