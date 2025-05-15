@@ -4,6 +4,7 @@ from django.db import models
 class Order(models.Model):
     order_date = models.DateField(default=datetime.date.today)
     order_address = models.CharField(max_length=100)
+    order_version = models.SmallIntegerField(default=1)
 
     products = models.ManyToManyField('products_app.Product',
                                      through='OrderProduct',

@@ -7,13 +7,13 @@ class OrderCreationForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = '__all__'
-        exclude = ('products',)
+        exclude = ('products','order_version')
 
 class OrderUpdateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = '__all__'
-        exclude = ('products',)
+        exclude = ('products', 'order_version')
 
 class OrderProductForm(forms.ModelForm):
     class Meta:

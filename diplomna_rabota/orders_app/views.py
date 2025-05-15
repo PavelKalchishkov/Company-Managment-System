@@ -98,10 +98,14 @@ class OrdersUpdateView(LoginRequiredMixin, UpdateView):
             self.object = form.save()
             formset.instance = self.object
             formset.save()
+
+            order = self.get_object()
+            order.order_version += 1
+            order.save()
+
             return redirect(self.get_success_url())
         else:
             return self.render_to_response(self.get_context_data(form=form))
-
 
 
 class OrdersDeleteView(DeleteView, LoginRequiredMixin):
