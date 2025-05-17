@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'vendors_app.apps.VendorsAppConfig',
     'shippers_app.apps.ShippersAppConfig',
     'users_app.apps.UsersAppConfig',
+    'invoice_app.apps.InvoiceAppConfig',
     'common'
 ]
 
