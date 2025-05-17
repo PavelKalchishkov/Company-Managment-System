@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Remove company</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Remove Company</button>
+    </form>
+</body>
+</html>

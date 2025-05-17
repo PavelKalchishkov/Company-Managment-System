@@ -12,4 +12,5 @@ urlpatterns = [
     path('employees/', include('employees_app.urls')),
     path('clients/', include('clients_app.urls')),
     path('orders/', include('orders_app.urls')),
+    path('invoices/', include('invoice_app.urls')),
 ]

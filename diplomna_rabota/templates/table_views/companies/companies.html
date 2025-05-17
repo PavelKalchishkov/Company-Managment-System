@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>Main Page</title>
+</head>
+<body>
+    {% if user_authenticated %}
+        <a href="{% url 'companies_add_view' %}">Add company</a>
+        {% for company in companies %}
+            <div class="company">
+            <h2>Eik: {{ company.eik }}</h2>
+            <h2>Dds: {{ company.dds }}</h2>
+            <h2>Name: {{ company.name }}</h2>
+            <h2>Address: {{ company.address }}</h2>
+            <h2>Mol: {{ company.mol }}</h2>
+            <h2>Recipient: {{ company.recipient }}</h2>    
+            <a href="{% url 'companies_update_view' pk=company.id%}">Update company</a>
+            <a href="{% url 'companies_delete_view' pk=company.id %}">Remove company</a>
+            <h2>--------------------------</h2>  
+            </div>
+        {% endfor %}
+        
+    {% endif %}
+</body>
+</html>
