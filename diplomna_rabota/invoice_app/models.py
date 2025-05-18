@@ -18,7 +18,7 @@ class Company(models.Model):
 
 class Invoice(models.Model):
     supplier_eik = models.CharField(max_length=13, unique=True,default='000000000')
-    supplier_dds = models.CharField(max_length=20)
+    supplier_dds = models.CharField(max_length=20, default='BG010101010110')
     supplier_name = models.CharField(max_length=100, default='firma_firma')
     supplier_address = models.CharField(max_length=100,default='goce delchev 30')
     supplier_mol = models.CharField(max_length=100, default='Pavel Kalchishkov')

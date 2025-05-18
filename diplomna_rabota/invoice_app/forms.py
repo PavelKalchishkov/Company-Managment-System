@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Company
+from .models import Company, Invoice
 
 
 class CompanyCreateForm(forms.ModelForm):
@@ -11,4 +11,14 @@ class CompanyCreateForm(forms.ModelForm):
 class CompanyUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
+        fields = '__all__'
+
+class InvoiceCreateForm(forms.ModelForm):
+    class Meta:
+        model = Invoice
+        fields = '__all__'
+
+class InvoiceUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Invoice
         fields = '__all__'
