@@ -1,4 +1,7 @@
+from decimal import Decimal
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import DecimalField
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
@@ -64,6 +67,15 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
             self.object = form.save()
             formset.instance = self.object
             formset.save()
+
+            order = self.object
+            for order_product in order.orderproduct_set.all():
+                quantity = order_product.quantity
+                product_price = order_product.product.price
+                order.order_price += Decimal(product_price) * quantity
+
+            order.save()
+
             return redirect(self.get_success_url())
         else:
             return self.render_to_response(self.get_context_data(form=form))
@@ -101,6 +113,12 @@ class OrdersUpdateView(LoginRequiredMixin, UpdateView):
 
             order = self.get_object()
             order.order_version += 1
+            order.order_price = Decimal(0)
+            for order_product in order.orderproduct_set.all():
+                quantity = order_product.quantity
+                product_price = order_product.product.price
+                order.order_price += Decimal(product_price) * quantity
+
             order.save()
 
             return redirect(self.get_success_url())

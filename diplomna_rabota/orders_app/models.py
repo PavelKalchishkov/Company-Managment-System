@@ -5,6 +5,7 @@ class Order(models.Model):
     order_date = models.DateField(default=datetime.date.today)
     order_address = models.CharField(max_length=100)
     order_version = models.SmallIntegerField(default=1)
+    order_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     PAYMENT_CHOICES = [
         ('cash', 'cash'),

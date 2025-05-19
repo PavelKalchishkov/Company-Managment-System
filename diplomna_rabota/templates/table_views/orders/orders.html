@@ -31,6 +31,7 @@
                     {% endif %}
                 {% endfor %}
                 <h2>----------------------</h2>
+                <h2>Price: {{ order.order_price }}</h2>
             <a href="{% url 'orders_update_view' pk=order.id%}">Update order</a>
             <a href="{% url 'orders_delete_view' pk=order.id%}">Delete order</a>
         {% endfor %}
