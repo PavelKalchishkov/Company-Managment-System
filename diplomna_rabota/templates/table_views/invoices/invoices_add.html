@@ -10,12 +10,87 @@
 </head>
 <body>
     <h2>Create Invoice</h2>
-    <form method="POST">
-        {% csrf_token %}
+<form method="post">
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label for="id_supplier_eik">Supplier EIK:</label>
+    {{ form.supplier_eik }}
+  </div>
 
-        {{ form.as_p }}
+  <div class="form-group">
+    <label for="id_supplier_dds">Supplier DDS:</label>
+    {{ form.supplier_dds }}
+  </div>
 
-        <button type="submit">Create</button>
-    </form>
+  <div class="form-group">
+    <label for="id_supplier_name">Supplier Name:</label>
+    {{ form.supplier_name }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_address">Supplier Address:</label>
+    {{ form.supplier_address }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_mol">Supplier MOL:</label>
+    {{ form.supplier_mol }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_phone_number">Supplier Phone Number:</label>
+    {{ form.supplier_phone_number }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_email">Supplier Email:</label>
+    {{ form.supplier_email }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_DDS">DDS:</label>
+    {{ form.DDS }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_date">Date:</label>
+    {{ form.date }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_comment">Comment:</label>
+    {{ form.comment }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_discount">Discount:</label>
+    {{ form.discount }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_company">Company:</label>
+    {{ form.company }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_order">Order:</label>
+    {{ form.order }}
+  </div>
+
+  <div class="form-group">
+    <label for="price_without_dds">Whole Price (without DDS):</label>
+    {{ form.whole_price_without_dds }}
+  </div>
+
+  <div class="form-group">
+    <label for="price_with_dds">Whole Price (with DDS):</label>
+    {{ form.whole_price_with_dds }}
+  </div>
+
+  <div class="form-actions">
+    <button type="submit">Create Invoice</button>
+  </div>
+</form>
 </body>
 </html>

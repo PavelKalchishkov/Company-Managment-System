@@ -26,16 +26,16 @@ class Invoice(models.Model):
     supplier_email = models.CharField(max_length=100, default='pavelkalchishkov@gmail.com')
 
     DDS_CHOICES = [
-        (20, 20),
-        (9, 9),
-        (0, 0),
+        ('20', '20'),
+        ('9', '9'),
+        ('0', '0'),
     ]
-    DDS = models.CharField(max_length=20, choices=DDS_CHOICES, default=20)
+    DDS = models.CharField(max_length=20, choices=DDS_CHOICES, default='20')
     date = models.DateField(default=timezone.now)
     comment = models.TextField(default='', blank=True, null=True, max_length=500)
-    whole_price_without_dds = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    whole_price_with_dds = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0, null=True, blank=True)
+    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    whole_price_without_dds = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    whole_price_with_dds = models.DecimalField(max_digits=10, decimal_places=2, default = 0)
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='invoices')
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='invoices')
