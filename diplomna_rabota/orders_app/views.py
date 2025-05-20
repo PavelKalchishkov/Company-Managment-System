@@ -1,4 +1,5 @@
 from decimal import Decimal
+from django.http import JsonResponse
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import DecimalField
@@ -131,3 +132,11 @@ class OrdersDeleteView(DeleteView, LoginRequiredMixin):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/orders_delete.html'
     success_url = reverse_lazy('orders_view')
+
+
+def get_order_details(request, order_id):
+    try:
+        order = Order.objects.get(pk=order_id)
+        return JsonResponse({'price': float(order.order_price)})
+    except Order.DoesNotExist:
+        return JsonResponse({'error': 'Order not found'}, status=404)

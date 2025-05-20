@@ -53,6 +53,9 @@ class Order(models.Model):
                                 blank=True,
                                 related_name='orders')
 
+    def __str__(self):
+        return f'{self.id}'
+
 
 class OrderProduct(models.Model):
     order = models.ForeignKey('orders_app.Order', on_delete=models.CASCADE)

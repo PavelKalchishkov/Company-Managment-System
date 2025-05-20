@@ -80,3 +80,4 @@ class InvoicesDeleteView(DeleteView, LoginRequiredMixin):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoices_delete.html'
     success_url = reverse_lazy('invoices_view')
+

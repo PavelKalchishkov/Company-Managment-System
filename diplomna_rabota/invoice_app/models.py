@@ -14,7 +14,7 @@ class Company(models.Model):
     recipient = models.CharField(max_length=100) # poluchatel
 
     def __str__(self):
-        return self.name
+        return self.eik
 
 class Invoice(models.Model):
     supplier_eik = models.CharField(max_length=13, default='000000000')
