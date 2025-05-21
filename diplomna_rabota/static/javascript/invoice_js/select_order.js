@@ -48,12 +48,13 @@ discount.addEventListener("input", () => {
   if (orderSelect.value) {
     update_price()
   }
+});
 
 dds.addEventListener("change", () => {
   if (orderSelect.value) {
     update_price()
   }
 })
-  
-});
+
+
 });
