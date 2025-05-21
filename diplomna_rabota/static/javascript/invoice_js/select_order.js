@@ -55,6 +55,4 @@ dds.addEventListener("change", () => {
     update_price()
   }
 })
-
-
 });
