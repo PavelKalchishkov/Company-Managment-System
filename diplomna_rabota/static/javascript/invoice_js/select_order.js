@@ -30,8 +30,8 @@ function update_price() {
           discount_value = 0
         }
 
-          price_without_dds_input.value = data.price - (data.price * discount_value);
-          price_with_dds_input.value = (data.price + dds_value) - (data.price + dds_value) * discount_value;
+          price_without_dds_input.value = (data.price - (data.price * discount_value)).toFixed(2);
+          price_with_dds_input.value = ((data.price + dds_value) - (data.price + dds_value) * discount_value).toFixed(2);
       }
     })
     .catch(error => {
