@@ -93,15 +93,17 @@
 </body>
 </html>
 
-<script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
-
 {# select2 setup #}
 {% block scripts %}
 <script>
     $("#id_company").select2({
         placeholder: "Select Company",
     });
+    $("#id_order").select2({
+        placeholder: "Select Order",
+    });
 </script>
+<script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
 {% endblock %}
 
 
