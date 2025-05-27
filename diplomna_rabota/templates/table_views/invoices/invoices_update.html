@@ -6,18 +6,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <h2>Update Invoice</h2>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        
-        <button type="submit">Make Changes</button>
-    </form>
+<form method="post">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="id_supplier_eik">Supplier EIK:</label>
+    {{ form.supplier_eik }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_dds">Supplier DDS:</label>
+    {{ form.supplier_dds }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_name">Supplier Name:</label>
+    {{ form.supplier_name }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_address">Supplier Address:</label>
+    {{ form.supplier_address }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_mol">Supplier MOL:</label>
+    {{ form.supplier_mol }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_phone_number">Supplier Phone Number:</label>
+    {{ form.supplier_phone_number }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_supplier_email">Supplier Email:</label>
+    {{ form.supplier_email }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_DDS">DDS:</label>
+    {{ form.DDS }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_comment">Comment:</label>
+    {{ form.comment }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_discount">Discount:</label>
+    {{ form.discount }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_company">Company:</label>
+    {{ form.company }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_order">Order:</label>
+    {{ form.order }}
+  </div>
+
+  <div class="form-group">
+    <label for="price_without_dds">Whole Price (without DDS):</label>
+    {{ form.whole_price_without_dds }}
+  </div>
+
+  <div class="form-group">
+    <label for="price_with_dds">Whole Price (with DDS):</label>
+    {{ form.whole_price_with_dds }}
+  </div>
+
+  <div class="form-actions">
+    <button type="submit">Make changes</button>
+  </div>
+</form>
 </body>
 </html>
 
 <script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
+
+{# select2 setup #}
+{% block scripts %}
+<script>
+    $("#id_company").select2({
+        placeholder: "Select Company",
+    });
+</script>
+{% endblock %}
