@@ -140,3 +140,30 @@ def get_order_details(request, order_id):
         return JsonResponse({'price': float(order.order_price)})
     except Order.DoesNotExist:
         return JsonResponse({'error': 'Order not found'}, status=404)
+
+def get_order_values(request, order_id):
+    try:
+        order = Order.objects.get(pk=order_id)
+
+        products_data = []
+        for order_product in OrderProduct.objects.filter(order=order).select_related('product'):
+            product = order_product.product
+            products_data.append(
+                f'product_id: {product.id}|product_name: {product.name}|quantity: {order_product.quantity}')
+
+        return JsonResponse({
+            'id': str(order.id),
+            'date': order.order_date,
+            'address': order.order_address,
+            'version': order.order_version,
+            'price': float(order.order_price),
+            'payment_method': order.payment_method,
+            'status': order.order_status,
+            'client': str(order.client),
+            'employee': str(order.employee),
+            'shipper': str(order.shipper),
+            'products': products_data,
+        })
+
+    except Order.DoesNotExist:
+        return JsonResponse({'error': 'Order not found'}, status=404)

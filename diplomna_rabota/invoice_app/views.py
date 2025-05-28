@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -38,6 +39,20 @@ class CompaniesDeleteView(DeleteView, LoginRequiredMixin):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_delete.html'
     success_url = reverse_lazy('companies_view')
+
+def get_company_values(request, company_id):
+    company = Company.objects.get(pk=company_id)
+
+    return JsonResponse({
+        'company_database_name': str(company),
+        'id': str(company.id),
+        'eik': company.eik,
+        'dds': company.dds,
+        'name': company.name,
+        'address': company.address,
+        'mol': company.mol,
+        'recipient': company.recipient,
+    })
 
 
 class InvoicesView(ListView, LoginRequiredMixin):
