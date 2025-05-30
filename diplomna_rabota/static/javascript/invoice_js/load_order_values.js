@@ -24,6 +24,9 @@ $(document).ready(function() {
             })
     }
 
+if ($("#id_order").val()) {
+    change_order_details()
+}
 
 $("#id_order").on("change", change_order_details);
 });

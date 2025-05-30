@@ -22,7 +22,14 @@ $(document).ready(function() {
             })
     }
 
+if ($("#id_company").val()) {
+    tester()
+}
+
 $("#id_company").on("change", tester);
+
+
+
 });
 
 });
