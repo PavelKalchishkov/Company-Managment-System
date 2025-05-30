@@ -1,3 +1,4 @@
+{#{% extends 'index.html' %}#}
 {% load static %}
 
 <!DOCTYPE html>
@@ -11,102 +12,134 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
-    <h2>Update Invoice</h2>
-<form method="post">
-  {% csrf_token %}
+<div id="main-div" style="display: flex;">
+    
+    <div id="form-div">
+        <h2>Create Invoice</h2>
+        <form method="post">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label for="id_supplier_eik">Supplier EIK:</label>
+            {{ form.supplier_eik }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_dds">Supplier DDS:</label>
+            {{ form.supplier_dds }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_name">Supplier Name:</label>
+            {{ form.supplier_name }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_address">Supplier Address:</label>
+            {{ form.supplier_address }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_mol">Supplier MOL:</label>
+            {{ form.supplier_mol }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_phone_number">Supplier Phone Number:</label>
+            {{ form.supplier_phone_number }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_supplier_email">Supplier Email:</label>
+            {{ form.supplier_email }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_DDS">DDS:</label>
+            {{ form.DDS }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_comment">Comment:</label>
+            {{ form.comment }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_discount">Discount:</label>
+            {{ form.discount }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_company">Company:</label>
+            {{ form.company }}
+          </div>
+        
+          <div class="form-group">
+            <label for="id_order">Order:</label>
+            {{ form.order }}
+          </div>
+        
+          <div class="form-group">
+            <label for="price_without_dds">Whole Price (without DDS):</label>
+            {{ form.whole_price_without_dds }}
+          </div>
+        
+          <div class="form-group">
+            <label for="price_with_dds">Whole Price (with DDS):</label>
+            {{ form.whole_price_with_dds }}
+          </div>
+        
+          <div class="form-actions">
+            <button type="submit">Create Invoice</button>
+          </div>
+        </form>
+    </div>
+    
+    <div id="company-div" style="padding-left: 150px">
+        <a href="{% url 'companies_add_view' %}">Add new company</a>
+        <h4>Company_database_name</h4>
+        <p id="company_database_name_p">-</p>
+        <h4>Company id</h4>
+        <p id="company_id_p">-</p>
+        <h4>Company eik</h4>
+        <p id="company_eik_p">-</p>
+        <h4>Company dds</h4>
+        <p id="company_dds_p">-</p>
+        <h4>Company name</h4>
+        <p id="company_name_p">-</p>
+        <h4>Company address</h4>
+        <p id="company_address_p">-</p>
+        <h4>Company mol</h4>
+        <p id="company_mol_p">-</p>
+        <h4>Company recipient</h4>
+        <p id="company_recipient_p">-</p>
+    </div>
+    
+    <div id="order-div" style="padding-left:150px">
+        <a href="{% url 'orders_create_view' %}">Create New Order</a>
+        <h4>Order id</h4>
+        <p id="order_id_p">-</p>
+        <h4>Order price</h4>
+        <p id="order_price_p">-</p>
+        <h4>Order products</h4>
+        <p id="order_products_p">-</p>
+        <h4>Order payment method</h4>
+        <p id="order_payment_method_p">-</p>    
+        <h4>Order status</h4>
+        <p id="order_status_p">-</p>
+        <h4>Order address</h4>
+        <p id="order_address_p">-</p>
+        <h4>Order version</h4>
+        <p id="order_version_p">-</p>
+        <h4>Order client</h4>
+        <p id="order_client_p">-</p>
+        <h4>Order employee</h4>
+        <p id="order_employee_p">-</p>
+        <h4>Order shipper</h4>
+        <p id="order_shipper_p">-</p>
+    </div>
 
-  <div class="form-group">
-    <label for="id_supplier_eik">Supplier EIK:</label>
-    {{ form.supplier_eik }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_dds">Supplier DDS:</label>
-    {{ form.supplier_dds }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_name">Supplier Name:</label>
-    {{ form.supplier_name }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_address">Supplier Address:</label>
-    {{ form.supplier_address }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_mol">Supplier MOL:</label>
-    {{ form.supplier_mol }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_phone_number">Supplier Phone Number:</label>
-    {{ form.supplier_phone_number }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_supplier_email">Supplier Email:</label>
-    {{ form.supplier_email }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_DDS">DDS:</label>
-    {{ form.DDS }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_comment">Comment:</label>
-    {{ form.comment }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_discount">Discount:</label>
-    {{ form.discount }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_company">Company:</label>
-    {{ form.company }}
-  </div>
-
-  <div class="form-group">
-    <label for="id_order">Order:</label>
-    {{ form.order }}
-  </div>
-
-  <div class="form-group">
-    <label for="price_without_dds">Whole Price (without DDS):</label>
-    {{ form.whole_price_without_dds }}
-  </div>
-
-  <div class="form-group">
-    <label for="price_with_dds">Whole Price (with DDS):</label>
-    {{ form.whole_price_with_dds }}
-  </div>
-
-  <div class="form-actions">
-    <button type="submit">Make changes</button>
-  </div>
-</form>
-
-<h4>Company_database_name</h4>
-<p id="company_database_name_p"></p>
-<h4>Company id</h4>
-<p id="company_id_p"></p>
-<h4>Company eik</h4>
-<p id="company_eik_p"></p>
-<h4>Company dds</h4>
-<p id="company_dds_p"></p>
-<h4>Company name</h4>
-<p id="company_name_p"></p>
-<h4>Company address</h4>
-<p id="company_address_p"></p>
-<h4>Company mol</h4>
-<p id="company_mol_p"></p>
-<h4>Company recipient</h4>
-<p id="company_recipient_p"></p>
-
+</div>
 </body>
 </html>
 
@@ -121,5 +154,8 @@
     });
 </script>
 <script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
-<script src="{% static 'javascript/invoice_js/load_company_values.js' %}"></script>    
+<script src="{% static 'javascript/invoice_js/load_company_values.js' %}"></script>
+<script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>    
 {% endblock %}
+
+
