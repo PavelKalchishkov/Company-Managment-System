@@ -39,7 +39,6 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
     model = Order
     form_class = OrderCreationForm
     template_name = 'table_views/orders/orders_add.html'
-    success_url = reverse_lazy('orders_view')
 
     @cached_property
     def formset_class(self):
@@ -77,7 +76,10 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
 
             order.save()
 
-            return redirect(self.get_success_url())
+            next_url = self.request.POST.get('next') or self.request.GET.get('next')
+            if next_url:
+                return redirect(next_url)
+            return redirect(reverse_lazy('orders_view'))
         else:
             return self.render_to_response(self.get_context_data(form=form))
 

@@ -15,7 +15,7 @@
 <div id="main-div" style="display: flex;">
     
     <div id="form-div">
-        <h2>Create Invoice</h2>
+        <h2>Update Invoice</h2>
         <form method="post">
           {% csrf_token %}
           
@@ -96,7 +96,7 @@
     </div>
     
     <div id="company-div" style="padding-left: 150px">
-        <a href="{% url 'companies_add_view' %}">Add new company</a>
+        <a href="{% url 'companies_add_view' %}?next={% url 'invoices_update_view' pk=invoice.pk %}">Add new company</a>
         <h4>Company_database_name</h4>
         <p id="company_database_name_p">-</p>
         <h4>Company id</h4>
@@ -116,7 +116,7 @@
     </div>
     
     <div id="order-div" style="padding-left:150px">
-        <a href="{% url 'orders_create_view' %}">Create New Order</a>
+        <a href="{% url 'orders_create_view' %}?next={% url 'invoices_update_view' pk=invoice.pk %}">Create New Order</a>
         <h4>Order id</h4>
         <p id="order_id_p">-</p>
         <h4>Order price</h4>
@@ -155,7 +155,7 @@
 </script>
 <script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
 <script src="{% static 'javascript/invoice_js/load_company_values.js' %}"></script>
-<script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>    
+<script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>
 {% endblock %}
 
 
