@@ -90,9 +90,10 @@
           </div>
         
           <div class="form-actions">
-            <button type="submit">Create Invoice</button>
+            <button id="submit_btn" type="submit">Create Invoice</button>
           </div>
         </form>
+        <a id = "cancel_btn" href="{% url 'invoices_view' %}">Cancel Creation</a>
     </div>
     
     <div id="company-div" style="padding-left: 150px">
@@ -155,7 +156,8 @@
 </script>
 <script src="{% static 'javascript/invoice_js/select_order.js' %}"></script>
 <script src="{% static 'javascript/invoice_js/load_company_values.js' %}"></script>
-<script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>    
+<script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>
+<script src="{% static 'javascript/invoice_js/load_invoice_local_storage.js' %}"></script>
 {% endblock %}
 
 

@@ -96,7 +96,6 @@
     </div>
     
     <div id="company-div" style="padding-left: 150px">
-        <a href="{% url 'companies_add_view' %}?next={% url 'invoices_update_view' pk=invoice.pk %}">Add new company</a>
         <h4>Company_database_name</h4>
         <p id="company_database_name_p">-</p>
         <h4>Company id</h4>
@@ -116,7 +115,6 @@
     </div>
     
     <div id="order-div" style="padding-left:150px">
-        <a href="{% url 'orders_create_view' %}?next={% url 'invoices_update_view' pk=invoice.pk %}">Create New Order</a>
         <h4>Order id</h4>
         <p id="order_id_p">-</p>
         <h4>Order price</h4>
