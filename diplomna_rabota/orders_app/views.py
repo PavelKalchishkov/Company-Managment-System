@@ -78,7 +78,8 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
 
             next_url = self.request.POST.get('next') or self.request.GET.get('next')
             if next_url:
-                return redirect(next_url)
+                url = f"{next_url}?order={self.object.id}"
+                return redirect(url)
             return redirect(reverse_lazy('orders_view'))
         else:
             return self.render_to_response(self.get_context_data(form=form))
