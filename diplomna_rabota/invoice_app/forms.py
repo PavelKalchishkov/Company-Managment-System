@@ -17,7 +17,7 @@ class InvoiceCreateForm(forms.ModelForm):
     class Meta:
         model = Invoice
         fields = '__all__'
-        exclude = ['date']
+        exclude = ['date', 'cancelled']
 
 class InvoiceUpdateForm(forms.ModelForm):
     class Meta:

@@ -14,6 +14,12 @@
         {% for invoice in invoices %}
             <div class="invoice">
             <h2>{{ invoice }}</h2>
+            <h2>Active status: {% if not invoice.cancelled %}
+                                    Active
+                                {% else %}
+                                    Cancelled
+                               {% endif %}
+            </h2>
             <h2>--------------------------</h2>
             <h2>Supplier information</h2>
             <h2>supplier eik: {{ invoice.supplier_eik }}</h2>

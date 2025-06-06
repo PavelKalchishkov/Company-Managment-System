@@ -36,6 +36,7 @@ class Invoice(models.Model):
     discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     whole_price_without_dds = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     whole_price_with_dds = models.DecimalField(max_digits=10, decimal_places=2, default = 0)
+    cancelled = models.BooleanField(default=False)
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='invoices')
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='invoices')

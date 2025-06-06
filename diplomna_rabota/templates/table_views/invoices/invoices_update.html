@@ -18,6 +18,11 @@
         <h2>Update Invoice</h2>
         <form method="post">
           {% csrf_token %}
+            
+          <div class="form-group">
+            <label for="cancelled">Cancel invoice:</label>
+            {{ form.cancelled }}
+          </div>  
           
           <div class="form-group">
             <label for="id_supplier_eik">Supplier EIK:</label>
