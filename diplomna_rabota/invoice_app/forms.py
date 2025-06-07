@@ -1,5 +1,5 @@
 from django import forms
-
+import django_filters
 from .models import Company, Invoice
 
 
@@ -24,3 +24,19 @@ class InvoiceUpdateForm(forms.ModelForm):
         model = Invoice
         fields = '__all__'
         exclude = ['date']
+
+class InvoiceReportFilter(django_filters.FilterSet):
+    whole_price_without_dds = django_filters.RangeFilter()
+    whole_price_with_dds = django_filters.RangeFilter()
+    date = django_filters.DateFromToRangeFilter(
+        widget=django_filters.widgets.RangeWidget(
+            attrs={'type': 'date'}
+        )
+    )
+
+    class Meta:
+        model = Invoice
+        fields = {'DDS',
+                  'cancelled',
+                  'company',
+                  'order',}

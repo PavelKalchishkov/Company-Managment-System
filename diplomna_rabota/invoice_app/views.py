@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, InvoiceUpdateForm
+from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, InvoiceUpdateForm, InvoiceReportFilter
 from .models import Company, Invoice
 
 
@@ -102,3 +102,24 @@ class InvoicesDeleteView(DeleteView, LoginRequiredMixin):
     template_name = 'table_views/invoices/invoices_delete.html'
     success_url = reverse_lazy('invoices_view')
 
+class InvoicesReportView(ListView, LoginRequiredMixin):
+    model = Invoice
+    queryset = Invoice.objects.all()
+    template_name = 'table_views/invoices/invoice_report.html'
+    context_object_name = 'invoices'
+
+    ordering = ['-id']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = InvoiceReportFilter(self.request.GET, queryset=queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['filter_form'] = self.filterset.form
+        return context

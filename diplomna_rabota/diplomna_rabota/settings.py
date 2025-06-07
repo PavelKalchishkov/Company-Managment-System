@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'shippers_app.apps.ShippersAppConfig',
     'users_app.apps.UsersAppConfig',
     'invoice_app.apps.InvoiceAppConfig',
-    'common'
+    'common',
+    
+    'django_filters'
 ]
 
 MIDDLEWARE = [

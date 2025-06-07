@@ -1,17 +1,21 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'main_style.css' %}">
-    <title>Invoices</title>
+    <title>Invoices Report</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     {% if user_authenticated %}
-        <a href="{% url 'invoices_add_view' %}">Create invoice</a>
-        <a href="{% url 'invoices_report_view' %}">Invoices report</a>
+        <a href="{% url 'invoices_view' %}">Back to invoices</a>
+        
+        <form method="get">
+            {{ filter_form.as_p }}
+            <button type="submit">Filter</button>
+        </form>
+
         {% for invoice in invoices %}
             <div class="invoice">
             <h2>{{ invoice }}</h2>
@@ -31,18 +35,16 @@
             <h2>supplier_phone_number: {{ invoice.supplier_phone_number }}</h2>
             <h2>supplier_email: {{ invoice.supplier_email }}</h2>
             <h2>--------------------------</h2>
-            <h2>Invoice details</h2>    
+            <h2>Invoice details</h2>
             <h2>DDS: {{ invoice.DDS }}</h2>
             <h2>date: {{ invoice.date }}</h2>
-            <h2>comment: {{ invoice.comment }}</h2>  
-            <h2>whole_price_without_dds: {{ invoice.whole_price_without_dds }}</h2>    
-            <h2>whole_price_with_dds: {{ invoice.whole_price_with_dds }}</h2>    
+            <h2>comment: {{ invoice.comment }}</h2>
+            <h2>whole_price_without_dds: {{ invoice.whole_price_without_dds }}</h2>
+            <h2>whole_price_with_dds: {{ invoice.whole_price_with_dds }}</h2>
             <h2>discount: {{ invoice.discount }}%</h2>
-            <h2>--------------------------</h2> 
+            <h2>--------------------------</h2>
             <h2>Company: {{ invoice.company }}</h2>
-            <h2>Order: {{ invoice.order }}</h2>    
-            <a href="{% url 'invoices_update_view' pk=invoice.id%}">Update invoice</a>
-            <a href="{% url 'invoices_delete_view' pk=invoice.id %}">Remove invoice</a>
+            <h2>Order: {{ invoice.order }}</h2>
             <h2>--------------------------------------------------------------------</h2>
             </div>
         {% endfor %}
@@ -50,3 +52,9 @@
     {% endif %}
 </body>
 </html>
+
+<script>
+    $(document).ready(function() {
+      $('#id_company, #id_order').select2();
+  });
+</script>
