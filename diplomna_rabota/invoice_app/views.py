@@ -118,8 +118,30 @@ class InvoicesReportView(ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
+        filtered_queryset = self.get_queryset()
 
         context['user_authenticated'] = user.is_authenticated
         context['user'] = user
         context['filter_form'] = self.filterset.form
+
+        context['total_invoices'] = filtered_queryset.count()
+
+        active_invoices_counter = 0
+        total_sum_with_dds = 0
+        total_sum_without_dds = 0
+        for invoice in filtered_queryset:
+            if not invoice.cancelled:
+                active_invoices_counter += 1
+                total_sum_with_dds += invoice.whole_price_with_dds
+                total_sum_without_dds += invoice.whole_price_without_dds
+        total_dds = total_sum_without_dds - total_sum_with_dds
+
+        context['total_active_invoices'] = active_invoices_counter
+        context['total_sum_with_dds'] = total_sum_with_dds
+        context['total_sum_without_dds'] = total_sum_without_dds
+        context['total_dds'] = total_dds
+
+
+
+
         return context

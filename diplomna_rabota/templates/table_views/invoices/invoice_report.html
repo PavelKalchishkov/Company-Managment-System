@@ -15,7 +15,13 @@
             {{ filter_form.as_p }}
             <button type="submit">Filter</button>
         </form>
-
+        <p>-----------------------------------------</p>
+        <h2>Total invoices: {{ total_invoices }}</h2>
+        <h2>Total active invoices: {{ total_active_invoices }}</h2>
+        <h2>Total price with dds: {{ total_sum_with_dds }}</h2>
+        <h2>Total price without dds: {{ total_sum_without_dds }}</h2>
+        <h2>Total dds: {{ total_dds }}</h2>
+        <p>-----------------------------------------</p>
         {% for invoice in invoices %}
             <div class="invoice">
             <h2>{{ invoice }}</h2>
