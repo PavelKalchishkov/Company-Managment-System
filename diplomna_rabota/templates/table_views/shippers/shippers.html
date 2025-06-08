@@ -10,10 +10,17 @@
 </head>
 <body>
     {% if user_authenticated %}
+
+        <form>
+            <input type="text" name = "q" placeholder="Search by name or phone_number" value="{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+
         <a href="{% url 'shippers_add_view' %}">Create shipper</a>
         {% for shipper in shippers %}
             <div class="shipper">
             <h2>{{ shipper.name }}</h2>
+            <h2>{{ shipper.phone_number }}</h2>
             <h2>{{ shipper.salary }}</h2>
             <h2>{{ shipper.current_products_being_shipped }}</h2>
             <a href="{% url 'shippers_update_view' pk=shipper.id%}">Update shipper</a>

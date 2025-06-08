@@ -10,6 +10,12 @@
 </head>
 <body>
     {% if user_authenticated %}
+        
+        <form>
+            <input type = "text" name = "q" placeholder = "Search by product name or vendor" value = "{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+        
         <a href="{% url 'products_create_view' %}">Create product</a>
         {% for product in products %}
             <div class="product">

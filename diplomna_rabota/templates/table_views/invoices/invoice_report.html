@@ -15,6 +15,7 @@
             {{ filter_form.as_p }}
             <button type="submit">Filter</button>
         </form>
+        <a href="{% url 'invoices_report_view' %}">Remove filters</a>
         <p>-----------------------------------------</p>
         <h2>Total invoices: {{ total_invoices }}</h2>
         <h2>Total active invoices: {{ total_active_invoices }}</h2>

@@ -10,6 +10,12 @@
 </head>
 <body>
     {% if user_authenticated %}
+        
+        <form>
+            <input type = "text" name = "q" placeholder = "Search by name or phone number" value = "{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+        
         <a href="{% url 'clients_create_view' %}">Create client</a>
         {% for client in clients %}
             <div class="clients">
