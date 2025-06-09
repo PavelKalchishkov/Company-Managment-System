@@ -10,7 +10,7 @@ from django.utils.functional import cached_property
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import OrderProduct
 
-from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm
+from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm, OrderViewFilter
 from .models import Order
 
 
@@ -18,8 +18,12 @@ class OrdersView(ListView, LoginRequiredMixin):
     model = Order
     template_name = 'table_views/orders/orders.html'
     context_object_name = 'orders'
-
     ordering = ['-id']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = OrderViewFilter(self.request.GET, queryset=queryset)
+        return self.filterset.qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,6 +32,7 @@ class OrdersView(ListView, LoginRequiredMixin):
         context['user_authenticated'] = user.is_authenticated
         context['user'] = user
         context['order_products'] = OrderProduct.objects.all()
+        context['filter_form'] = self.filterset.form
         return context
 
 

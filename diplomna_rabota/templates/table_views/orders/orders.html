@@ -7,9 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main_style.css' %}">
     <title>Main Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     {% if user_authenticated %}
+        <form method="get">
+            {{ filter_form.as_p }}
+            <button type="submit">Filter</button>
+        </form>
+
         <a href="{% url 'orders_create_view' %}">Create order</a>
             <div class="orders">
             {% for order in orders %}
@@ -39,3 +47,10 @@
     {% endif %}
 </body>
 </html>
+
+<script>
+    $(document).ready(function() {
+      $('#id_client, #id_shipper, #id_employee, #id_order_status, #id_payment_method').select2();
+  });
+</script>
+
