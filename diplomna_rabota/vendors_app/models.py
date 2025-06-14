@@ -13,6 +13,7 @@ class Vendor(models.Model):
 
     additional_information = models.TextField(max_length=500,
                                               default='')
+    added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

@@ -1,6 +1,12 @@
 from django.views.generic import TemplateView
-
-
+from orders_app.models import Order
+from products_app.models import Product
+from employees_app.models import Employee
+from clients_app.models import Client
+from shippers_app.models import Shipper
+from vendors_app.models import Vendor
+from invoice_app.models import Invoice, Company
+from datetime import date
 class IndexView(TemplateView):
     template_name = 'index.html'
 
@@ -10,4 +16,38 @@ class IndexView(TemplateView):
 
         context['user_authenticated'] = user.is_authenticated
         context['username'] = user.username
+
+        today = date.today()
+        context['total_orders'] = Order.objects.all().count()
+        context['new_orders_this_month'] = Order.objects.filter(
+            order_date__year=today.year, order_date__month=today.month).count()
+
+        context['total_products'] = Product.objects.all().count()
+        context['new_products_this_month'] = Product.objects.filter(
+            created_at__year=today.year, created_at__month=today.month).count()
+
+        context['total_employees'] = Employee.objects.all().count()
+        context['new_employees_this_month'] = Employee.objects.filter(
+            added_at__year=today.year, added_at__month=today.month).count()
+
+        context['total_clients'] = Client.objects.all().count()
+        context['new_clients_this_month'] = Client.objects.filter(
+            added_at__year=today.year, added_at__month=today.month).count()
+
+        context['total_shippers'] = Shipper.objects.all().count()
+        context['new_shippers_this_month'] = Shipper.objects.filter(
+            added_at__year=today.year, added_at__month=today.month).count()
+
+        context['total_vendors'] = Vendor.objects.all().count()
+        context['new_vendors_this_month'] = Vendor.objects.filter(
+            added_at__year=today.year, added_at__month=today.month).count()
+
+        context['total_companies'] = Company.objects.all().count()
+        context['new_companies_this_month'] = Company.objects.filter(
+            added_at__year=today.year, added_at__month=today.month).count()
+
+        context['total_invoices'] = Invoice.objects.all().count()
+        context['new_invoices_this_month'] = Invoice.objects.filter(
+            date__year=today.year, date__month=today.month).count()
+
         return context
