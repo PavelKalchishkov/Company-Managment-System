@@ -6,33 +6,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/main_page_navigation_bar.css' %}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <h1>OrganizationName</h1>
-        </div>
-    
-        <div class="links">
-            {% if user_authenticated %}
-                <a class="log" href="{% url 'profile_details' %}">{{ username }}</a>
-                <a class="log" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a class="log" href="{% url 'login' %}">Login</a>
-                <a class="log" href="{% url 'register' %}">Register</a>
-            {% endif %}
-        </div>
-    </nav>
-    
-    {% if user_authenticated %}
-        <a href="{% url 'orders_view' %}">Orders</a>
-        <a href="{% url 'products_view' %}">Products</a>
-        <a href="{% url 'employees_view' %}">Employees</a>
-        <a href="{% url 'clients_view' %}">Clients</a>
-        <a href="{% url 'shippers_view' %}">Shippers</a>
-        <a href="{% url 'vendors_view' %}">Vendors</a>
-        <a href="{% url 'companies_view' %}">Companies</a>
-        <a href="{% url 'invoices_view' %}">Invoices</a>
-    {% endif %}
+{% if user_authenticated %}
+<div class="sidebar">
+  <div class="sidebar-logo">CompanyNameOOD</div>
+  <div class="top-and-bottom-navigations">
+      <nav class="sidebar-menu">
+        <a class="sidebar-link active" href="{% url 'orders_view' %}">Orders</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}">Products</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}">Employees</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}">Clients</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}">Shippers</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}">Vendors</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}">Companies</a>
+        <a class="sidebar-link" href="{% url 'invoices_view' %}">Invoices</a>
+      </nav>
+
+      <div class="sidebar-nav-bottom">
+        <a class="sidebar-link" href="{% url 'profile_details' %}">Profile</a>
+        <a class="sidebar-link" href="{% url 'logout' %}">Log out</a>
+      </div>
+    </div>  
+
+</div>
+{% endif %}
+
 </body>
 </html>
