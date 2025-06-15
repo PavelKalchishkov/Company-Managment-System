@@ -8,9 +8,6 @@ from vendors_app.models import Vendor
 from invoice_app.models import Invoice, Company
 from datetime import date, timedelta
 
-from django.db.models import Sum
-
-
 class IndexView(TemplateView):
     template_name = 'index.html'
 
@@ -57,9 +54,9 @@ class IndexView(TemplateView):
         labels = []
         data = []
 
-        for i in range(11, -1, -1):  # Last 12 months
+        for i in range(11, -1, -1):
             month_date = today - timedelta(days=30 * i)
-            month_name = month_date.strftime('%b %Y')  # e.g. "Jan 2025"
+            month_name = month_date.strftime('%b %Y')
             labels.append(month_name)
 
             count = Order.objects.filter(
