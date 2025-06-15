@@ -9,7 +9,7 @@
 }
 
 .cards-container {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -70,4 +70,27 @@
 .stat-change span {
   color: #9ca3af;
   margin-left: 0.25rem;
+}
+
+.orders-chart-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.orders-chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.chart-title {
+  /*font-size: 1.5rem;*/
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1e293b;
 }

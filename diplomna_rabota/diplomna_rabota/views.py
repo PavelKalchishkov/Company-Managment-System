@@ -6,7 +6,11 @@ from clients_app.models import Client
 from shippers_app.models import Shipper
 from vendors_app.models import Vendor
 from invoice_app.models import Invoice, Company
-from datetime import date
+from datetime import date, timedelta
+
+from django.db.models import Sum
+
+
 class IndexView(TemplateView):
     template_name = 'index.html'
 
@@ -49,5 +53,23 @@ class IndexView(TemplateView):
         context['total_invoices'] = Invoice.objects.all().count()
         context['new_invoices_this_month'] = Invoice.objects.filter(
             date__year=today.year, date__month=today.month).count()
+
+        labels = []
+        data = []
+
+        for i in range(11, -1, -1):  # Last 12 months
+            month_date = today - timedelta(days=30 * i)
+            month_name = month_date.strftime('%b %Y')  # e.g. "Jan 2025"
+            labels.append(month_name)
+
+            count = Order.objects.filter(
+                order_date__year=month_date.year,
+                order_date__month=month_date.month,
+                order_status = 'delivered'
+            ).count()
+            data.append(count)
+
+        context['labels'] = labels
+        context['data'] = data
 
         return context

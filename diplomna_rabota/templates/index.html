@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
     <link rel="stylesheet" href="{% static 'main_page/main_page_dashboard.css' %}">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 {% if user_authenticated %}
@@ -115,6 +116,10 @@
         </div>
     </div>
 
+    <div class="orders-chart-container">
+        <h1 class="chart-title">Delivered Orders (Last 12 Months)</h1>
+        <canvas id="ordersChart"></canvas>
+    </div>
 
 </div>
 {% endif %}
@@ -124,4 +129,37 @@
 
 <script>
   lucide.createIcons();
+</script>
+
+<script>
+  const ctx = document.getElementById('ordersChart').getContext('2d');
+
+  const ordersChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ labels|safe }},
+      datasets: [{
+        label: 'Orders per Month',
+        data: {{ data|safe }},
+        backgroundColor: 'rgba(59, 130, 246, 0.7)', // Blue color
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            precision: 0
+          }
+        }
+      }
+    }
+  });
 </script>
