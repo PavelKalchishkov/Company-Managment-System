@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main_style.css' %}">
-    <link rel="stylesheet" href="{% static 'main_page/main_page_navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
     <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
     <link rel="stylesheet" href="{% static 'main_page/main_page_dashboard.css' %}">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -35,7 +35,6 @@
     </div>
 
 </div>
-
 <div class="main-content">
     <h1><i data-lucide="layout-dashboard" class="dashboard-title"></i> Dashboard</h1>
 
@@ -166,10 +165,6 @@
 </html>
 
 <script>
-  lucide.createIcons();
-</script>
-
-<script>
   const ctx = document.getElementById('ordersChart').getContext('2d');
 
   const ordersChart = new Chart(ctx, {
@@ -200,4 +195,8 @@
       }
     }
   });
+</script>
+
+<script>
+  lucide.createIcons();
 </script>

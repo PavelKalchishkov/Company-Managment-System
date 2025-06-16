@@ -1,18 +1,46 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'main_style.css' %}">
-    <title>Main Page</title>
+    <title>Orders View</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'orders_page/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     {% if user_authenticated %}
+
+        <div class="sidebar">
+  <div class="sidebar-logo">Technocenter OOD</div>
+  <div class="top-and-bottom-navigations">
+      <nav class="sidebar-menu">
+        <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
+        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
+      </nav>
+
+      <div class="sidebar-nav-bottom">
+        <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
+        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+      </div>
+    </div>
+
+</div>
+
+        <div class="main-container">
         <form method="get">
             {{ filter_form.as_p }}
             <button type="submit">Filter</button>
@@ -44,6 +72,7 @@
             <a href="{% url 'orders_delete_view' pk=order.id%}">Delete order</a>
         {% endfor %}
             </div>
+        </div>
     {% endif %}
 </body>
 </html>
@@ -52,5 +81,9 @@
     $(document).ready(function() {
       $('#id_client, #id_shipper, #id_employee, #id_order_status, #id_payment_method').select2();
   });
+</script>
+
+<script>
+  lucide.createIcons();
 </script>
 
