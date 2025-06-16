@@ -69,4 +69,6 @@ class IndexView(TemplateView):
         context['labels'] = labels
         context['data'] = data
 
+        context['recent_orders'] = Order.objects.all().order_by('-order_date')[:10]
+
         return context

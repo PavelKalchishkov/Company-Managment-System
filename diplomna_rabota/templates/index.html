@@ -121,6 +121,44 @@
         <canvas id="ordersChart"></canvas>
     </div>
 
+    <div class="order-table-container">
+  <div class="table-header">
+    <h2>Most Recent Orders</h2>
+    <a href="{% url 'orders_view' %}" class="view-all-btn">All Orders</a>
+  </div>
+
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Order Status</th>
+        <th>Order Price</th>
+        <th>Employee</th>
+        <th>Shipper</th>
+        <th>Order Date</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for order in recent_orders %}
+  <tr class="clickable-row" onclick="window.location='{% url 'orders_update_view' order.id %}'">
+    <td>#ORD{{ order.id }}</td>
+    <td>{{ order.client }}</td>
+    <td><span class="status-pill {{ order.order_status }}">{{ order.order_status|title }}</span></td>
+    <td>€{{ order.order_price }}</td>
+    <td>{{ order.employee }}</td>
+    <td>{{ order.shipper }}</td>
+    <td>{{ order.order_date }}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+
+  </table>
+</div>
+
+
+
+
 </div>
 {% endif %}
 

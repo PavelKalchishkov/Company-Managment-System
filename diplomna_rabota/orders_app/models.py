@@ -20,12 +20,8 @@ class Order(models.Model):
 
     STATUS_ORDER_CHOICES = [
         ('pending', 'pending'),
-        ('processing', 'processing'),
-        ('shipped', 'shipped'),
         ('delivered', 'delivered'),
         ('canceled', 'canceled'),
-        ('returned', 'returned'),
-        ('refunded', 'refunded'),
     ]
     order_status = models.CharField(max_length=15,
                                     choices=STATUS_ORDER_CHOICES,
