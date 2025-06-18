@@ -36,28 +36,61 @@
 
 </div>
 
-        <div class="main-container">
-        <form>
-            <input type = "text" name = "q" placeholder = "Search by product name or vendor" value = "{{ request.GET.q }}">
-            <button type="submit">Search</button>
-        </form>
+<div class="main-container">
+    <div class="search-create-container">
+      <form>
+        <input type="text" name="q" placeholder="Search by product name or vendor" value="{{ request.GET.q }}">
+        <button type="submit">Search</button>
+      </form>
         
-        <a href="{% url 'products_create_view' %}">Create product</a>
-        {% for product in products %}
-            <div class="product">
-            <h2>{{ product.id }}</h2>
-            <h2>{{ product.name }}</h2>
-            <h2>{{ product.price }}</h2>
-            <h2>{{ product.length }}</h2>
-            <h2>{{ product.weight }}</h2>
-            <h2>{{ product.color }}</h2>
-            <h2>{{ product.vendor }}</h2>    
-            <a href="{% url 'products_update_view' pk=product.id%}">Update product</a>
-            <a href="{% url 'products_delete_view' pk=product.id %}">Delete product</a>
-            <h2>--------------------------</h2>  
-            </div>
-        {% endfor %}
+      <a href="{% url 'products_create_view' %}" class="create-btn">Create Product</a>
+    </div>
+
+<div class="product-header-row">
+  <div class="product-left">Product</div>
+  <div class="product-center">
+    <div>Price</div>
+    <div>Length</div>
+    <div>Weight</div>
+    <div>Color</div>
+    <div>Vendor</div>
+  </div>
+  <div class="product-right">Actions</div>
+</div>
+
+
+  <div class="product-row-list">
+  {% for product in products %}
+    <div class="product-row">
+      <div class="product-left">
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-sku">#{{ product.id }}</p>
         </div>
+      </div>
+
+      <div class="product-center">
+        <div class="product-meta">€{{ product.price }}</div>
+        <div class="product-meta">{{ product.length }} cm</div>
+        <div class="product-meta">{{ product.weight }} kg</div>
+        <div class="product-meta">{{ product.color }}</div>
+        <div class="product-meta">{{ product.vendor }}</div>
+      </div>
+
+      <div class="product-right">
+        <a href="{% url 'products_update_view' product.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'products_delete_view' product.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+</div>
+
+
     {% endif %}
 </body>
 </html>

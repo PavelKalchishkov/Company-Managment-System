@@ -5,21 +5,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'products_page/add_product.css' %}">
+    <title>Add Product</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <h2>Update Product</h2>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        
-        <button type="submit">Make Changes</button>
-    </form>
+    <form method="POST" class="product-form">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="id_name">Name</label>
+    {{ form.name }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_price">Price</label>
+    {{ form.price }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_length">Length</label>
+    {{ form.length }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_weight">Weight</label>
+    {{ form.weight }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_color">Color</label>
+    {{ form.color }}
+  </div>
+
+  <div class="form-group">
+    <label for="id_vendor">Vendor</label>
+    {{ form.vendor }}
+  </div>
+
+  <div class="form-buttons">
+    <button type="submit" class="submit-btn">Update</button>
+    <a href="{% url 'products_view' %}" class="cancel-btn">Cancel</a>
+</div>
+</form>
 </body>
 </html>
 
