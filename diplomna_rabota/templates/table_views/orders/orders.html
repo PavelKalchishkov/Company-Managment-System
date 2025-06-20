@@ -1,13 +1,12 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders View</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
@@ -17,73 +16,110 @@
 </head>
 <body>
     {% if user_authenticated %}
-
-        <div class="sidebar">
-  <div class="sidebar-logo">Technocenter OOD</div>
-  <div class="top-and-bottom-navigations">
-      <nav class="sidebar-menu">
-        <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
-        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
-        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
-        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
-        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
-        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
-        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
-        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
-      </nav>
-
-      <div class="sidebar-nav-bottom">
-        <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
-        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+    <div class="sidebar">
+      <div class="sidebar-logo">Technocenter OOD</div>
+      <div class="top-and-bottom-navigations">
+          <nav class="sidebar-menu">
+            <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> Home</a>
+            <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
+            <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
+            <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
+            <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
+            <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
+            <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
+            <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
+            <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
+          </nav>
+          <div class="sidebar-nav-bottom">
+            <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
+            <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+          </div>
       </div>
     </div>
 
-</div>
-
-        <div class="main-container">
-        <form method="get">
-            {{ filter_form.as_p }}
-            <button type="submit">Filter</button>
-        </form>
-
-        <a href="{% url 'orders_create_view' %}">Create order</a>
-            <div class="orders">
-            {% for order in orders %}
-                <h2>Id: {{ order.id }}</h2>
-                <h2>Created at: {{ order.order_date }}</h2>
-                <h2>Address: {{ order.order_address }}</h2>
-                <h2>Payment method: {{ order.payment_method }}</h2>
-                <h2>Status: {{ order.order_status }}</h2>
-                <h2>Client: {{ order.client }}</h2>
-                <h2>Employee: {{ order.employee }}</h2>
-                <h2>Shipper: {{ order.shipper }}</h2>
-                <h2>Version: {{ order.order_version }}</h2>
-
-                <h2>Products from order: </h2>
-                <h2>----------------------</h2>
-                {% for order_product in order_products %}
-                    {% if order_product.order_id == order.id %}
-                        <h2>ID: {{ order_product.product_id }} ->Name: {{ order_product.product.name }} ->Quantity: {{ order_product.quantity }}</h2> 
-                    {% endif %}
-                {% endfor %}
-                <h2>----------------------</h2>
-                <h2>Price: {{ order.order_price }}</h2>
-            <a href="{% url 'orders_update_view' pk=order.id%}">Update order</a>
-            <a href="{% url 'orders_delete_view' pk=order.id%}">Delete order</a>
-        {% endfor %}
-            </div>
+    <div class="main-container">
+        <div class="search-create-container">
+            <form method="get" class="order-filter-form">
+                {{ filter_form.as_p }}
+                <button type="submit">Filter</button>
+            </form>
+            <a href="{% url 'orders_create_view' %}" class="create-btn">Create Order</a>
         </div>
+
+        <div class="order-header-row">
+            <div class="order-left">Order</div>
+            <div class="order-center">
+                <div>Date</div>
+                <div>Status</div>
+                <div>Client</div>
+                <div>Employee</div>
+                <div>Shipper</div>
+                <div>Payment</div>
+                <div>Price</div>
+            </div>
+            <div class="order-right">Actions</div>
+        </div>
+
+        <div class="order-row-list">
+            {% for order in orders %}
+            <div class="order-row">
+                <div class="order-left">
+                    <div class="order-info">
+                        <h3 class="order-id">#{{ order.id }}</h3>
+                        <p class="order-address">{{ order.order_address }}</p>
+                        <p class="order-version">v{{ order.order_version }}</p>
+                    </div>
+                </div>
+                <div class="order-center">
+                    <div class="order-meta">{{ order.order_date }}</div>
+                    <div class="order-meta">
+                        <span class="order-status-pill
+                            {% if order.order_status == 'canceled' %}status-canceled
+                            {% elif order.order_status == 'delivered' %}status-delivered
+                            {% elif order.order_status == 'pending' %}status-pending
+                            {% elif order.order_status == 'processing' %}status-processing
+                            {% else %}status-other
+                            {% endif %}
+                        ">{{ order.order_status|title }}</span>
+                    </div>
+                    <div class="order-meta">{{ order.client }}</div>
+                    <div class="order-meta">{{ order.employee }}</div>
+                    <div class="order-meta">{{ order.shipper }}</div>
+                    <div class="order-meta">{{ order.payment_method }}</div>
+                    <div class="order-meta">€{{ order.order_price }}</div>
+                </div>
+                <div class="order-right">
+                    <a href="{% url 'orders_update_view' pk=order.id %}" class="btn-edit">
+                        <i data-lucide="edit-3"></i> Edit
+                    </a>
+                    <a href="{% url 'orders_delete_view' pk=order.id %}" class="btn-delete">
+                        <i data-lucide="trash-2"></i> Delete
+                    </a>
+                </div>
+            </div>
+            <div class="order-products-row">
+                <div class="order-products-header">Products from order #{{ order.id }}:</div>
+                <div class="order-products-list">
+                    {% for order_product in order_products %}
+                        {% if order_product.order_id == order.id %}
+                            <div class="order-product-item">
+                                <span>{{ order_product.product.name }}</span>
+                                <span> : <b>{{ order_product.quantity }}</b></span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
     {% endif %}
 </body>
 </html>
 
 <script>
     $(document).ready(function() {
-      $('#id_client, #id_shipper, #id_employee, #id_order_status, #id_payment_method').select2();
-  });
+        $('#id_client, #id_shipper, #id_employee, #id_order_status, #id_payment_method').select2();
+    });
+    lucide.createIcons();
 </script>
-
-<script>
-  lucide.createIcons();
-</script>
-

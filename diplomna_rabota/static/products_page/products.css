@@ -2,7 +2,6 @@
     margin-left: 15.75rem;
 }
 
-/* General Typography Improvements */
 body {
   font-family: 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
@@ -16,7 +15,6 @@ body {
   padding: 2rem;
 }
 
-/* Search and Create Button */
 form input[type="text"] {
   padding: 0.5rem 1rem;
   font-size: 0.95rem;
