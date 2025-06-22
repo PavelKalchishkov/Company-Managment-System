@@ -19,46 +19,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.order-filter-form {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex: 1;
-}
-
-.order-filter-form input[type="text"],
-.order-filter-form select {
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-  border-radius: 6px;
-  border: 1px solid #cbd5e1;
-  margin-right: 1rem;
-}
-
-.order-filter-form button {
-  padding: 0.5rem 1.2rem;
-  background-color: #0ea5e9;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.create-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #10b981;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.create-btn:hover {
-  background-color: #059669;
-}
-
 /* Header Row */
 .order-header-row {
   display: flex;
@@ -212,8 +172,8 @@ body {
   background: #e0f2fe;
   border-radius: 4px;
   padding: 0.3rem 0.8rem;
-
 }
+
 
 
 

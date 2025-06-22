@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
     <link rel="stylesheet" href="{% static 'orders_page/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'orders_page/filter.css' %}">
     <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -38,13 +39,34 @@
     </div>
 
     <div class="main-container">
-        <div class="search-create-container">
-            <form method="get" class="order-filter-form">
-                {{ filter_form.as_p }}
-                <button type="submit">Filter</button>
-            </form>
-            <a href="{% url 'orders_create_view' %}" class="create-btn">Create Order</a>
-        </div>
+    <form method="get" class="order-inline-filter-bar">
+
+  <div class="filter-inline">
+    {{ filter_form.payment_method }}
+    {{ filter_form.order_status }}
+    {{ filter_form.client }}
+    {{ filter_form.employee }}
+    {{ filter_form.shipper }}
+      
+<div class="sort-buttons">
+  {% if request.GET.sort_price == 'desc' %}
+    <a href="?{{ request.GET.urlencode|cut:'sort_price=desc'|cut:'&sort_price=desc' }}" class="sort-btn active">▼ Price</a>
+  {% else %}
+    <a href="?{{ request.GET.urlencode|add:'&sort_price=desc' }}" class="sort-btn">▼ Price</a>
+  {% endif %}
+
+  {% if request.GET.sort_price == 'asc' %}
+    <a href="?{{ request.GET.urlencode|cut:'sort_price=asc'|cut:'&sort_price=asc' }}" class="sort-btn active">▲ Price</a>
+  {% else %}
+    <a href="?{{ request.GET.urlencode|add:'&sort_price=asc' }}" class="sort-btn">▲ Price</a>
+  {% endif %}
+</div>
+
+  
+    <button type="submit" class="filter-btn">Filter</button>
+    <a href="{% url 'orders_create_view' %}" class="create-btn">Create Order</a>
+  </div>
+</form>
 
         <div class="order-header-row">
             <div class="order-left">Order</div>
@@ -120,6 +142,39 @@
 <script>
     $(document).ready(function() {
         $('#id_client, #id_shipper, #id_employee, #id_order_status, #id_payment_method').select2();
+
     });
     lucide.createIcons();
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        const states = ['', 'desc', 'asc']; // Neutral, Descending, Ascending
+
+        function getNextSortState(current) {
+            const index = states.indexOf(current);
+            return states[(index + 1) % states.length];
+        }
+
+        $('#sort-price-btn').on('click', function (e) {
+            e.preventDefault();
+
+            const input = $('#sort-price-input');
+            const current = input.val() || '';
+            const next = getNextSortState(current);
+
+            input.val(next);
+
+            // Update button text
+            $(this).text(
+                next === 'asc' ? '▲ Price' :
+                next === 'desc' ? '▼ Price' :
+                '– Price'
+            );
+
+            // Submit the form
+            $(this).closest('form').submit();
+        });
+    });
 </script>

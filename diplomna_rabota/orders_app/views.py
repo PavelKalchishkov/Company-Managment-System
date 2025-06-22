@@ -23,7 +23,15 @@ class OrdersView(ListView, LoginRequiredMixin):
     def get_queryset(self):
         queryset = super().get_queryset()
         self.filterset = OrderViewFilter(self.request.GET, queryset=queryset)
-        return self.filterset.qs
+        filtered_queryset = self.filterset.qs
+
+        sort_price = self.request.GET.get('sort_price')
+        if sort_price == 'asc':
+            filtered_queryset = filtered_queryset.order_by('order_price')
+        elif sort_price == 'desc':
+            filtered_queryset = filtered_queryset.order_by('-order_price')
+
+        return filtered_queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
