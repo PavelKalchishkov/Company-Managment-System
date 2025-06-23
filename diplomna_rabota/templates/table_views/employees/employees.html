@@ -37,23 +37,53 @@
 
 </div>
     <div class="main-container">
+    <div class="first-container">
         <form>
             <input type = "text" name = "q" placeholder = "Search by name or phone number" value = "{{ request.GET.q }}">
             <button type="submit">Search</button>
         </form>
-        
-        <a href="{% url 'employees_create_view' %}">Create employee</a>
-        {% for employee in employees %}
-            <div class="employee">
-            <h2>{{ employee.name }}</h2>
-            <h2>{{ employee.phone_number }}</h2>
-            <h2>{{ employee.age }}</h2>
-            <h2>{{ employee.brute_salary }}</h2>
-            <a href="{% url 'employees_update_view' pk=employee.id%}">Update employee</a>
-            <a href="{% url 'employees_delete_view' pk=employee.id %}">Delete employee</a>
-            <h2>--------------------------</h2>
-            </div>
-        {% endfor %}
+
+        <a href="{% url 'employees_create_view' %}" class="create-btn">Create Employee</a>
+    </div>
+<div class="employee-header-row">
+  <div class="employee-left">Employee</div>
+  <div class="employee-center">
+    <div>Phone</div>
+    <div>Age</div>
+    <div>Salary</div>
+  </div>
+  <div class="employee-right">Actions</div>
+</div>
+
+<div class="employee-row-list">
+  {% for employee in employees %}
+    <div class="employee-row">
+      <div class="employee-left">
+        <div class="employee-info">
+          <h3 class="employee-name">{{ employee.name }}</h3>
+          <p class="employee-id">#{{ employee.id }}</p>
+        </div>
+      </div>
+
+      <div class="employee-center">
+        <div class="employee-meta">{{ employee.phone_number }}</div>
+        <div class="employee-meta">{{ employee.age }}</div>
+        <div class="employee-meta">€{{ employee.brute_salary }}</div>
+      </div>
+
+      <div class="employee-right">
+        <a href="{% url 'employees_update_view' pk=employee.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'employees_delete_view' pk=employee.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
     </div>
     {% endif %}
 </body>

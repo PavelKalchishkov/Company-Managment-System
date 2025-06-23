@@ -3,16 +3,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Employee</title>
+  <link rel="stylesheet" href="{% static 'employees_page/delete_employee.css' %}">
 </head>
 <body>
-    <h1>Delete Employee</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Delete Employee</button>
+  <div class="delete-container">
+    <h1>Remove {{ employee }}</h1>
+    <p class="delete-warning">Are you sure you want to remove this employee? This action cannot be undone.</p>
+    <form method="POST" class="delete-form">
+      {% csrf_token %}
+      <div class="form-buttons">
+        <button type="submit" class="delete-btn">Delete</button>
+        <a href="{% url 'employees_view' %}" class="cancel-btn">Cancel</a>
+      </div>
     </form>
+  </div>
 </body>
 </html>
