@@ -36,24 +36,52 @@
 
 </div>
         <div class="main-container">
+        <div class="first-container">
         <form>
             <input type = "text" name = "q" placeholder = "Search by name or phone number" value = "{{ request.GET.q }}">
             <button type="submit">Search</button>
         </form>
         
-        <a href="{% url 'clients_create_view' %}">Create client</a>
-        {% for client in clients %}
-            <div class="clients">
-            <h2>{{ client.first_name }}</h2>
-            <h2>{{ client.last_name }}</h2>
-            <h2>{{ client.phone_number }}</h2>
-            <h2>{{ client.email }}</h2>   
-            <h2>{{ client.address }}</h2>
-            <a href="{% url 'clients_update_view' pk=client.id%}">Update client</a>
-            <a href="{% url 'clients_delete_view' pk=client.id%}">Delete client</a>
-            <h2>--------------------------</h2>
-            </div>
-        {% endfor %}
+        <a href="{% url 'clients_create_view' %}" class="create-btn">Create Client</a>
+        </div>
+        
+        <div class="client-header-row">
+  <div class="client-left">Client</div>
+  <div class="client-center">
+    <div>Phone</div>
+    <div>Email</div>
+    <div>Address</div>
+  </div>
+  <div class="client-right">Actions</div>
+</div>
+
+<div class="client-row-list">
+  {% for client in clients %}
+    <div class="client-row">
+      <div class="client-left">
+        <div class="client-info">
+          <h3 class="client-name">{{ client.first_name }} {{ client.last_name }}</h3>
+          <p class="client-id">#{{ client.id }}</p>
+        </div>
+      </div>
+
+      <div class="client-center">
+        <div class="client-meta">{{ client.phone_number }}</div>
+        <div class="client-meta">{{ client.email }}</div>
+        <div class="client-meta">{{ client.address }}</div>
+      </div>
+
+      <div class="client-right">
+        <a href="{% url 'clients_update_view' pk=client.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'clients_delete_view' pk=client.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
         </div>
     {% endif %}
 
