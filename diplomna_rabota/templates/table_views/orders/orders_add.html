@@ -28,8 +28,9 @@
     {% endfor %}
   </div>
 
-  <button type="button" id="add-more">Add More Products</button>
-  <button type="submit">Submit</button>
+  <button type="submit">Save Changes</button>
+    <button type="button" class="cancel-button" onclick="window.location.href='{% url 'orders_view' %}'">Cancel</button>
+    <button type="button" id="add-more">Add More Products</button>
 </form>
     
 <script src="{% static 'javascript/add_product_button.js' %}"></script>

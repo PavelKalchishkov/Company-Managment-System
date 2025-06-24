@@ -33,8 +33,9 @@
         </div>
     </div>
 
-    <button type="button" id="add-more">Add More Products</button>
     <button type="submit">Save Changes</button>
+    <button type="button" class="cancel-button" onclick="window.location.href='{% url 'orders_view' %}'">Cancel</button>
+    <button type="button" id="add-more">Add More Products</button>
 </form>
 
 <script src="{% static 'javascript/update_order_button.js' %}"></script>
