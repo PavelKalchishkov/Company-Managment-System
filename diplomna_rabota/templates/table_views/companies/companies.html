@@ -38,23 +38,30 @@
 </div>
 
         <div class="main-container">
-        <form method="get" action="">
-            <input type="text" name="q" placeholder="Search by name or eik" value="{{ request.GET.q }}">
-            <button type="submit">Search</button>
-        </form>
+        <div class="first-container">
+            <form method="get" action="">
+                <input type="text" name="q" placeholder="Search by name or eik" value="{{ request.GET.q }}">
+                <button type="submit">Search</button>
+            </form>
+            <a href="{% url 'companies_add_view' %}" class="create-btn">Add company</a>
+        </div>
 
-        <a href="{% url 'companies_add_view' %}">Add company</a>
         {% for company in companies %}
             <div class="company">
-            <h2>Eik: {{ company.eik }}</h2>
-            <h2>Dds: {{ company.dds }}</h2>
-            <h2>Name: {{ company.name }}</h2>
-            <h2>Address: {{ company.address }}</h2>
-            <h2>Mol: {{ company.mol }}</h2>
-            <h2>Recipient: {{ company.recipient }}</h2>    
-            <a href="{% url 'companies_update_view' pk=company.id%}">Update company</a>
-            <a href="{% url 'companies_delete_view' pk=company.id %}">Remove company</a>
-            <h2>--------------------------</h2>  
+            <div class="company-information">
+                <h2>Eik: {{ company.eik }}</h2>
+                <h2>Dds: {{ company.dds }}</h2>
+                <h2>Name: {{ company.name }}</h2>
+                <h2>Address: {{ company.address }}</h2>
+                <h2>Mol: {{ company.mol }}</h2>
+                <h2>Recipient: {{ company.recipient }}</h2>
+            </div>
+            <div class="company-information-buttons">
+                <a href="{% url 'companies_update_view' pk=company.id%}" class="btn-edit">
+                    <i data-lucide="edit-3"></i>Update</a>
+                <a href="{% url 'companies_delete_view' pk=company.id %}" class="btn-delete">
+                    <i data-lucide="trash-2"></i>Remove</a>
+            </div>
             </div>
         {% endfor %}
         </div>

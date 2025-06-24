@@ -7,11 +7,13 @@ class CompanyCreateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
+        exclude = ('added_at',)
 
 class CompanyUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
+        exclude = ('added_at',)
 
 class InvoiceCreateForm(forms.ModelForm):
     class Meta:

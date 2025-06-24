@@ -101,7 +101,6 @@ body {
   gap: 0.6rem;
 }
 
-/* Reuse Buttons from Products */
 .btn-edit,
 .btn-delete {
   text-decoration: none;
@@ -178,3 +177,10 @@ form button {
 .first-container form {
   margin-top: 0.8rem;
 }
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.company-form {
+  background: #fff;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 35px 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+}
+
+.form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #314056;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  border: 1.5px solid #d5dbe6;
+  border-radius: 7px;
+  padding: 11px 14px;
+  font-size: 1rem;
+  background: #f9fafc;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2576ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 118, 255, 0.10);
+  background: #fff;
+}
+
+.form-error {
+  color: #b91c1c;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.submit-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 13px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 118, 255, 0.08);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 4px 14px rgba(37, 118, 255, 0.13);
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+  color: #222;
+}
