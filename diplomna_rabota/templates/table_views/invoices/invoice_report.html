@@ -64,12 +64,19 @@
         </div>
      </div>
   </form>
+        <div class="invoice-summary">
+          <h3>Invoice Summary 📊</h3>
+          <ul>
+            <li><span>Total invoices:</span> {{ total_invoices }}</li>
+            <li><span>Total active invoices:</span> {{ total_active_invoices }}</li>
+            <li><span>Total price with DDS:</span> {{ total_sum_with_dds }}</li>
+            <li><span>Total price without DDS:</span> {{ total_sum_without_dds }}</li>
+            <li><span>Total DDS:</span> {{ total_dds }}</li>
+          </ul>
+        </div>
+   
 </div>
-        <h2>Total invoices: {{ total_invoices }}</h2>
-        <h2>Total active invoices: {{ total_active_invoices }}</h2>
-        <h2>Total price with dds: {{ total_sum_with_dds }}</h2>
-        <h2>Total price without dds: {{ total_sum_without_dds }}</h2>
-        <h2>Total dds: {{ total_dds }}</h2>
+
         {% for invoice in invoices %}
     <div class="invoice-card">
       <div class="invoice-info">
