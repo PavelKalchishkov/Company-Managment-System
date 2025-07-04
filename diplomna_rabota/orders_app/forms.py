@@ -28,7 +28,8 @@ class OrderProductForm(forms.ModelForm):
 class OrderViewFilter(django_filters.FilterSet):
     payment_method = django_filters.ChoiceFilter(
         choices=Order._meta.get_field('payment_method').choices,
-        widget=forms.Select(attrs={
+        widget=forms.Select(
+            attrs={
             'class': 'select2',
             'data-placeholder': 'Payment'
         })

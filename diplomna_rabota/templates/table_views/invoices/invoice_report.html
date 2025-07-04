@@ -1,61 +1,105 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Invoices Report</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <title>Invoices Report</title>
+    <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'invoices_page/invoices.css' %}">
+    <link rel="stylesheet" href="{% static 'invoices_page/invoices_report.css' %}">
+    <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     {% if user_authenticated %}
-        <a href="{% url 'invoices_view' %}">Back to invoices</a>
-        
-        <form method="get">
-            {{ filter_form.as_p }}
-            <button type="submit">Filter</button>
-        </form>
-        <a href="{% url 'invoices_report_view' %}">Remove filters</a>
-        <p>-----------------------------------------</p>
+<div class="sidebar">
+  <div class="sidebar-logo">Technocenter OOD</div>
+  <div class="top-and-bottom-navigations">
+      <nav class="sidebar-menu">
+        <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> Home</a>
+        <a class="sidebar-link" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
+        <a class="sidebar-link active" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
+      </nav>
+
+      <div class="sidebar-nav-bottom">
+        <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
+        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+      </div>
+    </div>
+
+</div>
+
+<div class="main-container">
+<div class="order-inline-filter-bar">
+  <form method="get" class="filter-inline">
+    <div class="first-filter-line">
+        {{ filter_form.DDS }}
+        {{ filter_form.cancelled }}
+        {{ filter_form.company }}
+        {{ filter_form.order }}
+    </div>
+    <div class="second-filter-line">
+        <div>
+            {{ filter_form.whole_price_without_dds}}
+        </div>
+        <div>
+            {{ filter_form.whole_price_with_dds}}
+        </div>
+        <div>
+        {{ filter_form.date}}
+        </div>
+        <div class="filter-buttons">
+            <button type="submit" class="filter-btn">Filter</button>
+            <a href="{% url 'invoices_report_view' %}" class="sort-btn">Reset</a>
+        </div>
+     </div>
+  </form>
+</div>
         <h2>Total invoices: {{ total_invoices }}</h2>
         <h2>Total active invoices: {{ total_active_invoices }}</h2>
         <h2>Total price with dds: {{ total_sum_with_dds }}</h2>
         <h2>Total price without dds: {{ total_sum_without_dds }}</h2>
         <h2>Total dds: {{ total_dds }}</h2>
-        <p>-----------------------------------------</p>
         {% for invoice in invoices %}
-            <div class="invoice">
-            <h2>{{ invoice }}</h2>
-            <h2>Active status: {% if not invoice.cancelled %}
-                                    Active
-                                {% else %}
-                                    Cancelled
-                               {% endif %}
-            </h2>
-            <h2>--------------------------</h2>
-            <h2>Supplier information</h2>
-            <h2>supplier eik: {{ invoice.supplier_eik }}</h2>
-            <h2>supplier dds: {{ invoice.supplier_dds }}</h2>
-            <h2>supplier name: {{ invoice.supplier_name }}</h2>
-            <h2>supplier_address: {{ invoice.supplier_address }}</h2>
-            <h2>supplier_mol: {{ invoice.supplier_mol }}</h2>
-            <h2>supplier_phone_number: {{ invoice.supplier_phone_number }}</h2>
-            <h2>supplier_email: {{ invoice.supplier_email }}</h2>
-            <h2>--------------------------</h2>
-            <h2>Invoice details</h2>
-            <h2>DDS: {{ invoice.DDS }}</h2>
-            <h2>date: {{ invoice.date }}</h2>
-            <h2>comment: {{ invoice.comment }}</h2>
-            <h2>whole_price_without_dds: {{ invoice.whole_price_without_dds }}</h2>
-            <h2>whole_price_with_dds: {{ invoice.whole_price_with_dds }}</h2>
-            <h2>discount: {{ invoice.discount }}%</h2>
-            <h2>--------------------------</h2>
-            <h2>Company: {{ invoice.company }}</h2>
-            <h2>Order: {{ invoice.order }}</h2>
-            <h2>--------------------------------------------------------------------</h2>
-            </div>
-        {% endfor %}
+    <div class="invoice-card">
+      <div class="invoice-info">
+        <h2><strong>{{ invoice }}</strong></h2>
+        <p>Status: <span style="font-weight: 500;">
+          {% if not invoice.cancelled %} Active {% else %} Cancelled {% endif %}
+        </span></p>
+        <hr>
+        <p><strong>DDS:</strong> {{ invoice.DDS }}</p>
+        <p><strong>Date:</strong> {{ invoice.date }}</p>
+        <p><strong>Price (no DDS):</strong> {{ invoice.whole_price_without_dds }}</p>
+        <p><strong>Price (w/ DDS):</strong> {{ invoice.whole_price_with_dds }}</p>
+        <p><strong>Discount:</strong> {{ invoice.discount }}%</p>
+        <hr>
+        <p><strong>Company:</strong> {{ invoice.company }}</p>
+        <p><strong>Order:</strong> {{ invoice.order }}</p>
+        <p><strong>Comment:</strong> {{ invoice.comment }}</p>
+      </div>
 
+      <div class="invoice-actions">
+        <a href="{% url 'invoices_update_view' pk=invoice.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i>Update
+        </a>
+        <a href="{% url 'invoices_delete_view' pk=invoice.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i>Remove
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
     {% endif %}
 </body>
 </html>
@@ -64,4 +108,8 @@
     $(document).ready(function() {
       $('#id_company, #id_order').select2();
   });
+</script>
+
+<script>
+  lucide.createIcons();
 </script>

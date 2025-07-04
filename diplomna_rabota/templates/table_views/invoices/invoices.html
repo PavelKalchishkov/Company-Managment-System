@@ -12,7 +12,7 @@
     <title>Invoices View</title>
 </head>
 <body>
-    {% if user_authenticated %}
+{% if user_authenticated %}
 
 <div class="sidebar">
   <div class="sidebar-logo">Technocenter OOD</div>
@@ -37,44 +37,43 @@
 
 </div>
 
-        <div class="main-container">
-        <a href="{% url 'invoices_add_view' %}">Create invoice</a>
-        <a href="{% url 'invoices_report_view' %}">Invoices report</a>
-        {% for invoice in invoices %}
-            <div class="invoice">
-            <h2>{{ invoice }}</h2>
-            <h2>Active status: {% if not invoice.cancelled %}
-                                    Active
-                                {% else %}
-                                    Cancelled
-                               {% endif %}
-            </h2>
-            <h2>--------------------------</h2>
-            <h2>Supplier information</h2>
-            <h2>supplier eik: {{ invoice.supplier_eik }}</h2>
-            <h2>supplier dds: {{ invoice.supplier_dds }}</h2>
-            <h2>supplier name: {{ invoice.supplier_name }}</h2>
-            <h2>supplier_address: {{ invoice.supplier_address }}</h2>
-            <h2>supplier_mol: {{ invoice.supplier_mol }}</h2>
-            <h2>supplier_phone_number: {{ invoice.supplier_phone_number }}</h2>
-            <h2>supplier_email: {{ invoice.supplier_email }}</h2>
-            <h2>--------------------------</h2>
-            <h2>Invoice details</h2>    
-            <h2>DDS: {{ invoice.DDS }}</h2>
-            <h2>date: {{ invoice.date }}</h2>
-            <h2>comment: {{ invoice.comment }}</h2>  
-            <h2>whole_price_without_dds: {{ invoice.whole_price_without_dds }}</h2>    
-            <h2>whole_price_with_dds: {{ invoice.whole_price_with_dds }}</h2>    
-            <h2>discount: {{ invoice.discount }}%</h2>
-            <h2>--------------------------</h2> 
-            <h2>Company: {{ invoice.company }}</h2>
-            <h2>Order: {{ invoice.order }}</h2>    
-            <a href="{% url 'invoices_update_view' pk=invoice.id%}">Update invoice</a>
-            <a href="{% url 'invoices_delete_view' pk=invoice.id %}">Remove invoice</a>
-            <h2>--------------------------------------------------------------------</h2>
-            </div>
-        {% endfor %}
-        </div>
+<div class="main-container">
+  <div class="first-container">
+    <a href="{% url 'invoices_add_view' %}" class="create-btn">Create Invoice</a>
+    <a href="{% url 'invoices_report_view' %}" class="create-btn" style="background-color: #6366f1;">Invoices Report</a>
+  </div>
+
+  {% for invoice in invoices %}
+    <div class="invoice-card">
+      <div class="invoice-info">
+        <h2><strong>{{ invoice }}</strong></h2>
+        <p>Status: <span style="font-weight: 500;">
+          {% if not invoice.cancelled %} Active {% else %} Cancelled {% endif %}
+        </span></p>
+        <hr>
+        <p><strong>DDS:</strong> {{ invoice.DDS }}</p>
+        <p><strong>Date:</strong> {{ invoice.date }}</p>
+        <p><strong>Price (no DDS):</strong> {{ invoice.whole_price_without_dds }}</p>
+        <p><strong>Price (w/ DDS):</strong> {{ invoice.whole_price_with_dds }}</p>
+        <p><strong>Discount:</strong> {{ invoice.discount }}%</p>
+        <hr>
+        <p><strong>Company:</strong> {{ invoice.company }}</p>
+        <p><strong>Order:</strong> {{ invoice.order }}</p>
+        <p><strong>Comment:</strong> {{ invoice.comment }}</p>
+      </div>
+
+      <div class="invoice-actions">
+        <a href="{% url 'invoices_update_view' pk=invoice.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i>Update
+        </a>
+        <a href="{% url 'invoices_delete_view' pk=invoice.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i>Remove
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
     {% endif %}
 </body>
 </html>

@@ -1,5 +1,7 @@
 from django import forms
 import django_filters
+
+from orders_app.models import Order
 from .models import Company, Invoice
 
 
@@ -28,12 +30,43 @@ class InvoiceUpdateForm(forms.ModelForm):
         exclude = ['date']
 
 class InvoiceReportFilter(django_filters.FilterSet):
-    whole_price_without_dds = django_filters.RangeFilter()
-    whole_price_with_dds = django_filters.RangeFilter()
+    whole_price_without_dds = django_filters.RangeFilter(
+        widget=django_filters.widgets.RangeWidget(
+            attrs={'placeholder': 'Price without DDS'}))
+
+    whole_price_with_dds = django_filters.RangeFilter(
+        widget=django_filters.widgets.RangeWidget(
+            attrs={'placeholder': 'Price with DDS'}))
+
     date = django_filters.DateFromToRangeFilter(
         widget=django_filters.widgets.RangeWidget(
-            attrs={'type': 'date'}
-        )
+            attrs={'type': 'date'}))
+
+    DDS = django_filters.ChoiceFilter(
+        choices=[('', 'DDS')] + list(Invoice._meta.get_field('DDS').choices),
+        empty_label=None)
+
+    cancelled = django_filters.ChoiceFilter(
+        choices=[
+            ('', 'Status'),
+            ('False', 'Active'),
+            ('True', 'Cancelled'),
+        ],
+        empty_label=None)
+
+    company = django_filters.ModelChoiceFilter(
+        queryset=Company.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'select2',
+            'data-placeholder': 'Company'
+        }))
+
+    order = django_filters.ModelChoiceFilter(
+        queryset=Order.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'select2',
+            'data-placeholder': 'Order'
+        })
     )
 
     class Meta:
