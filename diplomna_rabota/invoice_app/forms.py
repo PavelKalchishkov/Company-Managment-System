@@ -9,13 +9,13 @@ class CompanyCreateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
-        exclude = ('added_at',)
+        exclude = ('added_at','')
 
 class CompanyUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
-        exclude = ('added_at',)
+        exclude = ('added_at','supplier_eik','supplier_dds','supplier_name','supplier_address','supplier_mol','supplier_phone_number','supplier_email')
 
 class InvoiceCreateForm(forms.ModelForm):
     class Meta:

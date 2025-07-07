@@ -18,14 +18,6 @@ class Company(models.Model):
         return f"{self.eik} - {self.name}"
 
 class Invoice(models.Model):
-    supplier_eik = models.CharField(max_length=13, default='000000000')
-    supplier_dds = models.CharField(max_length=20, default='BG000000000')
-    supplier_name = models.CharField(max_length=100, default='firma_firma')
-    supplier_address = models.CharField(max_length=100,default='goce delchev 30')
-    supplier_mol = models.CharField(max_length=100, default='Pavel Kalchishkov')
-    supplier_phone_number = models.CharField(max_length=100, default='089 860 2996')
-    supplier_email = models.CharField(max_length=100, default='pavelkalchishkov@gmail.com')
-
     DDS_CHOICES = [
         ('20', '20'),
         ('9', '9'),

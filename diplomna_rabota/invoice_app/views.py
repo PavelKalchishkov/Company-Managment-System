@@ -145,7 +145,7 @@ class InvoicesReportView(ListView, LoginRequiredMixin):
                 active_invoices_counter += 1
                 total_sum_with_dds += invoice.whole_price_with_dds
                 total_sum_without_dds += invoice.whole_price_without_dds
-        total_dds = total_sum_without_dds - total_sum_with_dds
+        total_dds = (total_sum_without_dds - total_sum_with_dds)*(-1)
 
         context['total_active_invoices'] = active_invoices_counter
         context['total_sum_with_dds'] = total_sum_with_dds

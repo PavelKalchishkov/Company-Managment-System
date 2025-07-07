@@ -3,16 +3,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Invoice</title>
+  <link rel="stylesheet" href="{% static 'invoices_page/delete_invoice.css' %}">
 </head>
 <body>
-    <h1>Remove invoice</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Remove Invoice</button>
+  <div class="delete-container">
+    <h1>Remove {{ invoice }}</h1>
+    <p class="delete-warning">Are you sure you want to remove this invoice? This action cannot be undone.</p>
+    <form method="POST" class="delete-form">
+      {% csrf_token %}
+      <div class="form-buttons">
+        <button type="submit" class="delete-btn">Delete</button>
+        <a href="{% url 'invoices_view' %}" class="cancel-btn">Cancel</a>
+      </div>
     </form>
+  </div>
 </body>
 </html>

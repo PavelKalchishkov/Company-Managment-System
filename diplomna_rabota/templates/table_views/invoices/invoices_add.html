@@ -10,95 +10,62 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="{% static 'invoices_page/add_invoice.css' %}">
 </head>
 <body>
 <div id="main-div" style="display: flex;">
-    
+
     <div id="form-div">
         <h2>Create Invoice</h2>
         <form method="post">
           {% csrf_token %}
-          
-          <div class="form-group">
-            <label for="id_supplier_eik">Supplier EIK:</label>
-            {{ form.supplier_eik }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_dds">Supplier DDS:</label>
-            {{ form.supplier_dds }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_name">Supplier Name:</label>
-            {{ form.supplier_name }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_address">Supplier Address:</label>
-            {{ form.supplier_address }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_mol">Supplier MOL:</label>
-            {{ form.supplier_mol }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_phone_number">Supplier Phone Number:</label>
-            {{ form.supplier_phone_number }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_supplier_email">Supplier Email:</label>
-            {{ form.supplier_email }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_DDS">DDS:</label>
-            {{ form.DDS }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_comment">Comment:</label>
-            {{ form.comment }}
-          </div>
-        
-          <div class="form-group">
-            <label for="id_discount">Discount:</label>
-            {{ form.discount }}
-          </div>
-        
-          <div class="form-group">
+
+            <div class="form-group">
             <label for="id_company">Company:</label>
             {{ form.company }}
           </div>
-        
+
           <div class="form-group">
             <label for="id_order">Order:</label>
             {{ form.order }}
           </div>
-        
+
+          <div class="form-group">
+            <label for="id_DDS">DDS:</label>
+            {{ form.DDS }}
+          </div>
+
+          <div class="form-group">
+            <label for="id_comment">Comment:</label>
+            {{ form.comment }}
+          </div>
+
+          <div class="form-group">
+            <label for="id_discount">Discount:</label>
+            {{ form.discount }}
+          </div>
+
           <div class="form-group">
             <label for="price_without_dds">Whole Price (without DDS):</label>
             {{ form.whole_price_without_dds }}
           </div>
-        
+
           <div class="form-group">
             <label for="price_with_dds">Whole Price (with DDS):</label>
             {{ form.whole_price_with_dds }}
           </div>
-        
+
           <div class="form-actions">
-            <button id="submit_btn" type="submit">Create Invoice</button>
+            <button id="submit_btn" type="submit" class="submit-btn">Create Invoice</button>
+            <a id="cancel_btn" href="{% url 'invoices_view' %}" class="cancel-btn">Cancel Creation</a>
           </div>
         </form>
-        <a id = "cancel_btn" href="{% url 'invoices_view' %}">Cancel Creation</a>
+
     </div>
-    
-    <div id="company-div" style="padding-left: 150px">
+
+    <div id="company-div">
         <a href="{% url 'companies_add_view' %}?next={% url 'invoices_add_view' %}">Add new company</a>
-        <h4>Company_database_name</h4>
+        <h4>Company</h4>
         <p id="company_database_name_p">-</p>
         <h4>Company id</h4>
         <p id="company_id_p">-</p>
@@ -115,17 +82,17 @@
         <h4>Company recipient</h4>
         <p id="company_recipient_p">-</p>
     </div>
-    
-    <div id="order-div" style="padding-left:150px">
+
+    <div id="order-div">
         <a href="{% url 'orders_create_view' %}?next={% url 'invoices_add_view' %}">Create New Order</a>
-        <h4>Order id</h4>
+        <h4>Order</h4>
         <p id="order_id_p">-</p>
         <h4>Order price</h4>
         <p id="order_price_p">-</p>
         <h4>Order products</h4>
         <p id="order_products_p">-</p>
         <h4>Order payment method</h4>
-        <p id="order_payment_method_p">-</p>    
+        <p id="order_payment_method_p">-</p>
         <h4>Order status</h4>
         <p id="order_status_p">-</p>
         <h4>Order address</h4>
@@ -158,8 +125,8 @@
 <script src="{% static 'javascript/invoice_js/load_company_values.js' %}"></script>
 <script src="{% static 'javascript/invoice_js/load_order_values.js' %}"></script>
 <script src="{% static 'javascript/invoice_js/load_invoice_local_storage.js' %}"></script>
-<script src="{% static 'javascript/invoice_js/load_newly_created_company.js' %}"></script>   
-<script src="{% static 'javascript/invoice_js/load_newly_created_order.js' %}"></script>    
+<script src="{% static 'javascript/invoice_js/load_newly_created_company.js' %}"></script>
+<script src="{% static 'javascript/invoice_js/load_newly_created_order.js' %}"></script>
 {% endblock %}
 
 
