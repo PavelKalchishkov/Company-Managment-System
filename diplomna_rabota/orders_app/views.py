@@ -165,7 +165,7 @@ def get_order_values(request, order_id):
         for order_product in OrderProduct.objects.filter(order=order).select_related('product'):
             product = order_product.product
             products_data.append(
-                f'product_id: {product.id}|product_name: {product.name}|quantity: {order_product.quantity}')
+                f'{product.name} : {order_product.quantity}')
 
         return JsonResponse({
             'id': str(order.id),
