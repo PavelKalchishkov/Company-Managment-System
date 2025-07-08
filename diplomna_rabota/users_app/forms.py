@@ -22,3 +22,6 @@ class CustomUserEditProfileForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['phone_number'].required = False
+
+        if 'password' in self.fields:
+            del self.fields['password']
