@@ -8,7 +8,7 @@ from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, Invo
 from .models import Company, Invoice
 
 
-class CompaniesView(ListView, LoginRequiredMixin):
+class CompaniesView(LoginRequiredMixin, ListView):
     model = Company
     template_name = 'table_views/companies/companies.html'
     context_object_name = 'companies'
@@ -32,7 +32,7 @@ class CompaniesView(ListView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class CompaniesCreateView(CreateView, LoginRequiredMixin):
+class CompaniesCreateView(LoginRequiredMixin, CreateView):
     model = Company
     form_class = CompanyCreateForm
     template_name = 'table_views/companies/companies_add.html'
@@ -44,14 +44,14 @@ class CompaniesCreateView(CreateView, LoginRequiredMixin):
             return url
         return reverse_lazy('companies_view')
 
-class CompaniesUpdateView(UpdateView, LoginRequiredMixin):
+class CompaniesUpdateView(LoginRequiredMixin, UpdateView):
     model = Company
     form_class = CompanyUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_update.html'
     success_url = reverse_lazy('companies_view')
 
-class CompaniesDeleteView(DeleteView, LoginRequiredMixin):
+class CompaniesDeleteView(LoginRequiredMixin, DeleteView):
     model = Company
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_delete.html'
@@ -72,7 +72,7 @@ def get_company_values(request, company_id):
     })
 
 
-class InvoicesView(ListView, LoginRequiredMixin):
+class InvoicesView(LoginRequiredMixin, ListView):
     model = Invoice
     template_name = 'table_views/invoices/invoices.html'
     context_object_name = 'invoices'
@@ -86,7 +86,7 @@ class InvoicesView(ListView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class InvoicesCreateView(CreateView, LoginRequiredMixin):
+class InvoicesCreateView(LoginRequiredMixin, CreateView):
     model = Invoice
     form_class = InvoiceCreateForm
     template_name = 'table_views/invoices/invoices_add.html'
@@ -100,20 +100,20 @@ class InvoicesCreateView(CreateView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class InvoicesUpdateView(UpdateView, LoginRequiredMixin):
+class InvoicesUpdateView(LoginRequiredMixin, UpdateView):
     model = Invoice
     form_class = InvoiceUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoices_update.html'
     success_url = reverse_lazy('invoices_view')
 
-class InvoicesDeleteView(DeleteView, LoginRequiredMixin):
+class InvoicesDeleteView(LoginRequiredMixin, DeleteView):
     model = Invoice
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoices_delete.html'
     success_url = reverse_lazy('invoices_view')
 
-class InvoicesReportView(ListView, LoginRequiredMixin):
+class InvoicesReportView(LoginRequiredMixin, ListView):
     model = Invoice
     queryset = Invoice.objects.all()
     template_name = 'table_views/invoices/invoice_report.html'
@@ -151,8 +151,6 @@ class InvoicesReportView(ListView, LoginRequiredMixin):
         context['total_sum_with_dds'] = total_sum_with_dds
         context['total_sum_without_dds'] = total_sum_without_dds
         context['total_dds'] = total_dds
-
-
 
 
         return context

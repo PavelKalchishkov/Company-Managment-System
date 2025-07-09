@@ -7,7 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .forms import ProductCreateForm, ProductUpdateForm
 from .models import Product
 
-class ProductsView(ListView, LoginRequiredMixin):
+class ProductsView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'table_views/products/products.html'
     context_object_name = 'products'
@@ -31,7 +31,7 @@ class ProductsView(ListView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class ProductsCreateView(CreateView, LoginRequiredMixin):
+class ProductsCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductCreateForm
     template_name = 'table_views/products/products_add.html'
@@ -44,14 +44,14 @@ class ProductsCreateView(CreateView, LoginRequiredMixin):
 
         return redirect('products_view')
 
-class ProductsUpdateView(UpdateView, LoginRequiredMixin):
+class ProductsUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/products/products_update.html'
     success_url = reverse_lazy('products_view')
 
-class ProductsDeleteView(DeleteView, LoginRequiredMixin):
+class ProductsDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     pk_url_kwarg = 'pk'
     template_name = 'table_views/products/products_delete.html'

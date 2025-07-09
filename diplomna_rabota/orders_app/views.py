@@ -14,7 +14,7 @@ from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm, OrderVi
 from .models import Order
 
 
-class OrdersView(ListView, LoginRequiredMixin):
+class OrdersView(LoginRequiredMixin, ListView):
     model = Order
     template_name = 'table_views/orders/orders.html'
     context_object_name = 'orders'
@@ -143,7 +143,7 @@ class OrdersUpdateView(LoginRequiredMixin, UpdateView):
             return self.render_to_response(self.get_context_data(form=form))
 
 
-class OrdersDeleteView(DeleteView, LoginRequiredMixin):
+class OrdersDeleteView(LoginRequiredMixin, DeleteView):
     model = Order
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/orders_delete.html'

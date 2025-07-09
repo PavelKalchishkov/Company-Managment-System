@@ -7,7 +7,7 @@ from .forms import EmployeeCreateForm, EmployeeUpdateForm
 from .models import Employee
 
 
-class EmployeesView(ListView, LoginRequiredMixin):
+class EmployeesView(LoginRequiredMixin, ListView):
     model = Employee
     template_name = 'table_views/employees/employees.html'
     context_object_name = 'employees'
@@ -34,20 +34,20 @@ class EmployeesView(ListView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class EmployeesCreateView(CreateView, LoginRequiredMixin):
+class EmployeesCreateView(LoginRequiredMixin, CreateView):
     model = Employee
     form_class = EmployeeCreateForm
     template_name = 'table_views/employees/employees_add.html'
     success_url = reverse_lazy('employees_view')
 
-class EmployeesUpdateView(UpdateView, LoginRequiredMixin):
+class EmployeesUpdateView(LoginRequiredMixin, UpdateView):
     model = Employee
     form_class = EmployeeUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_update.html'
     success_url = reverse_lazy('employees_view')
 
-class EmployeesDeleteView(DeleteView, LoginRequiredMixin):
+class EmployeesDeleteView(LoginRequiredMixin, DeleteView):
     model = Employee
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_delete.html'

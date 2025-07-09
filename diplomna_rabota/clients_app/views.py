@@ -7,7 +7,7 @@ from .forms import ClientCreateForm, ClientUpdateForm
 from .models import Client
 
 
-class ClientsView(ListView, LoginRequiredMixin):
+class ClientsView(LoginRequiredMixin, ListView):
     model = Client
     template_name = 'table_views/clients/clients.html'
     context_object_name = 'clients'
@@ -35,20 +35,20 @@ class ClientsView(ListView, LoginRequiredMixin):
         context['user'] = user
         return context
 
-class ClientsCreateView(CreateView, LoginRequiredMixin):
+class ClientsCreateView(LoginRequiredMixin, CreateView):
     model = Client
     form_class = ClientCreateForm
     template_name = 'table_views/clients/clients_add.html'
     success_url = reverse_lazy('clients_view')
 
-class ClientsUpdateView(UpdateView, LoginRequiredMixin):
+class ClientsUpdateView(LoginRequiredMixin, UpdateView):
     model = Client
     form_class = ClientUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/clients/clients_update.html'
     success_url = reverse_lazy('clients_view')
 
-class ClientsDeleteView(DeleteView, LoginRequiredMixin):
+class ClientsDeleteView(LoginRequiredMixin, DeleteView):
     model = Client
     pk_url_kwarg = 'pk'
     template_name = 'table_views/clients/clients_delete.html'
