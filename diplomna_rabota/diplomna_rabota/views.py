@@ -7,8 +7,10 @@ from shippers_app.models import Shipper
 from vendors_app.models import Vendor
 from invoice_app.models import Invoice, Company
 from datetime import date, timedelta
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class IndexView(TemplateView):
+
+class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
