@@ -47,11 +47,6 @@
     </div>
 <div class="employee-header-row">
   <div class="employee-left">Employee</div>
-  <div class="employee-center">
-    <div>Phone</div>
-    <div>Age</div>
-    <div>Salary</div>
-  </div>
   <div class="employee-right">Actions</div>
 </div>
 
@@ -60,15 +55,9 @@
     <div class="employee-row">
       <div class="employee-left">
         <div class="employee-info">
-          <h3 class="employee-name">{{ employee.name }}</h3>
+          <h3 class="employee-name">{{ employee }}</h3>
           <p class="employee-id">#{{ employee.id }}</p>
         </div>
-      </div>
-
-      <div class="employee-center">
-        <div class="employee-meta">{{ employee.phone_number }}</div>
-        <div class="employee-meta">{{ employee.age }}</div>
-        <div class="employee-meta">€{{ employee.brute_salary }}</div>
       </div>
 
       <div class="employee-right">
@@ -83,8 +72,7 @@
   {% endfor %}
 </div>
 
-
-    </div>
+</div>
     {% endif %}
 </body>
 </html>

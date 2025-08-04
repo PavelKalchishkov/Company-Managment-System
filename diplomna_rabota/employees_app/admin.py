@@ -3,8 +3,8 @@ from .models import Employee
 
 # Register your models here.
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'phone_number', 'age', 'brute_salary')
-    search_fields = ('name', 'phone_number')
-    ordering = ('name',)
+    list_display = ('id', 'first_name', 'phone_number')
+    search_fields = ('first_name', 'phone_number')
+    ordering = ('first_name',)
 
 admin.site.register(Employee, EmployeeAdmin)

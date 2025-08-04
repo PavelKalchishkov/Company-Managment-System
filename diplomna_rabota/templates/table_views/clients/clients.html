@@ -47,11 +47,7 @@
         
         <div class="client-header-row">
   <div class="client-left">Client</div>
-  <div class="client-center">
-    <div>Phone</div>
-    <div>Email</div>
-    <div>Address</div>
-  </div>
+
   <div class="client-right">Actions</div>
 </div>
 
@@ -65,11 +61,6 @@
         </div>
       </div>
 
-      <div class="client-center">
-        <div class="client-meta">{{ client.phone_number }}</div>
-        <div class="client-meta">{{ client.email }}</div>
-        <div class="client-meta">{{ client.address }}</div>
-      </div>
 
       <div class="client-right">
         <a href="{% url 'clients_update_view' pk=client.id %}" class="btn-edit">

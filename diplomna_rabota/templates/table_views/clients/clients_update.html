@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Client</title>
   <link rel="stylesheet" href="{% static 'clients_page/add_client.css' %}">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
   <h2>Update Client</h2>
@@ -30,3 +33,11 @@
   </form>
 </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+    $('.select2').select2({
+      width: '100%'  // Optional: makes it fit the parent container
+    });
+  });
+</script>

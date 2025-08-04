@@ -5,9 +5,11 @@ from .models import Employee
 class EmployeeCreateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = ['name', 'phone_number', 'age', 'brute_salary']
+        fields = '__all__'
+        exclude = ['added_at']
 
 class EmployeeUpdateForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = ['name', 'phone_number', 'age', 'brute_salary']
+        fields = '__all__'
+        exclude = ['added_at']

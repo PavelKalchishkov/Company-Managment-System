@@ -5,9 +5,17 @@ from .models import Client
 class ClientCreateForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['first_name', 'last_name', 'phone_number', 'email', 'address']
+        fields = '__all__'
+        widgets = {
+            'company': forms.Select(attrs={'class': 'select2'})
+        }
+        exclude = ('added_at',)
 
 class ClientUpdateForm(forms.ModelForm):
     class Meta:
         model = Client
-        fields = ['first_name', 'last_name', 'phone_number', 'email', 'address']
+        fields = '__all__'
+        widgets = {
+            'company': forms.Select(attrs={'class': 'select2'})
+        }
+        exclude = ('added_at',)

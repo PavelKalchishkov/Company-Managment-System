@@ -1,17 +1,35 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
-
 from common.validators import AllNumbersValidator, TenCharactersValidator
+from invoice_app.models import Company
 
 
 class Client(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+
     phone_number = models.CharField(max_length=100,
                                     validators=[AllNumbersValidator,
                                                 TenCharactersValidator])
-    email = models.EmailField(unique=True)
+    personal_phone_number = models.CharField(max_length=100,
+                                      validators=[AllNumbersValidator,
+                                                  TenCharactersValidator],
+                                      null=True, blank=True)
+    email = models.CharField(max_length=100,
+                              unique=True)
+
+    job_title = models.CharField(max_length=100)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
+
     address = models.CharField(max_length=100)
+    city = models.CharField(max_length=100, blank=True, null=True)
+    country = models.CharField(max_length=100, blank=True, null=True)
+    province = models.CharField(max_length=100, blank=True, null=True)
+    ZIP = models.CharField(max_length=100, blank=True, null=True)
+
+    fax_number = models.CharField(max_length=100, blank=True, null=True)
+    web_page = models.CharField(max_length=100, blank=True, null=True)
+    notes = models.TextField(blank=True, null=True)
+
     added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
