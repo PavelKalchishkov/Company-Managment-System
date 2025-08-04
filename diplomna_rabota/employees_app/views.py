@@ -28,7 +28,7 @@ class EmployeesView(LoginRequiredMixin, ListView):
                     Q(phone_number__icontains=terms[0])
                 )
 
-            elif len(terms) == 2:
+            elif len(terms) >= 2:
                 queryset = queryset.filter(
                     (Q(first_name__icontains=terms[0]) & Q(last_name__icontains=terms[1])) |
                     (Q(first_name__icontains=terms[1]) & Q(last_name__icontains=terms[0])) |

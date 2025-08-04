@@ -12,18 +12,28 @@ class ClientsView(LoginRequiredMixin, ListView):
     template_name = 'table_views/clients/clients.html'
     context_object_name = 'clients'
 
-    ordering = ['first_name', 'last_name']
+    ordering = ['id']
 
     def get_queryset(self):
         queryset = super().get_queryset()
         query = self.request.GET.get('q')
 
         if query:
-            queryset = queryset.filter(
-                Q(first_name__icontains=query) |
-                Q(last_name__icontains=query) |
-                Q(phone_number__icontains=query)
-            )
+            terms = query.strip().split()
+
+            if len(terms) == 1:
+                queryset = queryset.filter(
+                    Q(first_name__icontains=terms[0]) |
+                    Q(last_name__icontains=terms[0]) |
+                    Q(phone_number__icontains=terms[0])
+                )
+
+            elif len(terms) >= 2:
+                queryset = queryset.filter(
+                    (Q(first_name__icontains=terms[0]) & Q(last_name__icontains=terms[1])) |
+                    (Q(first_name__icontains=terms[1]) & Q(last_name__icontains=terms[0])) |
+                    Q(phone_number__icontains=query)
+                )
 
         return queryset
 
