@@ -25,7 +25,6 @@ body {
   border: 1px solid #e2e8f0;
 }
 
-.employee-header-row .employee-center,
 .employee-header-row .employee-left,
 .employee-header-row .employee-right {
   display: flex;

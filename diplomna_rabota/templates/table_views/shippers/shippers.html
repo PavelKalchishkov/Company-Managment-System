@@ -45,10 +45,6 @@
 
     <div class="employee-header-row">
       <div class="employee-left">Shipper</div>
-      <div class="employee-center">
-        <div>Phone</div>
-        <div>Salary</div>
-      </div>
       <div class="employee-right">Actions</div>
     </div>
 
@@ -57,14 +53,9 @@
         <div class="employee-row">
           <div class="employee-left">
             <div class="employee-info">
-              <h3 class="employee-name">{{ shipper.name }}</h3>
+              <h3 class="employee-name">{{ shipper }}</h3>
               <p class="employee-id">#{{ shipper.id }}</p>
             </div>
-          </div>
-
-          <div class="employee-center">
-            <div class="employee-meta">{{ shipper.phone_number }}</div>
-            <div class="employee-meta">€{{ shipper.salary }}</div>
           </div>
 
           <div class="employee-right">

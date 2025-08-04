@@ -14,8 +14,7 @@ class Client(models.Model):
                                       validators=[AllNumbersValidator,
                                                   TenCharactersValidator],
                                       null=True, blank=True)
-    email = models.CharField(max_length=100,
-                              unique=True)
+    email = models.CharField(max_length=100)
 
     job_title = models.CharField(max_length=100)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
