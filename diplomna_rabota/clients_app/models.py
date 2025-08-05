@@ -19,7 +19,7 @@ class Client(models.Model):
     job_title = models.CharField(max_length=100)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
 
-    address = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
     province = models.CharField(max_length=100, blank=True, null=True)
