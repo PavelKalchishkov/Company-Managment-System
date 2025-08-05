@@ -14,7 +14,7 @@
 <body>
     {% if user_authenticated %}
 
-        <div class="sidebar">
+<div class="sidebar">
   <div class="sidebar-logo">Technocenter OOD</div>
   <div class="top-and-bottom-navigations">
       <nav class="sidebar-menu">
@@ -47,7 +47,7 @@
         </div>
 
         {% for company in companies %}
-            <div class="company">
+            <div class="company" onclick="window.location.href='{% url 'index' %}'">
             <div class="company-information">
                 <h2>Eik: {{ company.eik }}</h2>
                 <h2>Dds: {{ company.dds }}</h2>

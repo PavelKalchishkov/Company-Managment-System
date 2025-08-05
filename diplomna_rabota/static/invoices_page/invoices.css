@@ -20,6 +20,7 @@ body {
   padding: 20px;
   margin:0 20px 20px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .invoice-card:hover {

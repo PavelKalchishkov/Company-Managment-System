@@ -50,7 +50,7 @@
 
     <div class="employee-row-list">
       {% for shipper in shippers %}
-        <div class="employee-row">
+        <div class="employee-row" onclick="window.location.href='{% url 'index' %}'">
           <div class="employee-left">
             <div class="employee-info">
               <h3 class="employee-name">{{ shipper }}</h3>

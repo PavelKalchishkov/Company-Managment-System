@@ -53,7 +53,6 @@ form button {
 }
 
 .company {
-
     background: white;
     border-radius: 10px;
     border: 1px #e1d9d9 solid;
@@ -61,6 +60,7 @@ form button {
     padding: 20px;
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .company:hover {

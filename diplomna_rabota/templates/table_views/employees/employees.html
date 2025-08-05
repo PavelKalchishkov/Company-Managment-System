@@ -52,7 +52,7 @@
 
 <div class="employee-row-list">
   {% for employee in employees %}
-    <div class="employee-row">
+    <div class="employee-row" onclick="window.location.href='{% url 'index' %}'">
       <div class="employee-left">
         <div class="employee-info">
           <h3 class="employee-name">{{ employee }}</h3>

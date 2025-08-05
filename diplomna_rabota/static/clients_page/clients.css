@@ -92,6 +92,7 @@ form button {
 .client-row:hover {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 
 /* Left (name/id) */

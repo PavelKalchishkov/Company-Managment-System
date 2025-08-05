@@ -55,7 +55,7 @@
 
   <div class="product-row-list">
   {% for product in products %}
-    <div class="product-row">
+    <div class="product-row" onclick="window.location.href='{% url 'index' %}'">
       <div class="product-left">
         <div class="product-info">
           <h3 class="product-name">{{ product.name }}</h3>
