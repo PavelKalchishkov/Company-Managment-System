@@ -70,15 +70,6 @@
 
         <div class="order-header-row">
             <div class="order-left">Order</div>
-            <div class="order-center">
-                <div>Date</div>
-                <div>Status</div>
-                <div>Client</div>
-                <div>Employee</div>
-                <div>Shipper</div>
-                <div>Payment</div>
-                <div>Price</div>
-            </div>
             <div class="order-right">Actions</div>
         </div>
 
@@ -87,28 +78,10 @@
             <div class="order-row">
                 <div class="order-left">
                     <div class="order-info">
-                        <h3 class="order-id">#{{ order.id }}</h3>
-                        <p class="order-address">{{ order.order_address }}</p>
-                        <p class="order-version">v{{ order.order_version }}</p>
+                        <h3 class="order-id">{{ order }}</h3>
+                        <p class="order-address"><b>{{ order.client }}</b> - <b>{{ order.order_price }}</b> lv.</p>
+                        <p class="order-version">{{ order.order_address }}</p>
                     </div>
-                </div>
-                <div class="order-center">
-                    <div class="order-meta">{{ order.order_date }}</div>
-                    <div class="order-meta">
-                        <span class="order-status-pill
-                            {% if order.order_status == 'canceled' %}status-canceled
-                            {% elif order.order_status == 'delivered' %}status-delivered
-                            {% elif order.order_status == 'pending' %}status-pending
-                            {% elif order.order_status == 'processing' %}status-processing
-                            {% else %}status-other
-                            {% endif %}
-                        ">{{ order.order_status|title }}</span>
-                    </div>
-                    <div class="order-meta">{{ order.client }}</div>
-                    <div class="order-meta">{{ order.employee }}</div>
-                    <div class="order-meta">{{ order.shipper }}</div>
-                    <div class="order-meta">{{ order.payment_method }}</div>
-                    <div class="order-meta">€{{ order.order_price }}</div>
                 </div>
                 <div class="order-right">
                     <a href="{% url 'orders_update_view' pk=order.id %}" class="btn-edit">
@@ -120,7 +93,7 @@
                 </div>
             </div>
             <div class="order-products-row">
-                <div class="order-products-header">Products from order #{{ order.id }}:</div>
+                <div class="order-products-header">Products from order {{ order }}:</div>
                 <div class="order-products-list">
                     {% for order_product in order_products %}
                         {% if order_product.order_id == order.id %}

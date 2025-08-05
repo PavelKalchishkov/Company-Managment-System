@@ -50,7 +50,7 @@ class Order(models.Model):
                                 related_name='orders')
 
     def __str__(self):
-        return f'{self.id}'
+        return f'PO#{self.id}'
 
 
 class OrderProduct(models.Model):

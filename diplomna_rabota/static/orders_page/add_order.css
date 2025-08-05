@@ -138,6 +138,11 @@ select {
   z-index: 9999 !important;
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
 
 
 
