@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from .forms import EmployeeCreateForm, EmployeeUpdateForm
 from .models import Employee
@@ -63,5 +63,20 @@ class EmployeesDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_delete.html'
     success_url = reverse_lazy('employees_view')
+
+class EmployeesDetailView(LoginRequiredMixin, DetailView):
+    model = Employee
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/employees/employees_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['employee'] = self.get_object()
+
+        return context
 
 
