@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .forms import ShipperCreationForm, ShipperUpdateForm
 from .models import Shipper
 
@@ -63,4 +63,17 @@ class ShippersDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'table_views/shippers/shippers_delete.html'
     success_url = reverse_lazy('shippers_view')
 
+class ShippersDetailView(LoginRequiredMixin, DetailView):
+    model = Shipper
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/shippers/shippers_details.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['shipper'] = self.get_object()
+
+        return context
