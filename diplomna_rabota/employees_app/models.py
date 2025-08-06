@@ -18,7 +18,7 @@ class Employee(models.Model):
 
     job_title = models.CharField(max_length=100)
 
-    address = models.CharField(max_length=100)
+    address = models.CharField(max_length=100, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
     country = models.CharField(max_length=100, blank=True, null=True)
     province = models.CharField(max_length=100, blank=True, null=True)

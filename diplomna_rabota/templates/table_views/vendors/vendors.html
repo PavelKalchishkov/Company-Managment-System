@@ -50,7 +50,7 @@
 
     <div class="employee-row-list">
       {% for vendor in vendors %}
-        <div class="employee-row" onclick="window.location.href='{% url 'index' %}'">
+        <div class="employee-row" onclick="window.location.href='{% url 'vendors_details_view' pk=vendor.id %}'">
           <div class="employee-left">
             <div class="employee-info">
               <h3 class="employee-name">{{ vendor }}</h3>
