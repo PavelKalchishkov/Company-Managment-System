@@ -12,7 +12,7 @@ class VendorsView(LoginRequiredMixin, ListView):
     template_name = 'table_views/vendors/vendors.html'
     context_object_name = 'vendors'
 
-    ordering = ['id']
+    ordering = ['-id']
 
     def get_queryset(self):
         queryset = super().get_queryset()

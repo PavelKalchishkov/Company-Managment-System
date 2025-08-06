@@ -53,7 +53,7 @@
 
 <div class="client-row-list">
   {% for client in clients %}
-    <div class="client-row" onclick="window.location.href='{% url 'index' %}'">
+    <div class="client-row" onclick="window.location.href='{% url 'clients_details_view' pk=client.id %}'">
       <div class="client-left">
         <div class="client-info">
           <h3 class="client-name">{{ client.first_name }} {{ client.last_name }}</h3>

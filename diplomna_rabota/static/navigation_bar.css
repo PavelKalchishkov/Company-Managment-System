@@ -51,3 +51,7 @@
   background-color: #0ea5e9;
   color: white;
 }
+
+.sidebar-link.active:hover {
+  background-color: #148bbf;
+}

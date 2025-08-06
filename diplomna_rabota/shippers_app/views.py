@@ -11,7 +11,7 @@ class ShippersView(LoginRequiredMixin, ListView):
     template_name = 'table_views/shippers/shippers.html'
     context_object_name = 'shippers'
 
-    ordering = ['id']
+    ordering = ['-id']
 
     def get_queryset(self):
         queryset = super().get_queryset()

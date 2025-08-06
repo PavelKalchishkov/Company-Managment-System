@@ -12,7 +12,7 @@ class ProductsView(LoginRequiredMixin, ListView):
     template_name = 'table_views/products/products.html'
     context_object_name = 'products'
 
-    ordering = ['id']
+    ordering = ['-id']
 
     def get_queryset(self):
         queryset = super().get_queryset()

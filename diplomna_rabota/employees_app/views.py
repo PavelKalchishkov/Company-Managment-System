@@ -12,7 +12,7 @@ class EmployeesView(LoginRequiredMixin, ListView):
     template_name = 'table_views/employees/employees.html'
     context_object_name = 'employees'
 
-    ordering = ['id']
+    ordering = ['-id']
 
     def get_queryset(self):
         queryset = super().get_queryset()
