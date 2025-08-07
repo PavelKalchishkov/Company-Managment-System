@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import CompaniesView, CompaniesCreateView, CompaniesUpdateView, CompaniesDeleteView, InvoicesView, \
     InvoicesCreateView, InvoicesUpdateView, InvoicesDeleteView, get_company_values, InvoicesReportView, \
-    CompaniesDetailView
+    CompaniesDetailView, InvoicesDetailView
+
 
 urlpatterns = [
     path('companies/view/', CompaniesView.as_view(), name='companies_view'),
@@ -15,5 +16,6 @@ urlpatterns = [
     path('create/', InvoicesCreateView.as_view(), name='invoices_add_view'),
     path('update/<int:pk>/', InvoicesUpdateView.as_view(), name='invoices_update_view'),
     path('delete/<int:pk>/', InvoicesDeleteView.as_view(), name='invoices_delete_view'),
+    path('details<int:pk>/', InvoicesDetailView.as_view(), name='invoices_details_view'),
     path('reports/', InvoicesReportView.as_view(), name='invoices_report_view'),
 ]

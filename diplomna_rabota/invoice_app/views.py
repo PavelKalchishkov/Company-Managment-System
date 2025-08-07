@@ -128,6 +128,21 @@ class InvoicesDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'table_views/invoices/invoices_delete.html'
     success_url = reverse_lazy('invoices_view')
 
+class InvoicesDetailView(LoginRequiredMixin, DetailView):
+    model = Invoice
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/invoices/invoice_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['invoice'] = self.get_object()
+
+        return context
+
 class InvoicesReportView(LoginRequiredMixin, ListView):
     model = Invoice
     queryset = Invoice.objects.all()

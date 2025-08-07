@@ -44,7 +44,7 @@
   </div>
 
   {% for invoice in invoices %}
-    <div class="invoice-card" onclick="window.location.href='{% url 'index' %}'">
+    <div class="invoice-card" onclick="window.location.href='{% url 'invoices_details_view' pk=invoice.id %}'">
       <div class="invoice-info">
         <h2><strong>{{ invoice }}</strong></h2>
         <p>Status: <span style="font-weight: 500;">
