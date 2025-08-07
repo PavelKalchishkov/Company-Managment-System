@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Shipper</title>
+  <title>Update Shipper</title>
   <link rel="stylesheet" href="{% static 'employees_page/add_employee.css' %}">
 </head>
 <body>
-  <h2>Create Shipper</h2>
+  <h2>Update Shipper</h2>
 
   <form method="POST" class="employee-form">
     {% csrf_token %}
@@ -23,7 +23,7 @@
     {% endfor %}
 
     <div class="form-buttons">
-      <button type="submit" class="submit-btn">Create</button>
+      <button type="submit" class="submit-btn">Update</button>
       <a href="{% url 'shippers_view' %}" class="cancel-btn">Cancel</a>
     </div>
   </form>

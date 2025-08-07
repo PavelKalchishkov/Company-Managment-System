@@ -135,3 +135,7 @@ form button {
   justify-content: space-between;
   gap: 1rem;
 }
+
+.company-information {
+  margin-top: 10px;
+}
