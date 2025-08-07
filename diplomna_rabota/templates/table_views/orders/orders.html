@@ -75,7 +75,7 @@
 
         <div class="order-row-list">
             {% for order in orders %}
-            <div class="order-row" onclick="window.location.href='{% url 'index' %}'">
+            <div class="order-row" onclick="window.location.href='{% url 'orders_details_view' pk=order.id %}'">
                 <div class="order-left">
                     <div class="order-info">
                         <h3 class="order-id">{{ order }}</h3>

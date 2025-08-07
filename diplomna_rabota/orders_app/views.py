@@ -7,7 +7,7 @@ from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.utils.functional import cached_property
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import OrderProduct
 
 from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm, OrderViewFilter
@@ -148,6 +148,23 @@ class OrdersDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/orders_delete.html'
     success_url = reverse_lazy('orders_view')
+
+
+class OrdersDetailView(LoginRequiredMixin, DetailView):
+    model = Order
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/orders/order_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['order'] = self.get_object()
+        context['order_products'] = OrderProduct.objects.all()
+
+        return context
 
 
 def get_order_details(request, order_id):

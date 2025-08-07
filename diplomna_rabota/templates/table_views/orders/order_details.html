@@ -1,0 +1,124 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'clients_page/clients.css' %}">
+    <link rel="stylesheet" href="{% static 'details.css' %}">
+    <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Order Details</title>
+</head>
+<body>
+{% if user_authenticated %}
+<div class="sidebar">
+  <div class="sidebar-logo">Technocenter OOD</div>
+  <div class="top-and-bottom-navigations">
+      <nav class="sidebar-menu">
+        <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> Home</a>
+        <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
+        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
+      </nav>
+
+      <div class="sidebar-nav-bottom">
+        <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
+        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+      </div>
+    </div>
+
+</div>
+
+<div class="main-content">
+  <div class="client-details-container">
+    <div class="client-details-title">
+        Order Details
+
+        <div class="client-right">
+        <a href="{% url 'orders_update_view' pk=order.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'orders_delete_view' pk=order.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">ID</span>
+      <span class="client-detail-value">{{ order }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Date</span>
+      <span class="client-detail-value">{{ order.order_date }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Address</span>
+      <span class="client-detail-value">{{ order.order_address }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Price</span>
+      <span class="client-detail-value">{{ order.order_price }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Payment Method</span>
+      <span class="client-detail-value">{{ order.payment_method }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Status</span>
+      <span class="client-detail-value">{{ order.order_status }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Client</span>
+      <span class="client-detail-value">{{ order.client }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Employee</span>
+      <span class="client-detail-value">{{ order.employee }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Shipper</span>
+      <span class="client-detail-value">{{ order.shipper }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Version</span>
+      <span class="client-detail-value">{{ order.order_version }}</span>
+    </div>
+
+    <div class="client-detail-row-notes">
+      <span class="client-detail-label">Products:</span>
+        {% for order_product in order_products %}
+            {% if order_product.order_id == order.id %}
+                <span class="client-detail-value">{{ order_product.product.name }} : <b>{{ order_product.quantity }}</b></span>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endif %}
+</body>
+</html>
+
+<script>
+  lucide.createIcons();
+</script>
