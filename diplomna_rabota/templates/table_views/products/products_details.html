@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'navigation_bar.css' %}">
-    <link rel="stylesheet" href="{% static 'products_page/products.css' %}">
+    <link rel="stylesheet" href="{% static 'clients_page/clients.css' %}">
+    <link rel="stylesheet" href="{% static 'details.css' %}">
     <link rel="stylesheet" href="{% static 'lucide_icons.css' %}">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <title>Products View</title>
+    <title>Product Details</title>
 </head>
 <body>
-    {% if user_authenticated %}
-
+{% if user_authenticated %}
 <div class="sidebar">
   <div class="sidebar-logo">Technocenter OOD</div>
   <div class="top-and-bottom-navigations">
@@ -37,47 +37,55 @@
 
 </div>
 
-<div class="main-container">
-    <div class="search-create-container">
-      <form>
-        <input type="text" name="q" placeholder="Search by product name or vendor" value="{{ request.GET.q }}">
-        <button type="submit">Search</button>
-      </form>
-        
-      <a href="{% url 'products_create_view' %}" class="create-btn">Create Product</a>
-    </div>
+<div class="main-content">
+  <div class="client-details-container">
+    <div class="client-details-title">
+        Product Details
 
-<div class="product-header-row">
-  <div class="product-left">Product</div>
-  <div class="product-right">Actions</div>
-</div>
-
-
-  <div class="product-row-list">
-  {% for product in products %}
-    <div class="product-row" onclick="window.location.href='{% url 'products_details_view' pk=product.id %}'">
-      <div class="product-left">
-        <div class="product-info">
-          <h3 class="product-name">{{ product.name }}</h3>
-          <p class="product-sku">#{{ product.id }}</p>
-        </div>
-      </div>
-
-      <div class="product-right">
-        <a href="{% url 'products_update_view' product.id %}" class="btn-edit">
+        <div class="client-right">
+        <a href="{% url 'products_update_view' pk=product.id %}" class="btn-edit">
           <i data-lucide="edit-3"></i> Edit
         </a>
-        <a href="{% url 'products_delete_view' product.id %}" class="btn-delete">
+        <a href="{% url 'products_delete_view' pk=product.id %}" class="btn-delete">
           <i data-lucide="trash-2"></i> Delete
         </a>
       </div>
+
     </div>
-  {% endfor %}
-</div>
-</div>
 
+    <div class="client-detail-row">
+      <span class="client-detail-label">Name</span>
+      <span class="client-detail-value">{{ product.name }}</span>
+    </div>
 
-    {% endif %}
+    <div class="client-detail-row">
+      <span class="client-detail-label">Price</span>
+      <span class="client-detail-value">{{ product.price }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Length</span>
+      <span class="client-detail-value">{{ product.length }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Weight</span>
+      <span class="client-detail-value">{{ product.weight }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Color</span>
+      <span class="client-detail-value">{{ product.color }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Vendor/Manufacturer</span>
+      <span class="client-detail-value">{{ product.vendor }}</span>
+    </div>
+
+  </div>
+</div>
+{% endif %}
 </body>
 </html>
 

@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from .forms import ProductCreateForm, ProductUpdateForm
 from .models import Product
@@ -56,3 +56,18 @@ class ProductsDeleteView(LoginRequiredMixin, DeleteView):
     pk_url_kwarg = 'pk'
     template_name = 'table_views/products/products_delete.html'
     success_url = reverse_lazy('products_view')
+
+class ProductsDetailView(LoginRequiredMixin, DetailView):
+    model = Product
+    pk_url_kwarg = 'pk'
+    template_name = 'table_views/products/products_details.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        context['user_authenticated'] = user.is_authenticated
+        context['user'] = user
+        context['product'] = self.get_object()
+
+        return context
