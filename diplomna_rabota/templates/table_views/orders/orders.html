@@ -80,6 +80,7 @@
                     <div class="order-info">
                         <h3 class="order-id">{{ order }}</h3>
                         <p class="order-address"><b>{{ order.client }}</b> - <b>{{ order.order_price }}</b> lv.</p>
+                        <p class="status-pill {{ order.order_status|lower }}">{{ order.order_status }}</p>
                         <p class="order-version">{{ order.order_address }}</p>
                     </div>
                 </div>

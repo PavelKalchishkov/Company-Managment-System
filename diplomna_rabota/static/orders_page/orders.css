@@ -177,6 +177,23 @@ body {
   padding: 0.3rem 0.8rem;
 }
 
+.status-pill.delivered {
+  background-color: #16a34a;
+}
+.status-pill.pending {
+  background-color: #facc15;
+  color: #1e293b;
+}
+.status-pill.cancelled {
+  background-color: #ef4444;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 7px;
+  border-radius: 25px;
+  margin: 0;
+}
 
 
 
