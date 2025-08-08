@@ -5,17 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#    <link rel="stylesheet" href="{% static 'main_style.css' %}">#}
-    <title>Main Page</title>
+    <title>Register Page</title>
+    <link rel="stylesheet" href="{% static 'user_page/login.css' %}">
 </head>
 <body>
-    <h2>User Registration</h2>
-    <form method="POST">
-        {% csrf_token %}
-        
-        {{ form.as_p }}
-        
-        <button type="submit">Register</button>
-    </form>
+   <div class="login-page">
+    <div class="login-container">
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <h2 class="login-title">Register</h2>
+
+            {% for field in form %}
+            <div class="product-form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div style="color: red; font-size: 0.9em;">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="login-button">Register</button>
+            <div class="register-btn"><a href="{% url 'login' %}">Already have an account? Login here</a></div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
