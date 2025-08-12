@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views.generic import TemplateView
 from orders_app.models import Order
 from products_app.models import Product
@@ -74,3 +75,7 @@ class IndexView(LoginRequiredMixin, TemplateView):
         context['recent_orders'] = Order.objects.all().order_by('-order_date')[:10]
 
         return context
+
+
+def custom_permission_denied_view(request, exception=None):
+    return render(request, "403.html", status=403)

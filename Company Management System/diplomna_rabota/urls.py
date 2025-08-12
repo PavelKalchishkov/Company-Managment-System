@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from diplomna_rabota import views
+from .views import custom_permission_denied_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,3 +15,5 @@ urlpatterns = [
     path('orders/', include('orders_app.urls')),
     path('invoices/', include('invoice_app.urls')),
 ]
+
+handler403 = custom_permission_denied_view
