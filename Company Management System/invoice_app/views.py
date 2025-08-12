@@ -1,4 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.http import JsonResponse
 from django.urls import reverse_lazy
@@ -8,11 +9,13 @@ from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, Invo
 from .models import Company, Invoice
 
 
-class CompaniesView(LoginRequiredMixin, ListView):
+class CompaniesView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Company
     template_name = 'table_views/companies/companies.html'
     context_object_name = 'companies'
     ordering = ['-id']
+
+    permission_required = 'invoice_app.view_company'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -32,10 +35,12 @@ class CompaniesView(LoginRequiredMixin, ListView):
         context['user'] = user
         return context
 
-class CompaniesCreateView(LoginRequiredMixin, CreateView):
+class CompaniesCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Company
     form_class = CompanyCreateForm
     template_name = 'table_views/companies/companies_add.html'
+
+    permission_required = 'invoice_app.add_company'
 
     def get_success_url(self):
         next_url = self.request.POST.get('next') or self.request.GET.get('next')
@@ -44,23 +49,29 @@ class CompaniesCreateView(LoginRequiredMixin, CreateView):
             return url
         return reverse_lazy('companies_view')
 
-class CompaniesUpdateView(LoginRequiredMixin, UpdateView):
+class CompaniesUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Company
     form_class = CompanyUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_update.html'
     success_url = reverse_lazy('companies_view')
 
-class CompaniesDeleteView(LoginRequiredMixin, DeleteView):
+    permission_required = 'invoice_app.change_company'
+
+class CompaniesDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Company
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_delete.html'
     success_url = reverse_lazy('companies_view')
 
-class CompaniesDetailView(LoginRequiredMixin, DetailView):
+    permission_required = 'invoice_app.delete_company'
+
+class CompaniesDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Company
     pk_url_kwarg = 'pk'
     template_name = 'table_views/companies/companies_details.html'
+
+    permission_required = 'invoice_app.view_company'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -72,6 +83,7 @@ class CompaniesDetailView(LoginRequiredMixin, DetailView):
 
         return context
 
+@permission_required('invoice_app.view_company')
 def get_company_values(request, company_id):
     company = Company.objects.get(pk=company_id)
 

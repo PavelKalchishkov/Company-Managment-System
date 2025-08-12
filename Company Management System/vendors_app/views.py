@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
@@ -7,12 +7,13 @@ from .forms import VendorCreationForm, VendorUpdateForm
 from .models import Vendor
 
 
-class VendorsView(LoginRequiredMixin, ListView):
+class VendorsView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Vendor
     template_name = 'table_views/vendors/vendors.html'
     context_object_name = 'vendors'
-
     ordering = ['-id']
+
+    permission_required = 'vendors_app.view_vendor'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -45,30 +46,38 @@ class VendorsView(LoginRequiredMixin, ListView):
         context['user'] = user
         return context
 
-class VendorsAddView(LoginRequiredMixin, CreateView):
+class VendorsAddView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Vendor
     form_class = VendorCreationForm
     template_name  = 'table_views/vendors/vendors_add.html'
     success_url = reverse_lazy('vendors_view')
 
+    permission_required = 'vendors_app.add_vendor'
 
-class VendorsUpdateView(LoginRequiredMixin, UpdateView):
+
+class VendorsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Vendor
     form_class = VendorUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/vendors/vendors_update.html'
     success_url = reverse_lazy('vendors_view')
 
-class VendorsDeleteView(LoginRequiredMixin, DeleteView):
+    permission_required = 'vendors_app.change_vendor'
+
+class VendorsDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Vendor
     pk_url_kwarg = 'pk'
     template_name = 'table_views/vendors/vendors_delete.html'
     success_url = reverse_lazy('vendors_view')
 
-class VendorsDetailView(LoginRequiredMixin, DetailView):
+    permission_required = 'vendors_app.delete_vendor'
+
+class VendorsDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Vendor
     pk_url_kwarg = 'pk'
     template_name = 'table_views/vendors/vendors_details.html'
+
+    permission_required = 'vendors_app.view_vendor'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
