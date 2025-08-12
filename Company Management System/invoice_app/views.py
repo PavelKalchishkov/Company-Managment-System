@@ -99,12 +99,14 @@ def get_company_values(request, company_id):
     })
 
 
-class InvoicesView(LoginRequiredMixin, ListView):
+class InvoicesView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Invoice
     template_name = 'table_views/invoices/invoices.html'
     context_object_name = 'invoices'
     ordering = ['-id']
 
+    permission_required = 'invoice_app.view_invoice'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
@@ -113,12 +115,14 @@ class InvoicesView(LoginRequiredMixin, ListView):
         context['user'] = user
         return context
 
-class InvoicesCreateView(LoginRequiredMixin, CreateView):
+class InvoicesCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Invoice
     form_class = InvoiceCreateForm
     template_name = 'table_views/invoices/invoices_add.html'
     success_url = reverse_lazy('invoices_view')
 
+    permission_required = 'invoice_app.add_invoice'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.request.user
@@ -127,23 +131,29 @@ class InvoicesCreateView(LoginRequiredMixin, CreateView):
         context['user'] = user
         return context
 
-class InvoicesUpdateView(LoginRequiredMixin, UpdateView):
+class InvoicesUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Invoice
     form_class = InvoiceUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoices_update.html'
     success_url = reverse_lazy('invoices_view')
 
-class InvoicesDeleteView(LoginRequiredMixin, DeleteView):
+    permission_required = 'invoice_app.change_invoice'
+
+class InvoicesDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Invoice
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoices_delete.html'
     success_url = reverse_lazy('invoices_view')
 
-class InvoicesDetailView(LoginRequiredMixin, DetailView):
+    permission_required = 'invoice_app.delete_invoice'
+
+class InvoicesDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Invoice
     pk_url_kwarg = 'pk'
     template_name = 'table_views/invoices/invoice_details.html'
+
+    permission_required = 'invoice_app.view_invoice'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -155,13 +165,14 @@ class InvoicesDetailView(LoginRequiredMixin, DetailView):
 
         return context
 
-class InvoicesReportView(LoginRequiredMixin, ListView):
+class InvoicesReportView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Invoice
     queryset = Invoice.objects.all()
     template_name = 'table_views/invoices/invoice_report.html'
     context_object_name = 'invoices'
-
     ordering = ['-id']
+
+    permission_required = 'invoice_app.view_invoice'
 
     def get_queryset(self):
         queryset = super().get_queryset()
