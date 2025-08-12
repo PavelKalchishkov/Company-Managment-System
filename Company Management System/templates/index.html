@@ -38,6 +38,10 @@
 
 </div>
 <div class="main-content">
+{% if user.is_superuser %}
+    <div class="admin-btn-div"><a class="admin-btn" href="/admin/">Admin Page</a></div>
+{% endif %}
+
     <h1><i data-lucide="layout-dashboard" class="dashboard-title"></i> Dashboard</h1>
 
     <div class="cards-container">

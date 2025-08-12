@@ -8,3 +8,8 @@ class EmployeeAdmin(admin.ModelAdmin):
     ordering = ('first_name',)
 
 admin.site.register(Employee, EmployeeAdmin)
+
+admin.site.site_header = "Technocenter ood"
+admin.site.site_title = "Technocenter ood"
+admin.site.index_title = "Technocenter ood"
+

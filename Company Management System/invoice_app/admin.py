@@ -15,3 +15,5 @@ class CompanyAdmin(admin.ModelAdmin):
 
 admin.site.register(Invoice, InvoiceAdmin)
 admin.site.register(Company, CompanyAdmin)
+
+
