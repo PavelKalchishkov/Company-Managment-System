@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
@@ -7,12 +7,14 @@ from .forms import EmployeeCreateForm, EmployeeUpdateForm
 from .models import Employee
 
 
-class EmployeesView(LoginRequiredMixin, ListView):
+class EmployeesView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Employee
     template_name = 'table_views/employees/employees.html'
     context_object_name = 'employees'
 
     ordering = ['-id']
+
+    permission_required = 'employees_app.view_employee'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -45,29 +47,37 @@ class EmployeesView(LoginRequiredMixin, ListView):
         context['user'] = user
         return context
 
-class EmployeesCreateView(LoginRequiredMixin, CreateView):
+class EmployeesCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Employee
     form_class = EmployeeCreateForm
     template_name = 'table_views/employees/employees_add.html'
     success_url = reverse_lazy('employees_view')
 
-class EmployeesUpdateView(LoginRequiredMixin, UpdateView):
+    permission_required = 'employees_app.add_employee'
+
+class EmployeesUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Employee
     form_class = EmployeeUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_update.html'
     success_url = reverse_lazy('employees_view')
 
-class EmployeesDeleteView(LoginRequiredMixin, DeleteView):
+    permission_required = 'employees_app.change_employee'
+
+class EmployeesDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Employee
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_delete.html'
     success_url = reverse_lazy('employees_view')
 
-class EmployeesDetailView(LoginRequiredMixin, DetailView):
+    permission_required = 'employees_app.delete_employee'
+
+class EmployeesDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Employee
     pk_url_kwarg = 'pk'
     template_name = 'table_views/employees/employees_details.html'
+
+    permission_required = 'employees_app.view_employee'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
