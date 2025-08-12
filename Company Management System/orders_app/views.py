@@ -1,7 +1,9 @@
 from decimal import Decimal
+
+from django.contrib.auth.decorators import permission_required
 from django.http import JsonResponse
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import DecimalField
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect, get_object_or_404
@@ -14,11 +16,13 @@ from .forms import OrderCreationForm, OrderUpdateForm, OrderProductForm, OrderVi
 from .models import Order
 
 
-class OrdersView(LoginRequiredMixin, ListView):
+class OrdersView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Order
     template_name = 'table_views/orders/orders.html'
     context_object_name = 'orders'
     ordering = ['-id']
+
+    permission_required = 'orders_app.view_order'
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -48,10 +52,12 @@ OrderProductFormSet = inlineformset_factory(
     Order, OrderProduct, form=OrderProductForm, extra=1, can_delete=True
 )
 
-class OrdersCreateView(LoginRequiredMixin, CreateView):
+class OrdersCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Order
     form_class = OrderCreationForm
     template_name = 'table_views/orders/orders_add.html'
+
+    permission_required = 'orders_app.add_order'
 
     @cached_property
     def formset_class(self):
@@ -97,12 +103,14 @@ class OrdersCreateView(LoginRequiredMixin, CreateView):
         else:
             return self.render_to_response(self.get_context_data(form=form))
 
-class OrdersUpdateView(LoginRequiredMixin, UpdateView):
+class OrdersUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Order
     form_class = OrderUpdateForm
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/orders_update.html'
     success_url = reverse_lazy('orders_view')
+
+    permission_required = 'orders_app.change_order'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -143,17 +151,21 @@ class OrdersUpdateView(LoginRequiredMixin, UpdateView):
             return self.render_to_response(self.get_context_data(form=form))
 
 
-class OrdersDeleteView(LoginRequiredMixin, DeleteView):
+class OrdersDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Order
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/orders_delete.html'
     success_url = reverse_lazy('orders_view')
 
+    permission_required = 'orders_app.delete_order'
 
-class OrdersDetailView(LoginRequiredMixin, DetailView):
+
+class OrdersDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Order
     pk_url_kwarg = 'pk'
     template_name = 'table_views/orders/order_details.html'
+
+    permission_required = 'orders_app.view_order'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -166,7 +178,7 @@ class OrdersDetailView(LoginRequiredMixin, DetailView):
 
         return context
 
-
+@permission_required('orders_app.view_order')
 def get_order_details(request, order_id):
     try:
         order = Order.objects.get(pk=order_id)
@@ -174,6 +186,7 @@ def get_order_details(request, order_id):
     except Order.DoesNotExist:
         return JsonResponse({'error': 'Order not found'}, status=404)
 
+@permission_required('orders_app.view_order')
 def get_order_values(request, order_id):
     try:
         order = Order.objects.get(pk=order_id)
