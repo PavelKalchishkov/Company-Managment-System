@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 
 from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, InvoiceUpdateForm, InvoiceReportFilter
 from .models import Company, Invoice
+from orders_app.models import OrderProduct
 
 
 class CompaniesView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -162,6 +163,7 @@ class InvoicesDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView
         context['user_authenticated'] = user.is_authenticated
         context['user'] = user
         context['invoice'] = self.get_object()
+        context['order_products'] = OrderProduct.objects.all()
 
         return context
 

@@ -60,12 +60,12 @@
 
     <div class="client-detail-row">
       <span class="client-detail-label">Company</span>
-      <span class="client-detail-value">{{ invoice.company }}</span>
+      <span class="client-detail-value"><a href="{% url 'companies_details_view' pk=invoice.company.id%}">{{ invoice.company }}</a></span>
     </div>
 
     <div class="client-detail-row">
       <span class="client-detail-label">Order</span>
-      <span class="client-detail-value">{{ invoice.order }}</span>
+      <span class="client-detail-value"><a href="{% url 'orders_details_view' pk=invoice.order.id%}">{{ invoice.order }}</a></span>
     </div>
 
     <div class="client-detail-row">
@@ -102,7 +102,128 @@
       <span class="client-detail-label">Comment</span>
       <span class="client-detail-value">{{ invoice.comment }}</span>
   </div>
+  </div>
 
+<div class="client-details-container">
+    <div class="client-details-title">
+        Order From Invoice Details
+
+        <div class="client-right">
+        <a href="{% url 'orders_update_view' pk=invoice.order.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'orders_delete_view' pk=invoice.order.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">ID</span>
+      <span class="client-detail-value">{{ invoice.order }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Date</span>
+      <span class="client-detail-value">{{ invoice.order.order_date }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Address</span>
+      <span class="client-detail-value">{{ invoice.order.order_address }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Raw Price</span>
+      <span class="client-detail-value">{{ invoice.order.order_price }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Payment Method</span>
+      <span class="client-detail-value">{{ invoice.order.payment_method }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Status</span>
+      <span class="client-detail-value">{{ invoice.order.order_status }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Client</span>
+      <span class="client-detail-value"><a href="{% url 'clients_details_view' pk=invoice.order.client.id%}">{{ invoice.order.client }}</a></span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Employee</span>
+      <span class="client-detail-value"><a href="{% url 'employees_details_view' pk=invoice.order.employee.id%}">{{ invoice.order.employee }}</a></span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Shipper</span>
+      <span class="client-detail-value"><a href="{% url 'shippers_details_view' pk=invoice.order.shipper.id%}">{{ invoice.order.shipper }}</a></span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Version</span>
+      <span class="client-detail-value">{{ invoice.order.order_version }}</span>
+    </div>
+
+    <div class="client-detail-row-notes">
+      <span class="client-detail-label">Products:</span>
+        {% for order_product in order_products %}
+            {% if order_product.order_id == invoice.order.id %}
+                <span class="client-detail-value"><a href="{% url 'products_details_view' pk=order_product.product.id%}">{{ order_product.product.name }}</a> : <b>{{ order_product.quantity }}</b></span>
+
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+
+    <div class="client-details-container">
+    <div class="client-details-title">
+        Company From Invoice Details
+
+        <div class="client-right">
+        <a href="{% url 'companies_update_view' pk=invoice.company.id %}" class="btn-edit">
+          <i data-lucide="edit-3"></i> Edit
+        </a>
+        <a href="{% url 'companies_delete_view' pk=invoice.company.id %}" class="btn-delete">
+          <i data-lucide="trash-2"></i> Delete
+        </a>
+      </div>
+
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">EIK</span>
+      <span class="client-detail-value">{{ invoice.company.eik }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">DDS</span>
+      <span class="client-detail-value">{{ invoice.company.dds }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Name</span>
+      <span class="client-detail-value">{{ invoice.company.name }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Address</span>
+      <span class="client-detail-value">{{ invoice.company.address }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Mol</span>
+      <span class="client-detail-value">{{ invoice.company.mol }}</span>
+    </div>
+
+    <div class="client-detail-row">
+      <span class="client-detail-label">Recipient</span>
+      <span class="client-detail-value">{{ invoice.company.recipient }}</span>
+    </div>
 
   </div>
 </div>

@@ -8,3 +8,4 @@ class ClientAdmin(admin.ModelAdmin):
     ordering = ('first_name','last_name')
 
 admin.site.register(Client, ClientAdmin)
+
