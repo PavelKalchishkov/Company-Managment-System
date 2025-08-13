@@ -80,7 +80,7 @@
 
     <div class="client-detail-row">
       <span class="client-detail-label">Vendor/Manufacturer</span>
-      <span class="client-detail-value">{{ product.vendor }}</span>
+      <span class="client-detail-value"><a href="{% url 'vendors_details_view' pk=product.vendor.id %}">{{ product.vendor }}</a></span>
     </div>
 
   </div>

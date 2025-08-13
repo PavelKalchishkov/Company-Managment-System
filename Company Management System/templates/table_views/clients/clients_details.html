@@ -79,7 +79,7 @@
     </div>
     <div class="client-detail-row">
       <span class="client-detail-label">Company</span>
-      <span class="client-detail-value">{{ client.company.name }}</span>
+      <span class="client-detail-value"><a href="{% url 'companies_details_view' pk=client.company.id %}">{{ client.company }}</a></span>
     </div>
     <div class="client-detail-row">
       <span class="client-detail-label">Address</span>

@@ -85,17 +85,17 @@
 
     <div class="client-detail-row">
       <span class="client-detail-label">Client</span>
-      <span class="client-detail-value">{{ order.client }}</span>
+      <span class="client-detail-value"><a href="{% url 'clients_details_view' pk=order.client.id %}">{{ order.client }}</a></span>
     </div>
 
     <div class="client-detail-row">
       <span class="client-detail-label">Employee</span>
-      <span class="client-detail-value">{{ order.employee }}</span>
+      <span class="client-detail-value"><a href="{% url 'employees_details_view' pk=order.employee.id %}">{{ order.employee }}</a></span>
     </div>
 
     <div class="client-detail-row">
       <span class="client-detail-label">Shipper</span>
-      <span class="client-detail-value">{{ order.shipper }}</span>
+      <span class="client-detail-value"><a href="{% url 'shippers_details_view' pk=order.shipper.id %}">{{ order.shipper }}</a></span>
     </div>
 
     <div class="client-detail-row">
@@ -107,7 +107,7 @@
       <span class="client-detail-label">Products:</span>
         {% for order_product in order_products %}
             {% if order_product.order_id == order.id %}
-                <span class="client-detail-value">{{ order_product.product.name }} : <b>{{ order_product.quantity }}</b></span>
+                <span class="client-detail-value"><a href="{% url 'products_details_view' pk=order_product.product.id %}">{{ order_product.product.name }}</a> : <b>{{ order_product.quantity }}</b></span>
 
             {% endif %}
         {% endfor %}
