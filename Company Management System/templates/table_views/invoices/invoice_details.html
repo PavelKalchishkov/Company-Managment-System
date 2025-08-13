@@ -38,6 +38,7 @@
 </div>
 
 <div class="main-content">
+<a href="{% url 'generate_pdf' invoice_id=invoice.id %}">Download Invoice PDF</a>
   <div class="client-details-container">
     <div class="client-details-title">
         Invoice Details
@@ -226,7 +227,9 @@
     </div>
 
   </div>
+
 </div>
+
 {% endif %}
 </body>
 </html>

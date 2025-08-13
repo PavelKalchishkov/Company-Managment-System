@@ -7,7 +7,11 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 
 from .forms import CompanyCreateForm, CompanyUpdateForm, InvoiceCreateForm, InvoiceUpdateForm, InvoiceReportFilter
 from .models import Company, Invoice
-from orders_app.models import OrderProduct
+from orders_app.models import OrderProduct, Order
+
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
 
 
 class CompaniesView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -207,5 +211,20 @@ class InvoicesReportView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
         context['total_sum_without_dds'] = total_sum_without_dds
         context['total_dds'] = total_dds
 
-
         return context
+
+
+def generate_pdf(request, invoice_id):
+    buffer = io.BytesIO()
+    invoice = Invoice.objects.get(pk=invoice_id)
+    p = canvas.Canvas(buffer)
+
+    p.drawString(15,15, f"{invoice}")
+
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename="invoice.pdf")
+
+
