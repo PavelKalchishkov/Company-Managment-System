@@ -331,8 +331,8 @@ def generate_pdf(request, invoice_id):
     elements.append(Spacer(1, 12))
 
     # Totals
-    discount_no_dds = invoice.whole_price_without_dds * invoice.discount * Decimal(0.01)
-    discount_with_dds = invoice.whole_price_with_dds * invoice.discount * Decimal(0.01)
+    discount_no_dds = invoice.order.order_price - invoice.whole_price_without_dds
+    discount_with_dds = (invoice.order.order_price * Decimal("1.2")) - invoice.whole_price_with_dds
 
 
     totals_data = [
