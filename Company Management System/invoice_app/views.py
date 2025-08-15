@@ -278,7 +278,7 @@ def generate_pdf(request, invoice_id):
 
     order_details = [
         ["Order", invoice.order],
-        ["Raw Price", invoice.order.order_price],
+        ["Raw Price", f"{invoice.order.order_price} lv"],
         ["Payment Method", invoice.order.payment_method],
         ["Status", invoice.order.order_status],
         ["Client", invoice.order.client],
