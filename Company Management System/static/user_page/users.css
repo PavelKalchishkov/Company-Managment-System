@@ -57,7 +57,7 @@ body {
   transition: background 0.2s, box-shadow 0.2s;
 }
 
-.profile-buttons a:first-child {
+.profile-buttons a:first-child, .profile-buttons a:nth-child(2) {
   background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(37, 118, 255, 0.08);

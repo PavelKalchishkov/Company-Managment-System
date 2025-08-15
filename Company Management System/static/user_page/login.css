@@ -42,7 +42,7 @@
     font-size: 1em;
 }
 
-.login-button {
+.login-button, .cancel-btn {
     width: 100%;
     padding: 10px;
     background-color: #2576ff;
@@ -60,4 +60,24 @@
 
 .register-btn {
     padding-top: 20px;
+}
+
+.cancel-btn {
+  margin-top: 10px;
+  display: block;
+  flex: 1;
+  padding: 8px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #8f8f8f;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: #333333;
 }
