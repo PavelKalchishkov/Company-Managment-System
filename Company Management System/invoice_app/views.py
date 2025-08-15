@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -235,6 +235,7 @@ def generate_pdf(request, invoice_id):
 
     elements.append(Paragraph("Invoice", styles["CenterTitle"]))
     elements.append(Paragraph(f"{invoice}", styles["CenterTitle2"]))
+    elements.append(Paragraph(f"Original", styles["CenterTitle2"]))
     elements.append(Paragraph(f"Date of issue", styles["CenterTitle3"]))
     elements.append(Paragraph(f"{invoice.date}", styles["CenterTitle4"]))
 
@@ -289,7 +290,7 @@ def generate_pdf(request, invoice_id):
         ["Invoice", invoice],
         ["DDS(%)", invoice.DDS],
         ["Date", invoice.date],
-        ["Discount", invoice.discount],
+        ["Discount(%)", invoice.discount],
         ["Status", "Active" if not invoice.cancelled else "Cancelled"],
         ["-","-"],
         ["-", "-"]
@@ -315,13 +316,25 @@ def generate_pdf(request, invoice_id):
     elements.append(Spacer(1, 12))
 
     # Products Table
-    product_data = [["Products", "Quantity", "Unit Price", "Total"]]
+    product_data = [["Products", "Quantity", "Unit Net Price", "Total Net Price", "Discounted Price"]]
 
     for order_product in order_products:
         if invoice.order.id == order_product.order_id:
-            product_data.append([order_product.product.name, order_product.quantity, order_product.product.price, order_product.product.price * order_product.quantity])
+            price = Decimal(str(order_product.product.price))
+            quantity = Decimal(str(order_product.quantity))
 
-    products_table = Table(product_data, colWidths=[255, 84, 86, 86])
+            total_raw_price = price * quantity
+            total_price = total_raw_price - total_raw_price * (Decimal(str(invoice.discount)) * Decimal("0.01"))
+
+            product_data.append([
+                order_product.product.name,
+                str(order_product.quantity),
+                f"{price.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)} lv",
+                f"{total_raw_price.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)} lv",
+                f"{total_price.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)} lv"
+            ])
+
+    products_table = Table(product_data, colWidths=[170, 84, 86, 86, 86])
     products_table.setStyle(TableStyle([
         ("GRID", (0, 0), (-1, -1), 0.5, colors.black),
         ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
@@ -331,16 +344,11 @@ def generate_pdf(request, invoice_id):
     elements.append(Spacer(1, 12))
 
     # Totals
-    discount_no_dds = invoice.order.order_price - invoice.whole_price_without_dds
-    discount_with_dds = (invoice.order.order_price * Decimal("1.2")) - invoice.whole_price_with_dds
-
-
     totals_data = [
         ["Price", "Leva"],
         ["Whole Price (No DDS)", f"{invoice.whole_price_without_dds:.2f} lv"],
         ["Whole Price (With DDS)", f"{invoice.whole_price_with_dds:.2f} lv"],
-        ["Discount (No DDS)", f"{discount_no_dds:.2f} lv"],
-        ["Discount (With DDS)", f"{discount_with_dds:.2f} lv"],
+
     ]
     totals_table = Table(totals_data, colWidths=[255, 255])
     totals_table.setStyle(TableStyle([
