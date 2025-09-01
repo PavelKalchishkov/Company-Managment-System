@@ -18,12 +18,7 @@ class Company(models.Model):
         return f"{self.eik} - {self.name}"
 
 class Invoice(models.Model):
-    DDS_CHOICES = [
-        ('20', '20'),
-        ('9', '9'),
-        ('0', '0'),
-    ]
-    DDS = models.CharField(max_length=20, choices=DDS_CHOICES, default='20')
+    DDS = models.CharField(max_length=20, default='20')
     date = models.DateField(default=timezone.now)
     comment = models.TextField(default='', blank=True, null=True, max_length=500)
     discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)

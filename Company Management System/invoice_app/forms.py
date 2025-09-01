@@ -43,8 +43,13 @@ class InvoiceReportFilter(django_filters.FilterSet):
             attrs={'type': 'date'}))
 
     DDS = django_filters.ChoiceFilter(
-        choices=[('', 'DDS')] + list(Invoice._meta.get_field('DDS').choices),
-        empty_label=None)
+        label="DDS",
+        choices=lambda: [(d, d) for d in Invoice.objects.values_list("DDS", flat=True).distinct()],
+        widget=forms.Select(attrs={
+            'class': 'select2',
+            'data-placeholder': 'DDS'
+        })
+    )
 
     cancelled = django_filters.ChoiceFilter(
         choices=[
