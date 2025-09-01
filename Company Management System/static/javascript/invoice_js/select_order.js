@@ -16,9 +16,12 @@ function update_price() {
     .then(data => {
       if (data.price !== undefined) {
         let dds_value = parseFloat(dds.val());
-        if (dds_value !== 0) {
+        if (dds_value) {
           dds_value *= 0.01;
           dds_value *= data.price;
+        }
+        else {
+          dds_value = 0
         }
 
         let discount_value = parseFloat(discount.val());
@@ -40,6 +43,6 @@ function update_price() {
 
 $("#id_order").on("change", update_price);
 $("#id_discount").on("input", update_price);
-$("#id_DDS").on("change", update_price);
+$("#id_DDS").on("input", update_price);
 });
 

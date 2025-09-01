@@ -3,7 +3,7 @@ $(document).ready(function() {
     if (localStorage.getItem('id_dds')) {
         $('#id_DDS').val(localStorage.getItem('id_dds'))
     }
-    $('#id_DDS').on('change', function () {
+    $('#id_DDS').on('input', function () {
         localStorage.setItem('id_dds', $(this).val())
     })
 
