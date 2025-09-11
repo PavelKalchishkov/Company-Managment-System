@@ -7,11 +7,11 @@ class Vendor(models.Model):
     last_name = models.CharField(max_length=100)
 
     phone_number = models.CharField(max_length=100,
-                                    validators=[AllNumbersValidator,
-                                                TenCharactersValidator])
+                                    validators=[AllNumbersValidator(),
+                                                TenCharactersValidator()])
     personal_phone_number = models.CharField(max_length=100,
-                                             validators=[AllNumbersValidator,
-                                                         TenCharactersValidator],
+                                             validators=[AllNumbersValidator(),
+                                                         TenCharactersValidator()],
                                              null=True, blank=True)
 
     email = models.CharField(max_length=100)

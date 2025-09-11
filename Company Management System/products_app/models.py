@@ -1,10 +1,11 @@
 from django.db import models
+from common.validators import PositiveFloatValidator
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    price = models.FloatField()
-    length = models.FloatField()
-    weight = models.FloatField()
+    price = models.FloatField(validators=[PositiveFloatValidator()])
+    length = models.FloatField(validators=[PositiveFloatValidator()])
+    weight = models.FloatField(validators=[PositiveFloatValidator()])
     color = models.CharField(max_length=100)
     vendor = models.ForeignKey('vendors_app.Vendor',
                                on_delete=models.CASCADE,

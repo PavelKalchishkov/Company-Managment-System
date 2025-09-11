@@ -8,7 +8,7 @@ class CustomUser(AbstractUser):
                                 )
 
     phone_number = models.CharField(max_length=100,
-                                    validators=[AllNumbersValidator,
-                                                TenCharactersValidator])
+                                    validators=[AllNumbersValidator(),
+                                                TenCharactersValidator()])
 
     email = models.EmailField(unique=True,max_length=30)
