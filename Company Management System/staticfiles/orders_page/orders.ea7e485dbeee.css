@@ -1,0 +1,200 @@
+
+.main-container {
+    margin-left: 15.75rem;
+    padding: 5px;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+.search-create-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Header Row */
+.order-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  color: #475569;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  margin-top: 2rem;
+  border: 1px solid #e2e8f0;
+}
+
+.order-header-row .order-center,
+.order-header-row .order-left,
+.order-header-row .order-right {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  align-items: center;
+}
+
+/* Order Rows */
+.order-row-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.order-row:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.order-left {
+  flex: 1.5;
+}
+
+.order-info .order-id {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.order-info .order-address {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+.order-info .order-version {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.order-center {
+  display: flex;
+  gap: 2rem;
+  flex: 3;
+  font-size: 0.9rem;
+  color: #334155;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.order-meta {
+  white-space: nowrap;
+}
+
+/* Action Buttons */
+.order-right {
+  flex: 1.5;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.btn-edit,
+.btn-delete {
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-edit {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.btn-edit:hover {
+  background-color: #bae6fd;
+  transform: scale(1.03);
+}
+
+.btn-delete {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-delete:hover {
+  background-color: #fecaca;
+  transform: scale(1.03);
+}
+
+/* Order Products Row */
+.order-products-row {
+  margin-left: 1.5rem;
+  background: #f9fafb;
+  border-left: 3px solid #0ea5e9;
+  padding: 0.75rem 1.5rem;
+
+  margin-bottom: 0.75rem;
+}
+
+.order-products-header {
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.order-products-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+}
+
+.order-product-item {
+  font-size: 0.92rem;
+  color: #334155;
+  background: #e0f2fe;
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+}
+
+.status-pill.delivered {
+  background-color: #16a34a;
+}
+.status-pill.pending {
+  background-color: #facc15;
+  color: #1e293b;
+}
+.status-pill.cancelled {
+  background-color: #ef4444;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 7px;
+  border-radius: 25px;
+  margin: 0;
+}
+
+
+
+

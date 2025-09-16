@@ -1,0 +1,141 @@
+.order-inline-filter-bar {
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.filter-inline {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-inline select,
+.select2-container--default .select2-selection--single {
+  min-width: 130px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #1e293b;
+  height: 36px;
+}
+
+/* Select2 fix */
+.select2-container .select2-selection--single {
+  display: flex;
+  align-items: center;
+  height: 36px !important;
+}
+
+/* Buttons */
+.filter-btn,
+.create-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 120px;
+  padding: 0 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+}
+
+.filter-btn:hover,
+.create-btn:hover {
+  background-color: #2563eb;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+.filter-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.filter-btn:hover {
+  background-color: #2563eb;
+}
+
+.create-btn {
+  background-color: #10b981;
+  color: white;
+  text-decoration: none;
+}
+
+.create-btn:hover {
+  background-color: #059669;
+}
+
+.sort-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sort-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.sort-btn.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+.sort-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sort-btn {
+  padding: 0.4rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.sort-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.sort-btn.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}

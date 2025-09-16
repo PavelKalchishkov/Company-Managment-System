@@ -1,0 +1,77 @@
+.main-container {
+    margin-left: 15.75rem;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  margin-left: 240px;
+  padding: 40px 20px;
+}
+
+.account-details {
+  background: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 35px 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.13);
+}
+
+.account-details h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #222;
+}
+
+.account-details h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #314056;
+  padding: 10px 0 10px 0;
+}
+
+.profile-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.profile-buttons a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 13px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 7px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.profile-buttons a:first-child, .profile-buttons a:nth-child(2) {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37, 118, 255, 0.08);
+}
+
+.profile-buttons a:first-child:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 4px 14px rgba(37, 118, 255, 0.13);
+}
+
+.profile-buttons a:last-child {
+  background: #e5e7eb;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+

@@ -1,0 +1,191 @@
+#main-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+#form-div {
+  flex: 1 1 480px;
+  max-width: 560px;
+  background: #fff;
+  padding: 5px 32px 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.13);
+
+}
+
+#form-div h2 {
+  margin-bottom: 28px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+#company-div,
+#order-div {
+  flex: 1 1 280px;
+  background-color: #f1f5f9;
+  padding: 24px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+#company-div h4,
+#order-div h4 {
+  margin-top: 18px;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+#company-div p,
+#order-div p {
+  margin-bottom: 10px;
+  font-size: 0.93rem;
+  color: #475569;
+}
+
+#company-div a,
+#order-div a {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+#company-div a:hover,
+#order-div a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+.employee-form {
+  background: #fff;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 35px 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+}
+
+.form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #314056;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  border: 1.5px solid #d5dbe6;
+  border-radius: 7px;
+  padding: 11px 14px;
+  font-size: 1rem;
+  background: #f9fafc;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2576ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 118, 255, 0.10);
+  background: #fff;
+}
+
+.form-error {
+  color: #b91c1c;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.submit-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 13px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn {
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 118, 255, 0.08);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 4px 14px rgba(37, 118, 255, 0.13);
+}
+
+.cancel-btn {
+  background: #e5e7eb;
+  color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.cancel-btn:hover {
+  background: #d1d5db;
+  color: #222;
+}
+
+#id_comment {
+    height: 75px;
+}
+
+#company-div, #order-div {
+    text-align: center;
+    width: 200px;
+}

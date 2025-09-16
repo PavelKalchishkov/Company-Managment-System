@@ -1,0 +1,145 @@
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+.product-form {
+    background: #fff;
+    max-width: 430px;
+    margin: 40px auto 0 auto;
+    padding: 35px 32px 30px 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.13);
+}
+
+.form-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #314056;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    border: 1.5px solid #d5dbe6;
+    border-radius: 7px;
+    padding: 11px 14px;
+    font-size: 1rem;
+    background: #f9fafc;
+    transition: border 0.2s, box-shadow 0.2s;
+    margin-top: 2px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #2576ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 118, 255, 0.10);
+    background: #fff;
+}
+
+.select2-container--default .select2-selection--single {
+    height: 44px !important;
+    padding: 6px 14px !important;
+    border-radius: 7px !important;
+    border: 1.5px solid #d5dbe6 !important;
+    font-size: 1rem !important;
+    background: #f9fafc !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.select2-selection__rendered {
+    line-height: 30px !important;
+    padding-left: 0 !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 44px !important;
+    right: 8px !important;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-dropdown {
+    z-index: 9999 !important;
+}
+
+.submit-btn:hover, .submit-btn:focus {
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    box-shadow: 0 4px 14px rgba(37, 118, 255, 0.13);
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.submit-btn, .cancel-btn {
+    flex: 1 1 0;
+    padding: 13px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 7px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 8px rgba(37, 118, 255, 0.08);
+    cursor: pointer;
+}
+
+.submit-btn:hover, .submit-btn:focus {
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    box-shadow: 0 4px 14px rgba(37, 118, 255, 0.13);
+    outline: none;
+}
+
+.cancel-btn {
+    background: #e5e7eb;
+    color: #374151;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.cancel-btn:hover, .cancel-btn:focus {
+    background: #d1d5db;
+    color: #222;
+    text-decoration: none;
+    outline: none;
+}
+
+
+
