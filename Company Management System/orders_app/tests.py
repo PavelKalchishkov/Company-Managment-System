@@ -54,7 +54,6 @@ class OrderModelTests(TestCase):
 
         self.order = Order.objects.create(
             order_address="Sofia, Bulgaria",
-            order_price=Decimal("1500.00"),
             client=self.client,
             employee=self.employee,
             shipper=self.shipper
@@ -71,4 +70,11 @@ class OrderModelTests(TestCase):
     def test_add_products_to_order(self):
         self.order.products.add(self.product)
         self.assertIn(self.product, self.order.products.all())
+
+    def test_update_order_status(self):
+        self.order.order_status = "delivered"
+        self.order.save()
+        self.assertEqual(Order.objects.get(id=self.order.id).order_status, "delivered")
+
+
 

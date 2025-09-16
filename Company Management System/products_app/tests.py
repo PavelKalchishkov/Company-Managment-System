@@ -3,6 +3,7 @@ from django.test import TestCase
 
 from .models import Product
 from vendors_app.models import Vendor
+from .forms import ProductCreateForm
 
 class ProductCreationTest(TestCase):
     def setUp(self):
@@ -14,18 +15,17 @@ class ProductCreationTest(TestCase):
             job_title="Manager"
         )
 
-        self.product_obj = Product.objects.create(
-            name="Laptop",
-            price=25.50,
-            length=10,
-            weight=10,
-            color="red",
-            vendor=self.vendor_obj
-        )
-
     def test_successful_creation(self):
-        self.assertEqual(str(self.product_obj), "Laptop")
-
+        form_data = {
+            "name": "Laptop",
+            "price": 25.50,
+            "length": 10,
+            "weight": 10,
+            "color": "red",
+            "vendor": self.vendor_obj.id,
+        }
+        form = ProductCreateForm(data=form_data)
+        self.assertTrue(form.is_valid())
 
 class ProductPriceValidationTest(TestCase):
     def setUp(self):
@@ -70,3 +70,15 @@ class ProductMissingColorTest(TestCase):
 
     def test_missing_color(self):
         self.assertRaises(ValidationError, self.product_obj.full_clean)
+
+class ProductIncorrectVendorTest(TestCase):
+    def test_wrong_vendor(self):
+        with self.assertRaises(ValueError):
+            Product.objects.create(
+                name="Phone",
+                price=50,
+                length=5,
+                weight=2,
+                color="red",
+                vendor="NotRealVendor"
+            )

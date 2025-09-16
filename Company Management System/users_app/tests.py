@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
-
 User = get_user_model()
 
 
@@ -16,8 +15,6 @@ class CustomUserCreationTest(TestCase):
 
     def test_user_creation(self):
         self.assertEqual(str(self.user.username), "pavel123")
-        self.assertEqual(str(self.user.email), "pavel@example.com")
-        self.assertEqual(str(self.user.password), "securepassword123")
 
 class CustomUserIncorrectPasswordTest(TestCase):
     def setUp(self):

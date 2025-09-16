@@ -19,5 +19,5 @@ class TenCharactersValidator:
 @deconstructible
 class PositiveFloatValidator:
     def __call__(self, value: str, *args, **kwargs):
-        if float(value) < 0:
+        if float(value) <= 0:
             raise ValidationError("Value must be positive!")

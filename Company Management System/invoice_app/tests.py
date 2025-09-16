@@ -22,6 +22,12 @@ class CompanyModelTests(TestCase):
         self.assertTrue(isinstance(self.company, Company))
         self.assertEqual(str(self.company), f"{self.company.eik} - {self.company.name}")
 
+    def test_update_company_name(self):
+        self.company.name = "New AgroCompany"
+        self.company.save()
+        updated_company = Company.objects.get(id=self.company.id)
+        self.assertEqual(updated_company.name, "New AgroCompany")
+
 
 class InvoiceModelTests(TestCase):
     def setUp(self):
@@ -82,3 +88,9 @@ class InvoiceModelTests(TestCase):
         self.assertEqual(invoice2.DDS, "20")
         self.assertEqual(invoice2.discount, Decimal("0"))
         self.assertFalse(invoice2.cancelled)
+
+    def test_cancel_invoice(self):
+        self.invoice.cancelled = True
+        self.invoice.save()
+        cancelled_invoice = Invoice.objects.get(id=self.invoice.id)
+        self.assertTrue(cancelled_invoice.cancelled)
