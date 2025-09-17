@@ -55,3 +55,28 @@
 .sidebar-link.active:hover {
   background-color: #148bbf;
 }
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;  /* shrink a bit */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .sidebar {
+    position: relative; /* not fixed, so it scrolls with page */
+    width: 100%;        /* full width */
+    height: auto;       /* shrink to content */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sidebar-menu,
+  .sidebar-nav-bottom {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}
