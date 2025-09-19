@@ -32,11 +32,11 @@ class InvoiceUpdateForm(forms.ModelForm):
 class InvoiceReportFilter(django_filters.FilterSet):
     whole_price_without_dds = django_filters.RangeFilter(
         widget=django_filters.widgets.RangeWidget(
-            attrs={'placeholder': 'Price without DDS'}))
+            attrs={'placeholder': 'Price without VAT'}))
 
     whole_price_with_dds = django_filters.RangeFilter(
         widget=django_filters.widgets.RangeWidget(
-            attrs={'placeholder': 'Price with DDS'}))
+            attrs={'placeholder': 'Price with VAT'}))
 
     date = django_filters.DateFromToRangeFilter(
         widget=django_filters.widgets.RangeWidget(
@@ -47,7 +47,7 @@ class InvoiceReportFilter(django_filters.FilterSet):
         choices=lambda: [(d, d) for d in Invoice.objects.values_list("DDS", flat=True).distinct()],
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'DDS'
+            'data-placeholder': 'VAT'
         })
     )
 
