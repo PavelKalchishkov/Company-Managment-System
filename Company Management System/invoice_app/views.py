@@ -288,7 +288,7 @@ def generate_pdf(request, invoice_id):
 
     invoice_details = [
         ["Invoice", invoice],
-        ["DDS(%)", invoice.DDS],
+        ["VAT(%)", invoice.DDS],
         ["Date", invoice.date],
         ["Discount(%)", invoice.discount],
         ["Status", "Active" if not invoice.cancelled else "Cancelled"],
@@ -346,9 +346,9 @@ def generate_pdf(request, invoice_id):
     # Totals
     totals_data = [
         ["Price", "Leva"],
-        ["Whole Price (No DDS)", f"{invoice.whole_price_without_dds:.2f} lv"],
-        ["DDS", f"{invoice.whole_price_with_dds - invoice.whole_price_without_dds:.2f} lv"],
-        ["Whole Price (With DDS)", f"{invoice.whole_price_with_dds:.2f} lv"],
+        ["Whole Price (No VAT)", f"{invoice.whole_price_without_dds:.2f} lv"],
+        ["VAT", f"{invoice.whole_price_with_dds - invoice.whole_price_without_dds:.2f} lv"],
+        ["Whole Price (With VAT)", f"{invoice.whole_price_with_dds:.2f} lv"],
     ]
     totals_table = Table(totals_data, colWidths=[255, 255])
     totals_table.setStyle(TableStyle([

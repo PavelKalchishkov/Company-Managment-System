@@ -85,10 +85,10 @@
           {% if not invoice.cancelled %} Active {% else %} Cancelled {% endif %}
         </span></p>
         <hr>
-        <p><strong>DDS:</strong> {{ invoice.DDS }}</p>
+        <p><strong>VAT:</strong> {{ invoice.DDS }}</p>
         <p><strong>Date:</strong> {{ invoice.date }}</p>
-        <p><strong>Price (no DDS):</strong> {{ invoice.whole_price_without_dds }}</p>
-        <p><strong>Price (w/ DDS):</strong> {{ invoice.whole_price_with_dds }}</p>
+        <p><strong>Price (no VAT):</strong> {{ invoice.whole_price_without_dds }}</p>
+        <p><strong>Price (w/ VAT):</strong> {{ invoice.whole_price_with_dds }}</p>
         <p><strong>Discount:</strong> {{ invoice.discount }}%</p>
         <hr>
         <p><strong>Company:</strong> {{ invoice.company }}</p>
