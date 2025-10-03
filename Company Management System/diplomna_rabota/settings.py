@@ -33,7 +33,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -93,17 +92,4 @@ LOGIN_URL = reverse_lazy('login')
 
 CSRF_TRUSTED_ORIGINS = [
     "https://company-managment-system-production-1f0a.up.railway.app",
-]
-
-LANGUAGE_CODE = 'en'
-
-USE_I18N = True
-
-LANGUAGES = [
-    ('en', 'English'),
-    ('bg', 'Bulgarian'),
-]
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale',
 ]

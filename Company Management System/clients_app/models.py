@@ -1,11 +1,10 @@
 from django.db import models
 from common.validators import AllNumbersValidator, TenCharactersValidator
 from invoice_app.models import Company
-from django.utils.translation import gettext_lazy as _
 
 
 class Client(models.Model):
-    first_name = models.CharField(max_length=100, verbose_name=_('client_first_name'))
+    first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
 
     phone_number = models.CharField(max_length=100,

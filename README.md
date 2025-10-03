@@ -29,7 +29,7 @@ A Django-based web application for managing companies, clients, employees, vendo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/PavelKalchishkov/company-management-system.git
+   git clone https://github.com/your-username/company-management-system.git
    cd company-management-system
 
 2. Create and activate a virtual environment:
