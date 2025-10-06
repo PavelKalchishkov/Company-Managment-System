@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-06 18:15+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\clients_app\forms.py:13 .\clients_app\forms.py:39
+#: .\templates\table_views\clients\clients_details.html:58
+msgid "First Name"
+msgstr "Име"
+
+#: .\clients_app\forms.py:14 .\clients_app\forms.py:40
+#: .\templates\table_views\clients\clients_details.html:62
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: .\clients_app\forms.py:15 .\clients_app\forms.py:41
+msgid "Phone number"
+msgstr "Телефон"
+
+#: .\clients_app\forms.py:16 .\clients_app\forms.py:42
+msgid "Personal phone number (optional)"
+msgstr "Личен телефон(не е задължително)"
+
+#: .\clients_app\forms.py:17 .\clients_app\forms.py:43
+#: .\templates\table_views\clients\clients_details.html:74
+msgid "Email"
+msgstr "Имейл"
+
+#: .\clients_app\forms.py:18 .\clients_app\forms.py:44
+#: .\templates\table_views\clients\clients_details.html:78
+msgid "Job title"
+msgstr "Длъжност"
+
+#: .\clients_app\forms.py:19 .\clients_app\forms.py:45
+msgid "Company (optional)"
+msgstr "Фирма (не е задължително)"
+
+#: .\clients_app\forms.py:20 .\clients_app\forms.py:46
+msgid "Address (optional)"
+msgstr "Адрес (не е задължително)"
+
+#: .\clients_app\forms.py:21 .\clients_app\forms.py:47
+msgid "City (optional)"
+msgstr "Град (не е задължително)"
+
+#: .\clients_app\forms.py:22 .\clients_app\forms.py:48
+msgid "Country (optional)"
+msgstr "Държава (не е задължително)"
+
+#: .\clients_app\forms.py:23 .\clients_app\forms.py:49
+msgid "Province (optional)"
+msgstr "Личен телефон(по избор)"
+
+#: .\clients_app\forms.py:24 .\clients_app\forms.py:50
+msgid "ZIP (optional)"
+msgstr "Пощенски код (не е задължително)"
+
+#: .\clients_app\forms.py:25 .\clients_app\forms.py:51
+msgid "Fax number (optional)"
+msgstr "Номер на факс (не е задължително)"
+
+#: .\clients_app\forms.py:26 .\clients_app\forms.py:52
+msgid "Web page (optional)"
+msgstr "Онлайн страница (не е задължително)"
+
+#: .\clients_app\forms.py:27 .\clients_app\forms.py:53
+msgid "Notes (optional)"
+msgstr "Бележки (не е задължително)"
+
+#: .\templates\table_views\clients\clients.html:21
+#: .\templates\table_views\clients\clients_details.html:22
+msgid "Home"
+msgstr "Начало"
+
+#: .\templates\table_views\clients\clients.html:22
+#: .\templates\table_views\clients\clients_details.html:23
+msgid "Orders"
+msgstr "Поръчки"
+
+#: .\templates\table_views\clients\clients.html:23
+#: .\templates\table_views\clients\clients_details.html:24
+msgid "Products"
+msgstr "Продукти"
+
+#: .\templates\table_views\clients\clients.html:24
+#: .\templates\table_views\clients\clients_details.html:25
+msgid "Employees"
+msgstr "Работници"
+
+#: .\templates\table_views\clients\clients.html:25
+#: .\templates\table_views\clients\clients_details.html:26
+msgid "Clients"
+msgstr "Клиенти"
+
+#: .\templates\table_views\clients\clients.html:26
+#: .\templates\table_views\clients\clients_details.html:27
+msgid "Shippers"
+msgstr "Доставчици"
+
+#: .\templates\table_views\clients\clients.html:27
+#: .\templates\table_views\clients\clients_details.html:28
+msgid "Vendors"
+msgstr "Производители"
+
+#: .\templates\table_views\clients\clients.html:28
+#: .\templates\table_views\clients\clients_details.html:29
+msgid "Companies"
+msgstr "Фирми"
+
+#: .\templates\table_views\clients\clients.html:29
+#: .\templates\table_views\clients\clients_details.html:30
+msgid "Invoices"
+msgstr "Фактури"
+
+#: .\templates\table_views\clients\clients.html:33
+#: .\templates\table_views\clients\clients_details.html:34
+msgid "Profile"
+msgstr "Профил"
+
+#: .\templates\table_views\clients\clients.html:34
+#: .\templates\table_views\clients\clients_details.html:35
+msgid "Log out"
+msgstr "Излизане"
+
+#: .\templates\table_views\clients\clients.html:42
+msgid "Search by name or phone number"
+msgstr "Търси по име или номер"
+
+#: .\templates\table_views\clients\clients.html:43
+msgid "Search"
+msgstr "Търси"
+
+#: .\templates\table_views\clients\clients.html:46
+#: .\templates\table_views\clients\clients_add.html:17
+msgid "Create Client"
+msgstr "Създай Клиент"
+
+#: .\templates\table_views\clients\clients.html:50
+msgid "Client"
+msgstr "Клиент"
+
+#: .\templates\table_views\clients\clients.html:52
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\table_views\clients\clients.html:68
+#: .\templates\table_views\clients\clients_details.html:48
+msgid "Edit"
+msgstr "Редактиране"
+
+#: .\templates\table_views\clients\clients.html:71
+#: .\templates\table_views\clients\clients_details.html:51
+msgid "Delete"
+msgstr "Изтриване"
+
+#: .\templates\table_views\clients\clients_add.html:31
+msgid "Create"
+msgstr "Създаване"
+
+#: .\templates\table_views\clients\clients_add.html:32
+#: .\templates\table_views\clients\clients_delete.html:20
+#: .\templates\table_views\clients\clients_update.html:32
+msgid "Cancel"
+msgstr "Анулиране"
+
+#: .\templates\table_views\clients\clients_delete.html:14
+#: .\templates\table_views\clients\clients_delete.html:19
+msgid "Remove"
+msgstr "Премахване"
+
+#: .\templates\table_views\clients\clients_delete.html:15
+msgid ""
+"Are you sure you want to remove this client? This action cannot be undone."
+msgstr ""
+"Сигурен ли си че искаш да премахнеш този клиент? Това действие е перманентно."
+
+#: .\templates\table_views\clients\clients_details.html:44
+#| msgid "Clients"
+msgid "Client Details"
+msgstr "Детайли на Клиента"
+
+#: .\templates\table_views\clients\clients_details.html:66
+#| msgid "Phone number"
+msgid "Phone Number"
+msgstr "Телефон"
+
+#: .\templates\table_views\clients\clients_details.html:70
+#| msgid "Personal phone number (optional)"
+msgid "Personal Phone Number"
+msgstr "Личен телефон"
+
+#: .\templates\table_views\clients\clients_details.html:82
+msgid "Company"
+msgstr "Фирма"
+
+#: .\templates\table_views\clients\clients_details.html:86
+msgid "Address"
+msgstr "Адрес"
+
+#: .\templates\table_views\clients\clients_details.html:90
+msgid "City"
+msgstr "Град"
+
+#: .\templates\table_views\clients\clients_details.html:94
+msgid "Country"
+msgstr "Държава"
+
+#: .\templates\table_views\clients\clients_details.html:98
+msgid "Province"
+msgstr "Провинция"
+
+#: .\templates\table_views\clients\clients_details.html:102
+msgid "ZIP"
+msgstr "Пощенски код"
+
+#: .\templates\table_views\clients\clients_details.html:106
+#| msgid "Fax number (optional)"
+msgid "Fax number"
+msgstr "Номер на факс"
+
+#: .\templates\table_views\clients\clients_details.html:110
+msgid "Web Page"
+msgstr "Интернет Страница"
+
+#: .\templates\table_views\clients\clients_details.html:114
+msgid "Notes"
+msgstr "Бележки"
+
+#: .\templates\table_views\clients\clients_update.html:16
+msgid "Update Client"
+msgstr "Актуализиране на Клиент"
+
+#: .\templates\table_views\clients\clients_update.html:31
+msgid "Update"
+msgstr "Актуализиране"

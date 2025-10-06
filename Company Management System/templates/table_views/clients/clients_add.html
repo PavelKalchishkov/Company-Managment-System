@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
-  <h2>Create Client</h2>
+  <h2>{% trans 'Create Client' %}</h2>
   <form method="POST" class="client-form">
     {% csrf_token %}
     {% for field in form %}
@@ -27,8 +28,8 @@
     {% endfor %}
 
     <div class="form-buttons">
-      <button type="submit" class="submit-btn">Create</button>
-      <a href="{% url 'clients_view' %}" class="cancel-btn">Cancel</a>
+      <button type="submit" class="submit-btn">{% trans 'Create' %}</button>
+      <a href="{% url 'clients_view' %}" class="cancel-btn">{% trans 'Cancel' %}</a>
     </div>
   </form>
 </body>

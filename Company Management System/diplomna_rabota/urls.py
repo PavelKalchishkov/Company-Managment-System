@@ -2,8 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from diplomna_rabota import views
 from .views import custom_permission_denied_view
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+
+urlpatterns = []
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls, name='admin'),
     path('', views.IndexView.as_view(), name='index'),
     path('accounts/', include('users_app.urls')),
@@ -14,6 +18,6 @@ urlpatterns = [
     path('clients/', include('clients_app.urls')),
     path('orders/', include('orders_app.urls')),
     path('invoices/', include('invoice_app.urls')),
-]
+)
 
 handler403 = custom_permission_denied_view
