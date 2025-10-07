@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +11,7 @@
   <link rel="stylesheet" href="{% static 'employees_page/add_employee.css' %}">
 </head>
 <body>
-  <h2>Update Employee</h2>
+  <h2>{% trans 'Update Employee' %}</h2>
 
   <form method="POST" class="employee-form">
     {% csrf_token %}
@@ -24,8 +26,8 @@
     {% endfor %}
 
     <div class="form-buttons">
-      <button type="submit" class="submit-btn">Update</button>
-      <a href="{% url 'employees_view' %}" class="cancel-btn">Cancel</a>
+      <button type="submit" class="submit-btn">{% trans 'Update' %}</button>
+      <a href="{% url 'employees_view' %}" class="cancel-btn">{% trans 'Cancel' %}</a>
     </div>
   </form>
 </body>
