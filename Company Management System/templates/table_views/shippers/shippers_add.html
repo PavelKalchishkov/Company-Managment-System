@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
   <link rel="stylesheet" href="{% static 'shippers_page/add_shipper.css' %}">
 </head>
 <body>
-  <h2>Create Shipper</h2>
+  <h2>{% trans 'Create Shipper' %}</h2>
 
   <form method="POST" class="employee-form">
     {% csrf_token %}
@@ -23,8 +25,8 @@
     {% endfor %}
 
     <div class="form-buttons">
-      <button type="submit" class="submit-btn">Create</button>
-      <a href="{% url 'shippers_view' %}" class="cancel-btn">Cancel</a>
+      <button type="submit" class="submit-btn">{% trans 'Create' %}</button>
+      <a href="{% url 'shippers_view' %}" class="cancel-btn">{% trans 'Cancel' %}</a>
     </div>
   </form>
 </body>

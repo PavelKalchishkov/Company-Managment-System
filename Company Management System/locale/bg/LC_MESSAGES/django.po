@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 17:56+0300\n"
+"POT-Creation-Date: 2025-10-08 15:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,37 +19,46 @@ msgstr ""
 
 #: .\clients_app\forms.py:13 .\clients_app\forms.py:39
 #: .\employees_app\forms.py:12 .\employees_app\forms.py:36
+#: .\shippers_app\forms.py:11 .\shippers_app\forms.py:34
 #: .\templates\table_views\clients\clients_details.html:58
 #: .\templates\table_views\employees\employees_details.html:58
+#: .\templates\table_views\shippers\shippers_details.html:58
 msgid "First Name"
 msgstr "Име"
 
 #: .\clients_app\forms.py:14 .\clients_app\forms.py:40
 #: .\employees_app\forms.py:13 .\employees_app\forms.py:37
+#: .\shippers_app\forms.py:12 .\shippers_app\forms.py:35
 #: .\templates\table_views\clients\clients_details.html:62
 #: .\templates\table_views\employees\employees_details.html:62
+#: .\templates\table_views\shippers\shippers_details.html:62
 msgid "Last Name"
 msgstr "Фамилия"
 
 #: .\clients_app\forms.py:15 .\clients_app\forms.py:41
 #: .\employees_app\forms.py:14 .\employees_app\forms.py:38
+#: .\shippers_app\forms.py:13 .\shippers_app\forms.py:36
 msgid "Phone number"
 msgstr "Телефон"
 
 #: .\clients_app\forms.py:16 .\clients_app\forms.py:42
 #: .\employees_app\forms.py:15 .\employees_app\forms.py:39
+#: .\shippers_app\forms.py:14 .\shippers_app\forms.py:37
 msgid "Personal phone number (optional)"
 msgstr "Личен телефон(не е задължително)"
 
 #: .\clients_app\forms.py:17 .\clients_app\forms.py:43
 #: .\employees_app\forms.py:16 .\employees_app\forms.py:40
+#: .\shippers_app\forms.py:15 .\shippers_app\forms.py:38
 #: .\templates\table_views\clients\clients_details.html:74
 #: .\templates\table_views\employees\employees_details.html:74
+#: .\templates\table_views\shippers\shippers_details.html:74
 msgid "Email"
 msgstr "Имейл"
 
 #: .\clients_app\forms.py:18 .\clients_app\forms.py:44
 #: .\employees_app\forms.py:17 .\employees_app\forms.py:41
+#: .\shippers_app\forms.py:16 .\shippers_app\forms.py:39
 #: .\templates\table_views\clients\clients_details.html:78
 msgid "Job title"
 msgstr "Длъжност"
@@ -60,41 +69,49 @@ msgstr "Фирма (не е задължително)"
 
 #: .\clients_app\forms.py:20 .\clients_app\forms.py:46
 #: .\employees_app\forms.py:18 .\employees_app\forms.py:42
+#: .\shippers_app\forms.py:17 .\shippers_app\forms.py:40
 msgid "Address (optional)"
 msgstr "Адрес (не е задължително)"
 
 #: .\clients_app\forms.py:21 .\clients_app\forms.py:47
 #: .\employees_app\forms.py:19 .\employees_app\forms.py:43
+#: .\shippers_app\forms.py:18 .\shippers_app\forms.py:41
 msgid "City (optional)"
 msgstr "Град (не е задължително)"
 
 #: .\clients_app\forms.py:22 .\clients_app\forms.py:48
 #: .\employees_app\forms.py:20 .\employees_app\forms.py:44
+#: .\shippers_app\forms.py:19 .\shippers_app\forms.py:42
 msgid "Country (optional)"
 msgstr "Държава (не е задължително)"
 
 #: .\clients_app\forms.py:23 .\clients_app\forms.py:49
 #: .\employees_app\forms.py:21 .\employees_app\forms.py:45
+#: .\shippers_app\forms.py:20 .\shippers_app\forms.py:43
 msgid "Province (optional)"
 msgstr "Личен телефон(по избор)"
 
 #: .\clients_app\forms.py:24 .\clients_app\forms.py:50
 #: .\employees_app\forms.py:22 .\employees_app\forms.py:46
+#: .\shippers_app\forms.py:21 .\shippers_app\forms.py:44
 msgid "ZIP (optional)"
 msgstr "Пощенски код (не е задължително)"
 
 #: .\clients_app\forms.py:25 .\clients_app\forms.py:51
 #: .\employees_app\forms.py:23 .\employees_app\forms.py:47
+#: .\shippers_app\forms.py:22 .\shippers_app\forms.py:45
 msgid "Fax number (optional)"
 msgstr "Номер на факс (не е задължително)"
 
 #: .\clients_app\forms.py:26 .\clients_app\forms.py:52
 #: .\employees_app\forms.py:24 .\employees_app\forms.py:48
+#: .\shippers_app\forms.py:23 .\shippers_app\forms.py:46
 msgid "Web page (optional)"
 msgstr "Онлайн страница (не е задължително)"
 
 #: .\clients_app\forms.py:27 .\clients_app\forms.py:53
 #: .\employees_app\forms.py:25 .\employees_app\forms.py:49
+#: .\shippers_app\forms.py:24 .\shippers_app\forms.py:47
 msgid "Notes (optional)"
 msgstr "Бележки (не е задължително)"
 
@@ -102,6 +119,8 @@ msgstr "Бележки (не е задължително)"
 #: .\templates\table_views\clients\clients_details.html:22
 #: .\templates\table_views\employees\employees.html:23
 #: .\templates\table_views\employees\employees_details.html:22
+#: .\templates\table_views\shippers\shippers.html:21
+#: .\templates\table_views\shippers\shippers_details.html:22
 msgid "Home"
 msgstr "Начало"
 
@@ -109,6 +128,8 @@ msgstr "Начало"
 #: .\templates\table_views\clients\clients_details.html:23
 #: .\templates\table_views\employees\employees.html:24
 #: .\templates\table_views\employees\employees_details.html:23
+#: .\templates\table_views\shippers\shippers.html:22
+#: .\templates\table_views\shippers\shippers_details.html:23
 msgid "Orders"
 msgstr "Поръчки"
 
@@ -116,6 +137,8 @@ msgstr "Поръчки"
 #: .\templates\table_views\clients\clients_details.html:24
 #: .\templates\table_views\employees\employees.html:25
 #: .\templates\table_views\employees\employees_details.html:24
+#: .\templates\table_views\shippers\shippers.html:23
+#: .\templates\table_views\shippers\shippers_details.html:24
 msgid "Products"
 msgstr "Продукти"
 
@@ -123,6 +146,8 @@ msgstr "Продукти"
 #: .\templates\table_views\clients\clients_details.html:25
 #: .\templates\table_views\employees\employees.html:26
 #: .\templates\table_views\employees\employees_details.html:25
+#: .\templates\table_views\shippers\shippers.html:24
+#: .\templates\table_views\shippers\shippers_details.html:25
 msgid "Employees"
 msgstr "Работници"
 
@@ -130,6 +155,8 @@ msgstr "Работници"
 #: .\templates\table_views\clients\clients_details.html:26
 #: .\templates\table_views\employees\employees.html:27
 #: .\templates\table_views\employees\employees_details.html:26
+#: .\templates\table_views\shippers\shippers.html:25
+#: .\templates\table_views\shippers\shippers_details.html:26
 msgid "Clients"
 msgstr "Клиенти"
 
@@ -137,6 +164,8 @@ msgstr "Клиенти"
 #: .\templates\table_views\clients\clients_details.html:27
 #: .\templates\table_views\employees\employees.html:28
 #: .\templates\table_views\employees\employees_details.html:27
+#: .\templates\table_views\shippers\shippers.html:26
+#: .\templates\table_views\shippers\shippers_details.html:27
 msgid "Shippers"
 msgstr "Доставчици"
 
@@ -144,6 +173,8 @@ msgstr "Доставчици"
 #: .\templates\table_views\clients\clients_details.html:28
 #: .\templates\table_views\employees\employees.html:29
 #: .\templates\table_views\employees\employees_details.html:28
+#: .\templates\table_views\shippers\shippers.html:27
+#: .\templates\table_views\shippers\shippers_details.html:28
 msgid "Vendors"
 msgstr "Производители"
 
@@ -151,6 +182,8 @@ msgstr "Производители"
 #: .\templates\table_views\clients\clients_details.html:29
 #: .\templates\table_views\employees\employees.html:30
 #: .\templates\table_views\employees\employees_details.html:29
+#: .\templates\table_views\shippers\shippers.html:28
+#: .\templates\table_views\shippers\shippers_details.html:29
 msgid "Companies"
 msgstr "Фирми"
 
@@ -158,6 +191,8 @@ msgstr "Фирми"
 #: .\templates\table_views\clients\clients_details.html:30
 #: .\templates\table_views\employees\employees.html:31
 #: .\templates\table_views\employees\employees_details.html:30
+#: .\templates\table_views\shippers\shippers.html:29
+#: .\templates\table_views\shippers\shippers_details.html:30
 msgid "Invoices"
 msgstr "Фактури"
 
@@ -165,6 +200,8 @@ msgstr "Фактури"
 #: .\templates\table_views\clients\clients_details.html:34
 #: .\templates\table_views\employees\employees.html:35
 #: .\templates\table_views\employees\employees_details.html:34
+#: .\templates\table_views\shippers\shippers.html:33
+#: .\templates\table_views\shippers\shippers_details.html:34
 msgid "Profile"
 msgstr "Профил"
 
@@ -172,16 +209,19 @@ msgstr "Профил"
 #: .\templates\table_views\clients\clients_details.html:35
 #: .\templates\table_views\employees\employees.html:36
 #: .\templates\table_views\employees\employees_details.html:35
+#: .\templates\table_views\shippers\shippers.html:34
+#: .\templates\table_views\shippers\shippers_details.html:35
 msgid "Log out"
 msgstr "Излизане"
 
 #: .\templates\table_views\clients\clients.html:42
 #: .\templates\table_views\employees\employees.html:44
 msgid "Search by name or phone number"
-msgstr "Търси по име или номер"
+msgstr "Търси по име или телефон"
 
 #: .\templates\table_views\clients\clients.html:43
 #: .\templates\table_views\employees\employees.html:45
+#: .\templates\table_views\shippers\shippers.html:43
 msgid "Search"
 msgstr "Търси"
 
@@ -196,6 +236,7 @@ msgstr "Клиент"
 
 #: .\templates\table_views\clients\clients.html:52
 #: .\templates\table_views\employees\employees.html:52
+#: .\templates\table_views\shippers\shippers.html:50
 msgid "Actions"
 msgstr "Действия"
 
@@ -203,6 +244,8 @@ msgstr "Действия"
 #: .\templates\table_views\clients\clients_details.html:48
 #: .\templates\table_views\employees\employees.html:67
 #: .\templates\table_views\employees\employees_details.html:48
+#: .\templates\table_views\shippers\shippers.html:65
+#: .\templates\table_views\shippers\shippers_details.html:48
 msgid "Edit"
 msgstr "Редактиране"
 
@@ -211,11 +254,15 @@ msgstr "Редактиране"
 #: .\templates\table_views\employees\employees.html:70
 #: .\templates\table_views\employees\employees_delete.html:19
 #: .\templates\table_views\employees\employees_details.html:51
+#: .\templates\table_views\shippers\shippers.html:68
+#: .\templates\table_views\shippers\shippers_delete.html:19
+#: .\templates\table_views\shippers\shippers_details.html:51
 msgid "Delete"
 msgstr "Изтриване"
 
 #: .\templates\table_views\clients\clients_add.html:31
 #: .\templates\table_views\employees\employees_add.html:28
+#: .\templates\table_views\shippers\shippers_add.html:28
 msgid "Create"
 msgstr "Създаване"
 
@@ -225,12 +272,16 @@ msgstr "Създаване"
 #: .\templates\table_views\employees\employees_add.html:29
 #: .\templates\table_views\employees\employees_delete.html:20
 #: .\templates\table_views\employees\employees_update.html:30
+#: .\templates\table_views\shippers\shippers_add.html:29
+#: .\templates\table_views\shippers\shippers_delete.html:20
+#: .\templates\table_views\shippers\shippers_update.html:29
 msgid "Cancel"
 msgstr "Анулиране"
 
 #: .\templates\table_views\clients\clients_delete.html:14
 #: .\templates\table_views\clients\clients_delete.html:19
 #: .\templates\table_views\employees\employees_delete.html:14
+#: .\templates\table_views\shippers\shippers_delete.html:14
 msgid "Remove"
 msgstr "Премахване"
 
@@ -246,6 +297,7 @@ msgstr "Детайли на Клиента"
 
 #: .\templates\table_views\clients\clients_details.html:66
 #: .\templates\table_views\employees\employees_details.html:66
+#: .\templates\table_views\shippers\shippers_details.html:66
 msgid "Phone Number"
 msgstr "Телефон"
 
@@ -259,41 +311,49 @@ msgstr "Фирма"
 
 #: .\templates\table_views\clients\clients_details.html:86
 #: .\templates\table_views\employees\employees_details.html:82
+#: .\templates\table_views\shippers\shippers_details.html:82
 msgid "Address"
 msgstr "Адрес"
 
 #: .\templates\table_views\clients\clients_details.html:90
 #: .\templates\table_views\employees\employees_details.html:86
+#: .\templates\table_views\shippers\shippers_details.html:86
 msgid "City"
 msgstr "Град"
 
 #: .\templates\table_views\clients\clients_details.html:94
 #: .\templates\table_views\employees\employees_details.html:90
+#: .\templates\table_views\shippers\shippers_details.html:90
 msgid "Country"
 msgstr "Държава"
 
 #: .\templates\table_views\clients\clients_details.html:98
 #: .\templates\table_views\employees\employees_details.html:94
+#: .\templates\table_views\shippers\shippers_details.html:94
 msgid "Province"
 msgstr "Провинция"
 
 #: .\templates\table_views\clients\clients_details.html:102
 #: .\templates\table_views\employees\employees_details.html:98
+#: .\templates\table_views\shippers\shippers_details.html:98
 msgid "ZIP"
 msgstr "Пощенски код"
 
 #: .\templates\table_views\clients\clients_details.html:106
 #: .\templates\table_views\employees\employees_details.html:102
+#: .\templates\table_views\shippers\shippers_details.html:102
 msgid "Fax number"
 msgstr "Номер на факс"
 
 #: .\templates\table_views\clients\clients_details.html:110
 #: .\templates\table_views\employees\employees_details.html:106
+#: .\templates\table_views\shippers\shippers_details.html:106
 msgid "Web Page"
 msgstr "Интернет Страница"
 
 #: .\templates\table_views\clients\clients_details.html:114
 #: .\templates\table_views\employees\employees_details.html:110
+#: .\templates\table_views\shippers\shippers_details.html:110
 msgid "Notes"
 msgstr "Бележки"
 
@@ -303,6 +363,7 @@ msgstr "Актуализиране на Клиент"
 
 #: .\templates\table_views\clients\clients_update.html:31
 #: .\templates\table_views\employees\employees_update.html:29
+#: .\templates\table_views\shippers\shippers_update.html:28
 msgid "Update"
 msgstr "Актуализиране"
 
@@ -327,13 +388,43 @@ msgid "Employee Details"
 msgstr "Детайли на Работика"
 
 #: .\templates\table_views\employees\employees_details.html:70
+#: .\templates\table_views\shippers\shippers_details.html:70
 msgid "Personal Phone"
 msgstr "Личен телефон"
 
 #: .\templates\table_views\employees\employees_details.html:78
+#: .\templates\table_views\shippers\shippers_details.html:78
 msgid "Job Title"
 msgstr "Длъжност"
 
 #: .\templates\table_views\employees\employees_update.html:14
 msgid "Update Employee"
 msgstr "Актуализиране на Работник"
+
+#: .\templates\table_views\shippers\shippers.html:42
+msgid "Search by name or phone"
+msgstr "Търси по име или номер"
+
+#: .\templates\table_views\shippers\shippers.html:45
+#: .\templates\table_views\shippers\shippers_add.html:13
+msgid "Create Shipper"
+msgstr "Създай Доставчик"
+
+#: .\templates\table_views\shippers\shippers.html:49
+msgid "Shipper"
+msgstr "Доставчик"
+
+#: .\templates\table_views\shippers\shippers_delete.html:15
+msgid ""
+"Are you sure you want to remove this shipper? This action cannot be undone."
+msgstr ""
+"Сигурен ли си че искаш да премахнеш този доставчик? Това действие е "
+"перманентно."
+
+#: .\templates\table_views\shippers\shippers_details.html:44
+msgid "Shipper Details"
+msgstr "Детайли на Доставчик"
+
+#: .\templates\table_views\shippers\shippers_update.html:13
+msgid "Update Shipper"
+msgstr "Актуализиране на Доставчик"
