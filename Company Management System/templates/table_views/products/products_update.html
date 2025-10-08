@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,43 +13,43 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
-    <h2>Update Product</h2>
+    <h2>{% trans 'Update Product' %}</h2>
     <form method="POST" class="product-form">
   {% csrf_token %}
 
   <div class="form-group">
-    <label for="id_name">Name</label>
+    <label for="id_name">{% trans 'Name' %}</label>
     {{ form.name }}
   </div>
 
   <div class="form-group">
-    <label for="id_price">Price</label>
+    <label for="id_price">{% trans 'Price' %}</label>
     {{ form.price }}
   </div>
 
   <div class="form-group">
-    <label for="id_length">Length</label>
+    <label for="id_length">{% trans 'Length' %}</label>
     {{ form.length }}
   </div>
 
   <div class="form-group">
-    <label for="id_weight">Weight</label>
+    <label for="id_weight">{% trans 'Weight' %}</label>
     {{ form.weight }}
   </div>
 
   <div class="form-group">
-    <label for="id_color">Color</label>
+    <label for="id_color">{% trans 'Color' %}</label>
     {{ form.color }}
   </div>
 
   <div class="form-group">
-    <label for="id_vendor">Vendor</label>
+    <label for="id_vendor">{% trans 'Vendor' %}</label>
     {{ form.vendor }}
   </div>
 
   <div class="form-buttons">
-    <button type="submit" class="submit-btn">Update</button>
-    <a href="{% url 'products_view' %}" class="cancel-btn">Cancel</a>
+    <button type="submit" class="submit-btn">{% trans 'Update' %}</button>
+    <a href="{% url 'products_view' %}" class="cancel-btn">{% trans 'Cancel' %}</a>
 </div>
 </form>
 </body>
