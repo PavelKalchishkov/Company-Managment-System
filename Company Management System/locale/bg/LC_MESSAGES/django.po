@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-09 15:54+0300\n"
+"POT-Creation-Date: 2025-10-09 17:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,37 @@ msgstr "Онлайн страница (не е задължително)"
 msgid "Notes (optional)"
 msgstr "Бележки (не е задължително)"
 
-#: .\orders_app\forms.py:19 .\orders_app\forms.py:35
+#: .\invoice_app\forms.py:16 .\invoice_app\forms.py:31
+#| msgid "Eik"
+msgid "eik"
+msgstr "Еик"
+
+#: .\invoice_app\forms.py:17 .\invoice_app\forms.py:32
+#| msgid "Address"
+msgid "dds"
+msgstr "Ддс"
+
+#: .\invoice_app\forms.py:18 .\invoice_app\forms.py:33
+#: .\products_app\forms.py:12 .\products_app\forms.py:26
+msgid "name"
+msgstr "Име"
+
+#: .\invoice_app\forms.py:19 .\invoice_app\forms.py:34
+#| msgid "Address"
+msgid "address"
+msgstr "Адрес"
+
+#: .\invoice_app\forms.py:20 .\invoice_app\forms.py:35
+#| msgid "Mol"
+msgid "mol"
+msgstr "Мол"
+
+#: .\invoice_app\forms.py:21 .\invoice_app\forms.py:36
+#| msgid "Recipient"
+msgid "recipient"
+msgstr "Получател"
+
+#: .\orders_app\forms.py:19 .\orders_app\forms.py:35 .\templates\index.html:145
 msgid "Order Date"
 msgstr "Дата"
 
@@ -145,23 +175,25 @@ msgstr "Адрес"
 msgid "Payment Method"
 msgstr "Начин на плащане"
 
-#: .\orders_app\forms.py:22 .\orders_app\forms.py:38
+#: .\orders_app\forms.py:22 .\orders_app\forms.py:38 .\templates\index.html:141
 msgid "Order Status"
 msgstr "Статус"
 
 #: .\orders_app\forms.py:23 .\orders_app\forms.py:39 .\orders_app\forms.py:76
-#: .\templates\table_views\clients\clients.html:50
+#: .\templates\index.html:140 .\templates\table_views\clients\clients.html:50
 #: .\templates\table_views\orders\order_details.html:88
 msgid "Client"
 msgstr "Клиент"
 
 #: .\orders_app\forms.py:24 .\orders_app\forms.py:40 .\orders_app\forms.py:84
+#: .\templates\index.html:143
 #: .\templates\table_views\employees\employees.html:51
 #: .\templates\table_views\orders\order_details.html:93
 msgid "Employee"
 msgstr "Работник"
 
 #: .\orders_app\forms.py:25 .\orders_app\forms.py:41 .\orders_app\forms.py:92
+#: .\templates\index.html:144
 #: .\templates\table_views\orders\order_details.html:98
 #: .\templates\table_views\shippers\shippers.html:49
 msgid "Shipper"
@@ -216,10 +248,6 @@ msgstr "отказана"
 msgid "PO#"
 msgstr "НО#"
 
-#: .\products_app\forms.py:12 .\products_app\forms.py:26
-msgid "name"
-msgstr "Име"
-
 #: .\products_app\forms.py:13 .\products_app\forms.py:27
 msgid "price"
 msgstr "Цена"
@@ -240,8 +268,18 @@ msgstr "Цвят"
 msgid "vendor"
 msgstr "Производител"
 
-#: .\templates\table_views\clients\clients.html:21
+#: .\templates\403.html:14
+msgid "You don’t have permission to view this page."
+msgstr "Нямаш достъп до тази страница."
+
+#: .\templates\403.html:16
+msgid "Go Back"
+msgstr "Върни назад"
+
+#: .\templates\index.html:23 .\templates\table_views\clients\clients.html:21
 #: .\templates\table_views\clients\clients_details.html:22
+#: .\templates\table_views\companies\companies.html:22
+#: .\templates\table_views\companies\companies_details.html:22
 #: .\templates\table_views\employees\employees.html:23
 #: .\templates\table_views\employees\employees_details.html:22
 #: .\templates\table_views\orders\order_details.html:22
@@ -255,8 +293,10 @@ msgstr "Производител"
 msgid "Home"
 msgstr "Начало"
 
-#: .\templates\table_views\clients\clients.html:22
+#: .\templates\index.html:24 .\templates\table_views\clients\clients.html:22
 #: .\templates\table_views\clients\clients_details.html:23
+#: .\templates\table_views\companies\companies.html:23
+#: .\templates\table_views\companies\companies_details.html:23
 #: .\templates\table_views\employees\employees.html:24
 #: .\templates\table_views\employees\employees_details.html:23
 #: .\templates\table_views\orders\order_details.html:23
@@ -270,8 +310,10 @@ msgstr "Начало"
 msgid "Orders"
 msgstr "Поръчки"
 
-#: .\templates\table_views\clients\clients.html:23
+#: .\templates\index.html:25 .\templates\table_views\clients\clients.html:23
 #: .\templates\table_views\clients\clients_details.html:24
+#: .\templates\table_views\companies\companies.html:24
+#: .\templates\table_views\companies\companies_details.html:24
 #: .\templates\table_views\employees\employees.html:25
 #: .\templates\table_views\employees\employees_details.html:24
 #: .\templates\table_views\orders\order_details.html:24
@@ -287,8 +329,10 @@ msgstr "Поръчки"
 msgid "Products"
 msgstr "Продукти"
 
-#: .\templates\table_views\clients\clients.html:24
+#: .\templates\index.html:26 .\templates\table_views\clients\clients.html:24
 #: .\templates\table_views\clients\clients_details.html:25
+#: .\templates\table_views\companies\companies.html:25
+#: .\templates\table_views\companies\companies_details.html:25
 #: .\templates\table_views\employees\employees.html:26
 #: .\templates\table_views\employees\employees_details.html:25
 #: .\templates\table_views\orders\order_details.html:25
@@ -302,8 +346,10 @@ msgstr "Продукти"
 msgid "Employees"
 msgstr "Работници"
 
-#: .\templates\table_views\clients\clients.html:25
+#: .\templates\index.html:27 .\templates\table_views\clients\clients.html:25
 #: .\templates\table_views\clients\clients_details.html:26
+#: .\templates\table_views\companies\companies.html:26
+#: .\templates\table_views\companies\companies_details.html:26
 #: .\templates\table_views\employees\employees.html:27
 #: .\templates\table_views\employees\employees_details.html:26
 #: .\templates\table_views\orders\order_details.html:26
@@ -317,8 +363,10 @@ msgstr "Работници"
 msgid "Clients"
 msgstr "Клиенти"
 
-#: .\templates\table_views\clients\clients.html:26
+#: .\templates\index.html:28 .\templates\table_views\clients\clients.html:26
 #: .\templates\table_views\clients\clients_details.html:27
+#: .\templates\table_views\companies\companies.html:27
+#: .\templates\table_views\companies\companies_details.html:27
 #: .\templates\table_views\employees\employees.html:28
 #: .\templates\table_views\employees\employees_details.html:27
 #: .\templates\table_views\orders\order_details.html:27
@@ -332,8 +380,10 @@ msgstr "Клиенти"
 msgid "Shippers"
 msgstr "Доставчици"
 
-#: .\templates\table_views\clients\clients.html:27
+#: .\templates\index.html:29 .\templates\table_views\clients\clients.html:27
 #: .\templates\table_views\clients\clients_details.html:28
+#: .\templates\table_views\companies\companies.html:28
+#: .\templates\table_views\companies\companies_details.html:28
 #: .\templates\table_views\employees\employees.html:29
 #: .\templates\table_views\employees\employees_details.html:28
 #: .\templates\table_views\orders\order_details.html:28
@@ -347,8 +397,10 @@ msgstr "Доставчици"
 msgid "Vendors"
 msgstr "Производители"
 
-#: .\templates\table_views\clients\clients.html:28
+#: .\templates\index.html:30 .\templates\table_views\clients\clients.html:28
 #: .\templates\table_views\clients\clients_details.html:29
+#: .\templates\table_views\companies\companies.html:29
+#: .\templates\table_views\companies\companies_details.html:29
 #: .\templates\table_views\employees\employees.html:30
 #: .\templates\table_views\employees\employees_details.html:29
 #: .\templates\table_views\orders\order_details.html:29
@@ -362,8 +414,10 @@ msgstr "Производители"
 msgid "Companies"
 msgstr "Фирми"
 
-#: .\templates\table_views\clients\clients.html:29
+#: .\templates\index.html:31 .\templates\table_views\clients\clients.html:29
 #: .\templates\table_views\clients\clients_details.html:30
+#: .\templates\table_views\companies\companies.html:30
+#: .\templates\table_views\companies\companies_details.html:30
 #: .\templates\table_views\employees\employees.html:31
 #: .\templates\table_views\employees\employees_details.html:30
 #: .\templates\table_views\orders\order_details.html:30
@@ -377,8 +431,10 @@ msgstr "Фирми"
 msgid "Invoices"
 msgstr "Фактури"
 
-#: .\templates\table_views\clients\clients.html:33
+#: .\templates\index.html:35 .\templates\table_views\clients\clients.html:33
 #: .\templates\table_views\clients\clients_details.html:34
+#: .\templates\table_views\companies\companies.html:34
+#: .\templates\table_views\companies\companies_details.html:34
 #: .\templates\table_views\employees\employees.html:35
 #: .\templates\table_views\employees\employees_details.html:34
 #: .\templates\table_views\orders\order_details.html:34
@@ -392,8 +448,10 @@ msgstr "Фактури"
 msgid "Profile"
 msgstr "Профил"
 
-#: .\templates\table_views\clients\clients.html:34
+#: .\templates\index.html:36 .\templates\table_views\clients\clients.html:34
 #: .\templates\table_views\clients\clients_details.html:35
+#: .\templates\table_views\companies\companies.html:35
+#: .\templates\table_views\companies\companies_details.html:35
 #: .\templates\table_views\employees\employees.html:36
 #: .\templates\table_views\employees\employees_details.html:35
 #: .\templates\table_views\orders\order_details.html:35
@@ -407,6 +465,102 @@ msgstr "Профил"
 msgid "Log out"
 msgstr "Излизане"
 
+#: .\templates\index.html:43
+msgid "Admin Page"
+msgstr "Админ"
+
+#: .\templates\index.html:46
+msgid "Dashboard"
+msgstr "Табло"
+
+#: .\templates\index.html:52
+msgid "Total Orders"
+msgstr "Общ Брой Поръчки"
+
+#: .\templates\index.html:54
+msgid "New orders this month"
+msgstr "Нови Поръчки Този Месец"
+
+#: .\templates\index.html:61
+msgid "Total Products"
+msgstr "Общ Брой Продукти"
+
+#: .\templates\index.html:63
+msgid "New products this month"
+msgstr "Нови Продукти Този Месец"
+
+#: .\templates\index.html:70
+msgid "Total Employees"
+msgstr "Общ Брой Работници"
+
+#: .\templates\index.html:72
+msgid "New employees this month"
+msgstr "Нови Работници Този Месец"
+
+#: .\templates\index.html:79
+msgid "Total Clients"
+msgstr "Общ Брой Клиенти"
+
+#: .\templates\index.html:81
+msgid "New clients this month"
+msgstr "Нови Клиенти Този Месец"
+
+#: .\templates\index.html:91
+msgid "Total Shippers"
+msgstr "Общ Брой Доставчици"
+
+#: .\templates\index.html:93
+msgid "New shippers this month"
+msgstr "Нови Доставчици този месец"
+
+#: .\templates\index.html:100
+msgid "Total Vendors"
+msgstr "Общ Брой Производители"
+
+#: .\templates\index.html:102
+msgid "New vendors this month"
+msgstr "Нови Производители Този Месец"
+
+#: .\templates\index.html:109
+msgid "Total Companies"
+msgstr "Общ Брой Фирми"
+
+#: .\templates\index.html:111
+msgid "New companies this month"
+msgstr "Нови Фирми Този Месец"
+
+#: .\templates\index.html:118
+msgid "Total Invoices"
+msgstr "Общ Брой Фактури"
+
+#: .\templates\index.html:120
+msgid "New invoices this month"
+msgstr "Нови фактури този месец"
+
+#: .\templates\index.html:126
+msgid "Delivered Orders (Last 12 Months)"
+msgstr "Доставени Поръчки(Последни 12 Месеца)"
+
+#: .\templates\index.html:132
+msgid "Most Recent Orders"
+msgstr "Скорошни Поръчки"
+
+#: .\templates\index.html:133
+msgid "All Orders"
+msgstr "Поръчки"
+
+#: .\templates\index.html:142
+msgid "Order Price"
+msgstr "Цена"
+
+#: .\templates\index.html:151
+msgid "#ORD"
+msgstr "#ПОР"
+
+#: .\templates\index.html:179
+msgid "Orders per Month"
+msgstr "Поръчки за Месеца"
+
 #: .\templates\table_views\clients\clients.html:42
 #: .\templates\table_views\employees\employees.html:44
 #: .\templates\table_views\vendors\vendors.html:42
@@ -414,6 +568,7 @@ msgid "Search by name or phone number"
 msgstr "Търси по име или телефон"
 
 #: .\templates\table_views\clients\clients.html:43
+#: .\templates\table_views\companies\companies.html:45
 #: .\templates\table_views\employees\employees.html:45
 #: .\templates\table_views\products\products.html:45
 #: .\templates\table_views\shippers\shippers.html:43
@@ -437,6 +592,7 @@ msgstr "Действия"
 
 #: .\templates\table_views\clients\clients.html:68
 #: .\templates\table_views\clients\clients_details.html:48
+#: .\templates\table_views\companies\companies_details.html:48
 #: .\templates\table_views\employees\employees.html:67
 #: .\templates\table_views\employees\employees_details.html:48
 #: .\templates\table_views\orders\order_details.html:48
@@ -452,6 +608,7 @@ msgstr "Редактиране"
 
 #: .\templates\table_views\clients\clients.html:71
 #: .\templates\table_views\clients\clients_details.html:51
+#: .\templates\table_views\companies\companies_details.html:51
 #: .\templates\table_views\employees\employees.html:70
 #: .\templates\table_views\employees\employees_delete.html:19
 #: .\templates\table_views\employees\employees_details.html:51
@@ -472,6 +629,7 @@ msgid "Delete"
 msgstr "Изтриване"
 
 #: .\templates\table_views\clients\clients_add.html:31
+#: .\templates\table_views\companies\companies_add.html:28
 #: .\templates\table_views\employees\employees_add.html:28
 #: .\templates\table_views\products\products_add.html:51
 #: .\templates\table_views\shippers\shippers_add.html:28
@@ -482,6 +640,9 @@ msgstr "Създаване"
 #: .\templates\table_views\clients\clients_add.html:32
 #: .\templates\table_views\clients\clients_delete.html:20
 #: .\templates\table_views\clients\clients_update.html:32
+#: .\templates\table_views\companies\companies_add.html:29
+#: .\templates\table_views\companies\companies_delete.html:20
+#: .\templates\table_views\companies\companies_update.html:29
 #: .\templates\table_views\employees\employees_add.html:29
 #: .\templates\table_views\employees\employees_delete.html:20
 #: .\templates\table_views\employees\employees_update.html:30
@@ -502,6 +663,9 @@ msgstr "Анулиране"
 
 #: .\templates\table_views\clients\clients_delete.html:14
 #: .\templates\table_views\clients\clients_delete.html:19
+#: .\templates\table_views\companies\companies.html:60
+#: .\templates\table_views\companies\companies_delete.html:14
+#: .\templates\table_views\companies\companies_delete.html:19
 #: .\templates\table_views\employees\employees_delete.html:14
 #: .\templates\table_views\shippers\shippers_delete.html:14
 #: .\templates\table_views\vendors\vendors_delete.html:14
@@ -534,6 +698,7 @@ msgid "Company"
 msgstr "Фирма"
 
 #: .\templates\table_views\clients\clients_details.html:86
+#: .\templates\table_views\companies\companies_details.html:73
 #: .\templates\table_views\employees\employees_details.html:82
 #: .\templates\table_views\orders\order_details.html:68
 #: .\templates\table_views\shippers\shippers_details.html:82
@@ -595,12 +760,68 @@ msgid "Update Client"
 msgstr "Актуализиране на Клиент"
 
 #: .\templates\table_views\clients\clients_update.html:31
+#: .\templates\table_views\companies\companies.html:58
+#: .\templates\table_views\companies\companies_update.html:28
 #: .\templates\table_views\employees\employees_update.html:29
 #: .\templates\table_views\products\products_update.html:51
 #: .\templates\table_views\shippers\shippers_update.html:28
 #: .\templates\table_views\vendors\vendors_update.html:28
 msgid "Update"
 msgstr "Актуализиране"
+
+#: .\templates\table_views\companies\companies.html:44
+msgid "Search by name or eik"
+msgstr "Търси по име или еик"
+
+#: .\templates\table_views\companies\companies.html:47
+msgid "Add company"
+msgstr "Добави Фирма"
+
+#: .\templates\table_views\companies\companies.html:53
+msgid "Eik"
+msgstr "Еик"
+
+#: .\templates\table_views\companies\companies.html:54
+#: .\templates\table_views\companies\companies_details.html:68
+#: .\templates\table_views\products\products_add.html:21
+#: .\templates\table_views\products\products_details.html:58
+#: .\templates\table_views\products\products_update.html:21
+msgid "Name"
+msgstr "Име"
+
+#: .\templates\table_views\companies\companies_add.html:13
+msgid "Create Company"
+msgstr "Добави Фирма"
+
+#: .\templates\table_views\companies\companies_delete.html:15
+msgid ""
+"Are you sure you want to remove this company? This action cannot be undone."
+msgstr ""
+"Сигурен ли си че искаш да премахнеш тази фирма? Това действие е перманентно."
+
+#: .\templates\table_views\companies\companies_details.html:44
+msgid "Company Details"
+msgstr "Детайли на Фирмата"
+
+#: .\templates\table_views\companies\companies_details.html:58
+msgid "EIK"
+msgstr "ЕИК"
+
+#: .\templates\table_views\companies\companies_details.html:63
+msgid "VAT"
+msgstr "ДДС"
+
+#: .\templates\table_views\companies\companies_details.html:78
+msgid "Mol"
+msgstr "Мол"
+
+#: .\templates\table_views\companies\companies_details.html:83
+msgid "Recipient"
+msgstr "Получател"
+
+#: .\templates\table_views\companies\companies_update.html:13
+msgid "Update Company"
+msgstr "Актуализиране на Фирмата"
 
 #: .\templates\table_views\employees\employees.html:48
 #: .\templates\table_views\employees\employees_add.html:13
@@ -686,19 +907,14 @@ msgstr "Запази Промените"
 
 #: .\templates\table_views\orders\orders_add.html:34
 #: .\templates\table_views\orders\orders_update.html:38
-#| msgid "Create Product"
 msgid "Add More Products"
 msgstr "Добави Нов Продукт"
 
 #: .\templates\table_views\orders\orders_delete.html:14
-#| msgid "Create Order"
 msgid "Delete Order"
 msgstr "Изтриване"
 
 #: .\templates\table_views\orders\orders_delete.html:15
-#| msgid ""
-#| "Are you sure you want to delete this product? This action cannot be "
-#| "undone."
 msgid ""
 "Are you sure you want to delete this order? This action cannot be undone."
 msgstr ""
@@ -706,7 +922,6 @@ msgstr ""
 "перманентно."
 
 #: .\templates\table_views\orders\orders_update.html:15
-#| msgid "Create Order"
 msgid "Update Order"
 msgstr "Актуализиране на Поръчката"
 
@@ -718,12 +933,6 @@ msgstr "Търси по име или производител"
 #: .\templates\table_views\products\products_add.html:16
 msgid "Create Product"
 msgstr "Създаване на Продукт"
-
-#: .\templates\table_views\products\products_add.html:21
-#: .\templates\table_views\products\products_details.html:58
-#: .\templates\table_views\products\products_update.html:21
-msgid "Name"
-msgstr "Фамилия"
 
 #: .\templates\table_views\products\products_add.html:31
 #: .\templates\table_views\products\products_details.html:68

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,13 +11,13 @@
 </head>
 <body>
   <div class="delete-container">
-    <h1>Remove {{ company.eik }}</h1>
-    <p class="delete-warning">Are you sure you want to remove this company? This action cannot be undone.</p>
+    <h1>{% trans 'Remove' %} {{ company.eik }}</h1>
+    <p class="delete-warning">{% trans 'Are you sure you want to remove this company? This action cannot be undone.' %}</p>
     <form method="POST" class="delete-form">
       {% csrf_token %}
       <div class="form-buttons">
-        <button type="submit" class="delete-btn">Remove</button>
-        <a href="{% url 'companies_view' %}" class="cancel-btn">Cancel</a>
+        <button type="submit" class="delete-btn">{% trans 'Remove' %}</button>
+        <a href="{% url 'companies_view' %}" class="cancel-btn">{% trans 'Cancel' %}</a>
       </div>
     </form>
   </div>

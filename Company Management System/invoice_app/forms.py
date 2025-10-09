@@ -1,5 +1,6 @@
 from django import forms
 import django_filters
+from django.utils.translation import gettext_lazy as _
 
 from orders_app.models import Order
 from .models import Company, Invoice
@@ -9,13 +10,31 @@ class CompanyCreateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
-        exclude = ('added_at','')
+        exclude = ('added_at',)
+
+        labels = {
+            'eik': _('eik'),
+            'dds': _('dds'),
+            'name': _('name'),
+            'address': _('address'),
+            'mol': _('mol'),
+            'recipient': _('recipient'),
+        }
 
 class CompanyUpdateForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = '__all__'
         exclude = ('added_at','supplier_eik','supplier_dds','supplier_name','supplier_address','supplier_mol','supplier_phone_number','supplier_email')
+
+        labels = {
+            'eik': _('eik'),
+            'dds': _('dds'),
+            'name': _('name'),
+            'address': _('address'),
+            'mol': _('mol'),
+            'recipient': _('recipient'),
+        }
 
 class InvoiceCreateForm(forms.ModelForm):
     class Meta:

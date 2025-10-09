@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +11,9 @@
 </head>
 <body>
 
-        <h2>You don’t have permission to view this page.</h2>
+        <h2>{% trans 'You don’t have permission to view this page.' %}</h2>
         <div class="restricted-div">
-            <a href="javascript:history.back()" class="restricted-btn">Go Back</a>
+            <a href="javascript:history.back()" class="restricted-btn">{% trans 'Go Back' %}</a>
         </div>
 </body>
 </html>
