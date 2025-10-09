@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@
     <div class="login-container">
         <form method="post" class="login-form">
             {% csrf_token %}
-            <h2 class="login-title">Login</h2>
+            <h2 class="login-title">{% trans 'Login' %}</h2>
             <div class="product-form-group">
                 {{ form.username.label_tag }}
                 {{ form.username }}
@@ -22,8 +23,8 @@
                 {{ form.password.label_tag }}
                 {{ form.password }}
             </div>
-            <button type="submit" class="login-button">Login</button>
-            <div class="register-btn"><a href="{% url 'register' %}">Don't have an account? Register here</a></div>
+            <button type="submit" class="login-button">{% trans 'Login' %}</button>
+            <div class="register-btn"><a href="{% url 'register' %}">{% trans "Don't have an account? Register here" %}</a></div>
         </form>
     </div>
 </div>

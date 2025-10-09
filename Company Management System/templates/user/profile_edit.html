@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,11 +10,11 @@
   <link rel="stylesheet" href="{% static 'user_page/edit_user.css' %}">
 </head>
 <body>
-  <h2>Edit Profile</h2>
+  <h2>{% trans 'Edit Profile' %}</h2>
   <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Confirm</button>
+    <button type="submit">{% trans 'Confirm' %}</button>
   </form>
 </body>
 </html>

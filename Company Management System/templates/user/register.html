@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@
     <div class="login-container">
         <form method="post" class="login-form">
             {% csrf_token %}
-            <h2 class="login-title">Register</h2>
+            <h2 class="login-title">{% trans 'Register' %}</h2>
 
             {% for field in form %}
             <div class="product-form-group">
@@ -25,8 +26,8 @@
             </div>
             {% endfor %}
 
-            <button type="submit" class="login-button">Register</button>
-            <div class="register-btn"><a href="{% url 'login' %}">Already have an account? Login here</a></div>
+            <button type="submit" class="login-button">{% trans 'Register' %}</button>
+            <div class="register-btn"><a href="{% url 'login' %}">{% trans 'Already have an account? Login here' %}</a></div>
         </form>
     </div>
 </div>

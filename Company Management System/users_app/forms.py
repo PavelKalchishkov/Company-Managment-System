@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -7,11 +8,19 @@ class CustomUserCreationForm(UserCreationForm):
         model = get_user_model()
         fields = ('username', 'email',)
 
+        labels = {
+            'username': _('Username'),
+        }
+
 
 class CustomUserLoginForm(AuthenticationForm):
     class Meta:
         model = get_user_model()
         fields = ('username', 'password')
+
+        labels = {
+            'username': _('Username'),
+        }
 
 
 class CustomUserEditProfileForm(UserChangeForm):

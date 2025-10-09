@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,36 +18,36 @@
   <div class="sidebar-logo">Technocenter OOD</div>
   <div class="top-and-bottom-navigations">
       <nav class="sidebar-menu">
-        <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> Home</a>
-        <a class="sidebar-link" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
-        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
-        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
-        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
-        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
-        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
-        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
-        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
+        <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> {% trans 'Home' %}</a>
+        <a class="sidebar-link" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> {% trans 'Orders' %}</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i> {% trans 'Products' %}</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>{% trans 'Employees' %}</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>{% trans 'Clients' %}</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>{% trans 'Shippers' %}</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>{% trans 'Vendors' %}</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>{% trans 'Companies' %}</a>
+        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>{% trans 'Invoices' %}</a>
       </nav>
 
       <div class="sidebar-nav-bottom">
-        <a class="sidebar-link active" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
-        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
+        <a class="sidebar-link active" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>{% trans 'Profile' %}</a>
+        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>{% trans 'Log out' %}</a>
       </div>
     </div>
 </div>
 
 <div class="main-container">
     <section class="account-details">
-        <h1>Account Details</h1>
-        <h2>Username: {{ username }}</h2>
-        <h2>First name: {{ first_name }}</h2>
-        <h2>Last name: {{ last_name }}</h2>
-        <h2>Email: {{ email }}</h2>
-        <h2>Phone: {{ phone_number }}</h2>
+        <h1>{% trans 'Account Details' %}</h1>
+        <h2>{% trans 'Username' %}: {{ username }}</h2>
+        <h2>{% trans 'First name' %}: {{ first_name }}</h2>
+        <h2>{% trans 'Last name' %}: {{ last_name }}</h2>
+        <h2>{% trans 'Email' %}: {{ email }}</h2>
+        <h2>{% trans 'Phone' %}: {{ phone_number }}</h2>
         <div class="profile-buttons">
-        <a href="{% url 'profile_edit' %}">Edit profile</a>
-        <a href="{% url 'password_change' %}">Change password</a>
-        <a href="{% url 'profile_delete' %}">Delete profile</a>
+        <a href="{% url 'profile_edit' %}">{% trans 'Edit profile' %}</a>
+        <a href="{% url 'password_change' %}">{% trans 'Change password' %}</a>
+        <a href="{% url 'profile_delete' %}">{% trans 'Delete profile' %}</a>
         </div>    
     </section>
 </div>

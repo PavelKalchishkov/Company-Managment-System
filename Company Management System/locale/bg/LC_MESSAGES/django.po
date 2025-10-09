@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-09 20:26+0300\n"
+"POT-Creation-Date: 2025-10-09 20:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,8 @@ msgstr "Личен телефон(не е задължително)"
 #: .\templates\table_views\employees\employees_details.html:74
 #: .\templates\table_views\shippers\shippers_details.html:74
 #: .\templates\table_views\vendors\vendors_details.html:74
-#: .\vendors_app\forms.py:15 .\vendors_app\forms.py:37
+#: .\templates\user\profile_details.html:45 .\vendors_app\forms.py:15
+#: .\vendors_app\forms.py:37
 msgid "Email"
 msgstr "Имейл"
 
@@ -235,6 +236,7 @@ msgstr "Отказана"
 #: .\templates\table_views\invoices\invoices_add.html:23
 #: .\templates\table_views\invoices\invoices_add.html:67
 #: .\templates\table_views\invoices\invoices_update.html:23
+#: .\templates\table_views\invoices\invoices_update.html:67
 msgid "Company"
 msgstr "Фирма"
 
@@ -245,6 +247,7 @@ msgstr "Фирма"
 #: .\templates\table_views\invoices\invoices_add.html:28
 #: .\templates\table_views\invoices\invoices_add.html:87
 #: .\templates\table_views\invoices\invoices_update.html:28
+#: .\templates\table_views\invoices\invoices_update.html:87
 #: .\templates\table_views\orders\orders.html:74
 msgid "Order"
 msgstr "Поръчка"
@@ -379,6 +382,7 @@ msgstr "Върни назад"
 #: .\templates\table_views\shippers\shippers_details.html:22
 #: .\templates\table_views\vendors\vendors.html:21
 #: .\templates\table_views\vendors\vendors_details.html:22
+#: .\templates\user\profile_details.html:21
 msgid "Home"
 msgstr "Начало"
 
@@ -399,6 +403,7 @@ msgstr "Начало"
 #: .\templates\table_views\shippers\shippers_details.html:23
 #: .\templates\table_views\vendors\vendors.html:22
 #: .\templates\table_views\vendors\vendors_details.html:23
+#: .\templates\user\profile_details.html:22
 msgid "Orders"
 msgstr "Поръчки"
 
@@ -422,6 +427,7 @@ msgstr "Поръчки"
 #: .\templates\table_views\shippers\shippers_details.html:24
 #: .\templates\table_views\vendors\vendors.html:23
 #: .\templates\table_views\vendors\vendors_details.html:24
+#: .\templates\user\profile_details.html:23
 msgid "Products"
 msgstr "Продукти"
 
@@ -442,6 +448,7 @@ msgstr "Продукти"
 #: .\templates\table_views\shippers\shippers_details.html:25
 #: .\templates\table_views\vendors\vendors.html:24
 #: .\templates\table_views\vendors\vendors_details.html:25
+#: .\templates\user\profile_details.html:24
 msgid "Employees"
 msgstr "Работници"
 
@@ -462,6 +469,7 @@ msgstr "Работници"
 #: .\templates\table_views\shippers\shippers_details.html:26
 #: .\templates\table_views\vendors\vendors.html:25
 #: .\templates\table_views\vendors\vendors_details.html:26
+#: .\templates\user\profile_details.html:25
 msgid "Clients"
 msgstr "Клиенти"
 
@@ -482,6 +490,7 @@ msgstr "Клиенти"
 #: .\templates\table_views\shippers\shippers_details.html:27
 #: .\templates\table_views\vendors\vendors.html:26
 #: .\templates\table_views\vendors\vendors_details.html:27
+#: .\templates\user\profile_details.html:26
 msgid "Shippers"
 msgstr "Доставчици"
 
@@ -502,6 +511,7 @@ msgstr "Доставчици"
 #: .\templates\table_views\shippers\shippers_details.html:28
 #: .\templates\table_views\vendors\vendors.html:27
 #: .\templates\table_views\vendors\vendors_details.html:28
+#: .\templates\user\profile_details.html:27
 msgid "Vendors"
 msgstr "Производители"
 
@@ -522,6 +532,7 @@ msgstr "Производители"
 #: .\templates\table_views\shippers\shippers_details.html:29
 #: .\templates\table_views\vendors\vendors.html:28
 #: .\templates\table_views\vendors\vendors_details.html:29
+#: .\templates\user\profile_details.html:28
 msgid "Companies"
 msgstr "Фирми"
 
@@ -542,6 +553,7 @@ msgstr "Фирми"
 #: .\templates\table_views\shippers\shippers_details.html:30
 #: .\templates\table_views\vendors\vendors.html:29
 #: .\templates\table_views\vendors\vendors_details.html:30
+#: .\templates\user\profile_details.html:29
 msgid "Invoices"
 msgstr "Фактури"
 
@@ -562,6 +574,7 @@ msgstr "Фактури"
 #: .\templates\table_views\shippers\shippers_details.html:34
 #: .\templates\table_views\vendors\vendors.html:33
 #: .\templates\table_views\vendors\vendors_details.html:34
+#: .\templates\user\profile_details.html:33
 msgid "Profile"
 msgstr "Профил"
 
@@ -582,6 +595,7 @@ msgstr "Профил"
 #: .\templates\table_views\shippers\shippers_details.html:35
 #: .\templates\table_views\vendors\vendors.html:34
 #: .\templates\table_views\vendors\vendors_details.html:35
+#: .\templates\user\profile_details.html:34
 msgid "Log out"
 msgstr "Излизане"
 
@@ -752,6 +766,7 @@ msgstr "Редактиране"
 #: .\templates\table_views\vendors\vendors.html:68
 #: .\templates\table_views\vendors\vendors_delete.html:19
 #: .\templates\table_views\vendors\vendors_details.html:51
+#: .\templates\user\profile_delete.html:19
 msgid "Delete"
 msgstr "Изтриване"
 
@@ -786,6 +801,7 @@ msgstr "Създаване"
 #: .\templates\table_views\vendors\vendors_add.html:29
 #: .\templates\table_views\vendors\vendors_delete.html:20
 #: .\templates\table_views\vendors\vendors_update.html:29
+#: .\templates\user\profile_delete.html:20
 msgid "Cancel"
 msgstr "Анулиране"
 
@@ -1139,74 +1155,92 @@ msgid "Cancel Creation"
 msgstr "Отказ"
 
 #: .\templates\table_views\invoices\invoices_add.html:66
+#: .\templates\table_views\invoices\invoices_update.html:66
 msgid "Add new company"
 msgstr "Добави Нова Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:69
+#: .\templates\table_views\invoices\invoices_update.html:69
 msgid "Company id"
 msgstr "Номер на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:71
+#: .\templates\table_views\invoices\invoices_update.html:71
 msgid "Company eik"
 msgstr "Еик на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:73
+#: .\templates\table_views\invoices\invoices_update.html:73
 msgid "Company vat"
 msgstr "Ддс на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:75
+#: .\templates\table_views\invoices\invoices_update.html:75
 msgid "Company name"
 msgstr "Име на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:77
+#: .\templates\table_views\invoices\invoices_update.html:77
 msgid "Company address"
 msgstr "Адрес на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:79
+#: .\templates\table_views\invoices\invoices_update.html:79
 msgid "Company mol"
 msgstr "Мол на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:81
+#: .\templates\table_views\invoices\invoices_update.html:81
 msgid "Company recipient"
 msgstr "Получател на Фирма"
 
 #: .\templates\table_views\invoices\invoices_add.html:86
+#: .\templates\table_views\invoices\invoices_update.html:86
 msgid "Create New Order"
 msgstr "Създаване на Нова Поръчка"
 
 #: .\templates\table_views\invoices\invoices_add.html:89
+#: .\templates\table_views\invoices\invoices_update.html:89
 msgid "Order price"
 msgstr "Цена"
 
 #: .\templates\table_views\invoices\invoices_add.html:91
+#: .\templates\table_views\invoices\invoices_update.html:91
 msgid "Order products"
 msgstr "Продукти на Поръчката"
 
 #: .\templates\table_views\invoices\invoices_add.html:93
+#: .\templates\table_views\invoices\invoices_update.html:93
 msgid "Order payment method"
 msgstr "Начин на плащане"
 
 #: .\templates\table_views\invoices\invoices_add.html:95
+#: .\templates\table_views\invoices\invoices_update.html:95
 msgid "Order status"
 msgstr "Статус"
 
 #: .\templates\table_views\invoices\invoices_add.html:97
+#: .\templates\table_views\invoices\invoices_update.html:97
 msgid "Order address"
 msgstr "Адрес"
 
 #: .\templates\table_views\invoices\invoices_add.html:99
+#: .\templates\table_views\invoices\invoices_update.html:99
 msgid "Order version"
 msgstr "Поръчки за Месеца"
 
 #: .\templates\table_views\invoices\invoices_add.html:101
+#: .\templates\table_views\invoices\invoices_update.html:101
 msgid "Order client"
 msgstr "Клиент"
 
 #: .\templates\table_views\invoices\invoices_add.html:103
+#: .\templates\table_views\invoices\invoices_update.html:103
 msgid "Order employee"
 msgstr "Работник"
 
 #: .\templates\table_views\invoices\invoices_add.html:105
+#: .\templates\table_views\invoices\invoices_update.html:105
 msgid "Order shipper"
 msgstr "Доставчик"
 
@@ -1219,12 +1253,10 @@ msgstr ""
 
 #: .\templates\table_views\invoices\invoices_update.html:18
 #: .\templates\table_views\invoices\invoices_update.html:58
-#| msgid "Create Invoice"
 msgid "Update Invoice"
 msgstr "Актуализиране на Фактура"
 
 #: .\templates\table_views\invoices\invoices_update.html:59
-#| msgid "Cancel Creation"
 msgid "Cancel Update"
 msgstr "Отказ"
 
@@ -1369,6 +1401,110 @@ msgstr "Детайли на Производител"
 #: .\templates\table_views\vendors\vendors_update.html:13
 msgid "Update Vendor"
 msgstr "Актуализиране на Производител"
+
+#: .\templates\user\login.html:17 .\templates\user\login.html:26
+msgid "Login"
+msgstr "Вход"
+
+#: .\templates\user\login.html:27
+msgid "Don't have an account? Register here"
+msgstr "Регистрирай се тук!"
+
+#: .\templates\user\logout.html:14
+msgid "You have been logged out"
+msgstr "Успешно излизане от акаунта"
+
+#: .\templates\user\logout.html:15
+#: .\templates\user\password_change_done.html:15
+msgid "Back to Homepage"
+msgstr "Връщане в Началото"
+
+#: .\templates\user\password_change.html:17
+#: .\templates\user\password_change.html:21
+#| msgid "Change password"
+msgid "Change Password"
+msgstr "Смяна на парола"
+
+#: .\templates\user\password_change.html:22
+#| msgid "Edit Profile"
+msgid "Back to Profile"
+msgstr "Обратно към Профила"
+
+#: .\templates\user\password_change_done.html:14
+msgid "You have been changed your password successfully."
+msgstr "Успешно променяне на парола."
+
+#: .\templates\user\profile_delete.html:14
+#| msgid "Delete"
+msgid "Delete account"
+msgstr "Изтриване"
+
+#: .\templates\user\profile_delete.html:15
+#| msgid ""
+#| "Are you sure you want to delete this product? This action cannot be "
+#| "undone."
+msgid ""
+"Are you sure you want to delete this account? This action cannot be undone."
+msgstr ""
+"Сигурен ли си че искаш да изтриеш профила? Това действие е "
+"перманентно."
+
+#: .\templates\user\profile_details.html:41
+msgid "Account Details"
+msgstr "Детайли на Акаунта"
+
+#: .\templates\user\profile_details.html:42 .\users_app\forms.py:12
+#: .\users_app\forms.py:22 .\users_app\models.py:10
+msgid "Username"
+msgstr "Потребителско име"
+
+#: .\templates\user\profile_details.html:43
+msgid "First name"
+msgstr "Име"
+
+#: .\templates\user\profile_details.html:44
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\templates\user\profile_details.html:46
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\templates\user\profile_details.html:48
+msgid "Edit profile"
+msgstr "Редактиране"
+
+#: .\templates\user\profile_details.html:49
+msgid "Change password"
+msgstr "Смяна на парола"
+
+#: .\templates\user\profile_details.html:50
+msgid "Delete profile"
+msgstr "Изтриване"
+
+#: .\templates\user\profile_edit.html:13
+msgid "Edit Profile"
+msgstr "Редактиране"
+
+#: .\templates\user\profile_edit.html:17
+msgid "Confirm"
+msgstr "Потвърди"
+
+#: .\templates\user\register.html:17 .\templates\user\register.html:29
+msgid "Register"
+msgstr "Регистриране"
+
+#: .\templates\user\register.html:30
+msgid "Already have an account? Login here"
+msgstr "Вече имаш акаунт? Влез от тук!"
+
+#: .\users_app\models.py:14
+msgid "phone_number"
+msgstr "Телефон"
+
+#: .\users_app\models.py:18
+msgid "email"
+msgstr "Имейл"
 
 #~| msgid "Update"
 #~ msgid "date"
