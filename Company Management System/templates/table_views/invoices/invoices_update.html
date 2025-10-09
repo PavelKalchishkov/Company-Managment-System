@@ -1,5 +1,5 @@
-{#{% extends 'index.html' %}#}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,94 +15,94 @@
 <div id="main-div" style="display: flex;">
 
     <div id="form-div">
-        <h2>Update Invoice</h2>
+        <h2>{% trans 'Update Invoice' %}</h2>
         <form method="post">
           {% csrf_token %}
 
             <div class="form-group">
-            <label for="id_company">Company:</label>
+            <label for="id_company">{% trans 'Company' %}:</label>
             {{ form.company }}
           </div>
 
           <div class="form-group">
-            <label for="id_order">Order:</label>
+            <label for="id_order">{% trans 'Order' %}:</label>
             {{ form.order }}
           </div>
 
           <div class="form-group">
-            <label for="id_DDS">VAT:</label>
+            <label for="id_DDS">{% trans 'VAT' %}:</label>
             {{ form.DDS }}
           </div>
 
           <div class="form-group">
-            <label for="id_comment">Comment (Optional):</label>
+            <label for="id_comment">{% trans 'Comment (Optional)' %}:</label>
             {{ form.comment }}
           </div>
 
           <div class="form-group">
-            <label for="id_discount">Discount(%) (Optional):</label>
+            <label for="id_discount">{% trans 'Discount(%) (Optional)' %}:</label>
             {{ form.discount }}
           </div>
 
           <div class="form-group">
-            <label for="price_without_dds">Whole Price (without VAT):</label>
+            <label for="price_without_dds">{% trans 'Whole Price (without VAT)' %}:</label>
             {{ form.whole_price_without_dds }}
           </div>
 
           <div class="form-group">
-            <label for="price_with_dds">Whole Price (with VAT):</label>
+            <label for="price_with_dds">{% trans 'Whole Price (with VAT)' %}:</label>
             {{ form.whole_price_with_dds }}
           </div>
 
           <div class="form-actions">
-            <button id="submit_btn" type="submit" class="submit-btn">Update Invoice</button>
-            <a id="cancel_btn" href="{% url 'invoices_view' %}" class="cancel-btn">Cancel Update</a>
+            <button id="submit_btn" type="submit" class="submit-btn">{% trans 'Update Invoice' %}</button>
+            <a id="cancel_btn" href="{% url 'invoices_view' %}" class="cancel-btn">{% trans 'Cancel Update' %}</a>
           </div>
         </form>
 
     </div>
 
     <div id="company-div">
-        <a href="{% url 'companies_add_view' %}?next={% url 'invoices_add_view' %}">Add new company</a>
-        <h4>Company</h4>
+        <a href="{% url 'companies_add_view' %}?next={% url 'invoices_add_view' %}">{% trans 'Add new company' %}</a>
+        <h4>{% trans 'Company' %}</h4>
         <p id="company_database_name_p">-</p>
-        <h4>Company id</h4>
+        <h4>{% trans 'Company id' %}</h4>
         <p id="company_id_p">-</p>
-        <h4>Company eik</h4>
+        <h4>{% trans 'Company eik' %}</h4>
         <p id="company_eik_p">-</p>
-        <h4>Company vat</h4>
+        <h4>{% trans 'Company vat' %}</h4>
         <p id="company_dds_p">-</p>
-        <h4>Company name</h4>
+        <h4>{% trans 'Company name' %}</h4>
         <p id="company_name_p">-</p>
-        <h4>Company address</h4>
+        <h4>{% trans 'Company address' %}</h4>
         <p id="company_address_p">-</p>
-        <h4>Company mol</h4>
+        <h4>{% trans 'Company mol' %}</h4>
         <p id="company_mol_p">-</p>
-        <h4>Company recipient</h4>
+        <h4>{% trans 'Company recipient' %}</h4>
         <p id="company_recipient_p">-</p>
     </div>
 
     <div id="order-div">
-        <a href="{% url 'orders_create_view' %}?next={% url 'invoices_add_view' %}">Create New Order</a>
-        <h4>Order</h4>
+        <a href="{% url 'orders_create_view' %}?next={% url 'invoices_add_view' %}">{% trans 'Create New Order' %}</a>
+        <h4>{% trans 'Order' %}</h4>
         <p id="order_id_p">-</p>
-        <h4>Order price</h4>
+        <h4>{% trans 'Order price' %}</h4>
         <p id="order_price_p">-</p>
-        <h4>Order products</h4>
+        <h4>{% trans 'Order products' %}</h4>
         <p id="order_products_p">-</p>
-        <h4>Order payment method</h4>
+        <h4>{% trans 'Order payment method' %}</h4>
         <p id="order_payment_method_p">-</p>
-        <h4>Order status</h4>
+        <h4>{% trans 'Order status' %}</h4>
         <p id="order_status_p">-</p>
-        <h4>Order address</h4>
+        <h4>{% trans 'Order address' %}</h4>
         <p id="order_address_p">-</p>
-        <h4>Order version</h4>
+        <h4>{% trans 'Order version' %}</h4>
         <p id="order_version_p">-</p>
-        <h4>Order client</h4>
+        <h4>{% trans 'Order client' %}</h4>
         <p id="order_client_p">-</p>
-        <h4>Order employee</h4>
+        <h4>{% trans 'Order employee' %}</h4>
         <p id="order_employee_p">-</p>
-        <h4>Order shipper</h4>
+        <h4>{% trans 'Order shipper' %}</h4>
         <p id="order_shipper_p">-</p>
     </div>
 

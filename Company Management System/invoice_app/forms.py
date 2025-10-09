@@ -42,20 +42,40 @@ class InvoiceCreateForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['date', 'cancelled']
 
+        labels = {
+            'company': _('company'),
+            'order': _('order'),
+            'DDS': _('DDS'),
+            'comment': _('comment'),
+            'discount': _('discount'),
+            'whole_price_with_dds': _('whole_price_with_dds'),
+            'whole_price_without_dds': _('whole_price_without_dds'),
+        }
+
 class InvoiceUpdateForm(forms.ModelForm):
     class Meta:
         model = Invoice
         fields = '__all__'
         exclude = ['date']
 
+    labels = {
+        'company': _('company'),
+        'order': _('order'),
+        'DDS': _('DDS'),
+        'comment': _('comment'),
+        'discount': _('discount'),
+        'whole_price_with_dds': _('whole_price_with_dds'),
+        'whole_price_without_dds': _('whole_price_without_dds'),
+    }
+
 class InvoiceReportFilter(django_filters.FilterSet):
     whole_price_without_dds = django_filters.RangeFilter(
         widget=django_filters.widgets.RangeWidget(
-            attrs={'placeholder': 'Price without VAT'}))
+            attrs={'placeholder': _('Price without VAT')}))
 
     whole_price_with_dds = django_filters.RangeFilter(
         widget=django_filters.widgets.RangeWidget(
-            attrs={'placeholder': 'Price with VAT'}))
+            attrs={'placeholder': _('Price with VAT')}))
 
     date = django_filters.DateFromToRangeFilter(
         widget=django_filters.widgets.RangeWidget(
@@ -66,15 +86,15 @@ class InvoiceReportFilter(django_filters.FilterSet):
         choices=lambda: [(d, d) for d in Invoice.objects.values_list("DDS", flat=True).distinct()],
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'VAT'
+            'data-placeholder': _('VAT')
         })
     )
 
     cancelled = django_filters.ChoiceFilter(
         choices=[
-            ('', 'Status'),
-            ('False', 'Active'),
-            ('True', 'Cancelled'),
+            ('', _('Status')),
+            ('False', _('Active')),
+            ('True', _('Cancelled')),
         ],
         empty_label=None)
 
@@ -82,14 +102,14 @@ class InvoiceReportFilter(django_filters.FilterSet):
         queryset=Company.objects.all(),
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Company'
+            'data-placeholder': _('Company')
         }))
 
     order = django_filters.ModelChoiceFilter(
         queryset=Order.objects.all(),
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Order'
+            'data-placeholder': _('Order')
         })
     )
 
