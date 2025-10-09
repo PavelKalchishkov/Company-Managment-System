@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,21 +21,22 @@
     <div class="sidebar">
       <div class="sidebar-logo">Technocenter OOD</div>
       <div class="top-and-bottom-navigations">
-          <nav class="sidebar-menu">
-            <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> Home</a>
-            <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> Orders</a>
-            <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i>Products</a>
-            <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>Employees</a>
-            <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>Clients</a>
-            <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>Shippers</a>
-            <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>Vendors</a>
-            <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>Companies</a>
-            <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>Invoices</a>
-          </nav>
-          <div class="sidebar-nav-bottom">
-            <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>Profile</a>
-            <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>Log out</a>
-          </div>
+        <nav class="sidebar-menu">
+        <a class="sidebar-link" href="{% url 'index' %}"><i data-lucide="home" class="icon"></i> {% trans 'Home' %}</a>
+        <a class="sidebar-link active" href="{% url 'orders_view' %}"><i data-lucide="clipboard-list" class="icon"></i> {% trans 'Orders' %}</a>
+        <a class="sidebar-link" href="{% url 'products_view' %}"><i data-lucide="package" class="icon"></i> {% trans 'Products' %}</a>
+        <a class="sidebar-link" href="{% url 'employees_view' %}"><i data-lucide="users" class="icon"></i>{% trans 'Employees' %}</a>
+        <a class="sidebar-link" href="{% url 'clients_view' %}"><i data-lucide="user" class="icon"></i>{% trans 'Clients' %}</a>
+        <a class="sidebar-link" href="{% url 'shippers_view' %}"><i data-lucide="truck" class="icon"></i>{% trans 'Shippers' %}</a>
+        <a class="sidebar-link" href="{% url 'vendors_view' %}"><i data-lucide="briefcase" class="icon"></i>{% trans 'Vendors' %}</a>
+        <a class="sidebar-link" href="{% url 'companies_view' %}"><i data-lucide="building-2" class="icon"></i>{% trans 'Companies' %}</a>
+        <a class="sidebar-link" href="{% url 'invoices_view' %}"><i data-lucide="file-text" class="icon"></i>{% trans 'Invoices' %}</a>
+      </nav>
+
+      <div class="sidebar-nav-bottom">
+        <a class="sidebar-link" href="{% url 'profile_details' %}"><i data-lucide="user-circle" class="icon"></i>{% trans 'Profile' %}</a>
+        <a class="sidebar-link" href="{% url 'logout' %}"><i data-lucide="log-out" class="icon"></i>{% trans 'Log out' %}</a>
+      </div>
       </div>
     </div>
 
@@ -50,27 +52,27 @@
       
 <div class="sort-buttons">
   {% if request.GET.sort_price == 'desc' %}
-    <a href="?{{ request.GET.urlencode|cut:'sort_price=desc'|cut:'&sort_price=desc' }}" class="sort-btn active">▼ Price</a>
+    <a href="?{{ request.GET.urlencode|cut:'sort_price=desc'|cut:'&sort_price=desc' }}" class="sort-btn active">▼ {% trans 'Price' %}</a>
   {% else %}
-    <a href="?{{ request.GET.urlencode|add:'&sort_price=desc' }}" class="sort-btn">▼ Price</a>
+    <a href="?{{ request.GET.urlencode|add:'&sort_price=desc' }}" class="sort-btn">▼ {% trans 'Price' %}</a>
   {% endif %}
 
   {% if request.GET.sort_price == 'asc' %}
-    <a href="?{{ request.GET.urlencode|cut:'sort_price=asc'|cut:'&sort_price=asc' }}" class="sort-btn active">▲ Price</a>
+    <a href="?{{ request.GET.urlencode|cut:'sort_price=asc'|cut:'&sort_price=asc' }}" class="sort-btn active">▲ {% trans 'Price' %}</a>
   {% else %}
-    <a href="?{{ request.GET.urlencode|add:'&sort_price=asc' }}" class="sort-btn">▲ Price</a>
+    <a href="?{{ request.GET.urlencode|add:'&sort_price=asc' }}" class="sort-btn">▲ {% trans 'Price' %}</a>
   {% endif %}
 </div>
 
   
-    <button type="submit" class="filter-btn">Filter</button>
-    <a href="{% url 'orders_create_view' %}" class="create-btn">Create Order</a>
+    <button type="submit" class="filter-btn">{% trans 'Filter' %}</button>
+    <a href="{% url 'orders_create_view' %}" class="create-btn">{% trans 'Create Order' %}</a>
   </div>
 </form>
 
         <div class="order-header-row">
-            <div class="order-left">Order</div>
-            <div class="order-right">Actions</div>
+            <div class="order-left">{% trans 'Order' %}</div>
+            <div class="order-right">{% trans 'Actions' %}</div>
         </div>
 
         <div class="order-row-list">
@@ -79,22 +81,22 @@
                 <div class="order-left">
                     <div class="order-info">
                         <h3 class="order-id">{{ order }}</h3>
-                        <p class="order-address"><b>{{ order.client }}</b> - <b>{{ order.order_price }}</b> lv.</p>
-                        <p class="status-pill {{ order.order_status|lower }}">{{ order.order_status }}</p>
+                        <p class="order-address"><b>{{ order.client }}</b> - <b>{{ order.order_price }}</b> {% trans 'lv.' %}</p>
+                        <p class="status-pill {{ order.order_status|lower }}">{{ order.get_order_status_display }}</p>
                         <p class="order-version">{{ order.order_address }}</p>
                     </div>
                 </div>
                 <div class="order-right">
                     <a href="{% url 'orders_update_view' pk=order.id %}" class="btn-edit">
-                        <i data-lucide="edit-3"></i> Edit
+                        <i data-lucide="edit-3"></i> {% trans 'Edit' %}
                     </a>
                     <a href="{% url 'orders_delete_view' pk=order.id %}" class="btn-delete">
-                        <i data-lucide="trash-2"></i> Delete
+                        <i data-lucide="trash-2"></i> {% trans 'Delete' %}
                     </a>
                 </div>
             </div>
             <div class="order-products-row">
-                <div class="order-products-header">Products from order {{ order }}:</div>
+                <div class="order-products-header">{% trans 'Products from order' %} {{ order }}:</div>
                 <div class="order-products-list">
                     {% for order_product in order_products %}
                         {% if order_product.order_id == order.id %}
@@ -140,7 +142,6 @@
 
             input.val(next);
 
-            // Update button text
             $(this).text(
                 next === 'asc' ? '▲ Price' :
                 next === 'desc' ? '▼ Price' :

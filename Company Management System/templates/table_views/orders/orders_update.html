@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +12,13 @@
     <link rel="stylesheet" href="{% static 'orders_page/add_order.css' %}">
 </head>
 <body>
-<h2>Update Order</h2>
+<h2>{% trans 'Update Order' %}</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     {{ formset.management_form }}
 
-    <h3>Products:</h3>
+    <h3>{% trans 'Products' %}:</h3>
     <div id="formset-container">
         {% for subform in formset %}
             <div class="form-row">
@@ -26,16 +27,15 @@
         {% endfor %}
     </div>
 
-    <!-- Hidden template for JS to clone -->
     <div id="empty-form-template" style="display: none;">
         <div class="form-row">
             {{ formset.empty_form.as_p|safe }}
         </div>
     </div>
 
-    <button type="submit">Save Changes</button>
-    <button type="button" class="cancel-button" onclick="window.location.href='{% url 'orders_view' %}'">Cancel</button>
-    <button type="button" id="add-more">Add More Products</button>
+    <button type="submit">{% trans 'Save Changes' %}</button>
+    <button type="button" class="cancel-button" onclick="window.location.href='{% url 'orders_view' %}'">{% trans 'Cancel' %}</button>
+    <button type="button" id="add-more">{% trans 'Add More Products' %}</button>
 </form>
 
 <script src="{% static 'javascript/update_order_button.js' %}"></script>

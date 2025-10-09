@@ -1,5 +1,6 @@
 import django_filters
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from clients_app.models import Client
 from orders_app.models import Order, OrderProduct
@@ -14,16 +15,41 @@ class OrderCreationForm(forms.ModelForm):
         fields = '__all__'
         exclude = ('products','order_version', 'order_price')
 
+        labels = {
+            'order_date': _('Order Date'),
+            'order_address': _('Order Address'),
+            'payment_method': _('Payment Method'),
+            'order_status': _('Order Status'),
+            'client': _('Client'),
+            'employee': _('Employee'),
+            'shipper': _('Shipper'),
+        }
+
 class OrderUpdateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = '__all__'
         exclude = ('products', 'order_version', 'order_price')
 
+        labels = {
+            'order_date': _('Order Date'),
+            'order_address': _('Order Address'),
+            'payment_method': _('Payment Method'),
+            'order_status': _('Order Status'),
+            'client': _('Client'),
+            'employee': _('Employee'),
+            'shipper': _('Shipper'),
+        }
+
 class OrderProductForm(forms.ModelForm):
     class Meta:
         model = OrderProduct
         fields = ['id', 'product', 'quantity']
+
+        labels = {
+            'product': _('Product'),
+            'quantity': _('Quantity'),
+        }
 
 class OrderViewFilter(django_filters.FilterSet):
     payment_method = django_filters.ChoiceFilter(
@@ -31,7 +57,7 @@ class OrderViewFilter(django_filters.FilterSet):
         widget=forms.Select(
             attrs={
             'class': 'select2',
-            'data-placeholder': 'Payment'
+            'data-placeholder': _('Payment')
         })
     )
 
@@ -39,7 +65,7 @@ class OrderViewFilter(django_filters.FilterSet):
         choices=Order._meta.get_field('order_status').choices,
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Status'
+            'data-placeholder': _('Status')
         })
     )
 
@@ -47,7 +73,7 @@ class OrderViewFilter(django_filters.FilterSet):
         queryset=Client.objects.all(),
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Client'
+            'data-placeholder': _('Client')
         })
     )
 
@@ -55,7 +81,7 @@ class OrderViewFilter(django_filters.FilterSet):
         queryset=Employee.objects.all(),
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Employee'
+            'data-placeholder': _('Employee')
         })
     )
 
@@ -63,7 +89,7 @@ class OrderViewFilter(django_filters.FilterSet):
         queryset=Shipper.objects.all(),
         widget=forms.Select(attrs={
             'class': 'select2',
-            'data-placeholder': 'Shipper'
+            'data-placeholder': _('Shipper')
         })
     )
 
