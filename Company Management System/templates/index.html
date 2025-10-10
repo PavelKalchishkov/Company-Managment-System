@@ -40,7 +40,15 @@
 </div>
 <div class="main-content">
 {% if user.is_superuser %}
-    <div class="admin-btn-div"><a class="admin-btn" href="/admin/">{% trans 'Admin Page' %}</a></div>
+    <div class="admin-btn-div">
+        <a class="admin-btn" href="/admin/">{% trans 'Admin Page' %}</a>
+    </div>
+    <form action="{% url 'set_language' %}" method="post" class="lang-form">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.path }}">
+            <button type="submit" name="language" class="language_button" value="en">EN</button>
+            <button type="submit" name="language" class="language_button" value="bg">BG</button>
+    </form>
 {% endif %}
 
     <h1><i data-lucide="layout-dashboard" class="dashboard-title"></i> {% trans 'Dashboard' %}</h1>

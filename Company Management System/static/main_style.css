@@ -26,11 +26,23 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
-.admin-btn:hover {
+.admin-btn:hover, .language_button:hover {
     background-color: #0d50bd;;
 }
 
 .admin-btn-div {
     display: flex;
     justify-content: center;
+}
+
+.language_button {
+    display: inline-block;
+    border: 0;
+    padding: 7px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #0d66f6;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: background-color 0.3s, color 0.3s;
 }
