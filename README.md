@@ -71,8 +71,8 @@ DATABASES = {
 ---
 ## 🖼️ Screenshots
 <p align="center">
-  <img src="chess_project/screenshots/scr_1.png" width="300" alt="Screenshot 1" />
-  <img src="chess_project/screenshots/scr_2.png" width="300" alt="Screenshot 2" />
-  <img src="chess_project/screenshots/scr_3.png" width="300" alt="Screenshot 3" />
+  <img src="chess_project/screenshots/scr_1.png" width="300" alt="Screenshot_1" />
+  <img src="chess_project/screenshots/scr_2.png" width="300" alt="Screenshot_2" />
+  <img src="chess_project/screenshots/scr_3.png" width="300" alt="Screenshot_3" />
 </p>
 
