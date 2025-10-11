@@ -67,5 +67,12 @@ DATABASES = {
    python manage.py runserver
 
 8. Access the app at http://localhost:8000
-
+   
+---
+## 🖼️ Screenshots
+<p align="center">
+  <img src="chess_project/screenshots/scr_1.png" width="300" alt="Screenshot 1" />
+  <img src="chess_project/screenshots/scr_2.png" width="300" alt="Screenshot 2" />
+  <img src="chess_project/screenshots/scr_3.png" width="300" alt="Screenshot 3" />
+</p>
 
