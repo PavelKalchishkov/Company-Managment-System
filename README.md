@@ -71,12 +71,12 @@ DATABASES = {
 ---
 ## 🖼️ Screenshots
 <p align="center">
-  <img src="Screenshots/screenshot_1.png" width="500" alt="Screenshot_1" />
-  <img src="Screenshots/screenshot_2.png" width="500" alt="Screenshot_2" />
-  <img src="Screenshots/screenshot_3.png" width="500" alt="Screenshot_3" />
-  <img src="Screenshots/screenshot_4.png" width="500" alt="Screenshot_4" /> 
-  <img src="Screenshots/screenshot_5.png" width="500" alt="Screenshot_5" /> 
-  <img src="Screenshots/screenshot_6.png" width="500" alt="Screenshot_6" /> 
-  <img src="Screenshots/screenshot_7.png" width="500" alt="Screenshot_7" /> 
+  <img src="Screenshots/screenshot_1.png" width="400" alt="Screenshot_1" />
+  <img src="Screenshots/screenshot_2.png" width="400" alt="Screenshot_2" />
+  <img src="Screenshots/screenshot_3.png" width="400" alt="Screenshot_3" />
+  <img src="Screenshots/screenshot_4.png" width="400" alt="Screenshot_4" /> 
+  <img src="Screenshots/screenshot_5.png" width="400" alt="Screenshot_5" /> 
+  <img src="Screenshots/screenshot_6.png" width="400" alt="Screenshot_6" /> 
+  <img src="Screenshots/screenshot_7.png" width="400" alt="Screenshot_7" /> 
 </p>
 
